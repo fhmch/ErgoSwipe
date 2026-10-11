@@ -830,51 +830,9 @@
                     <div class="karte-tag" id="karte-id-tag">ID: ERGO-170-W</div>
                 </div>
 
-                <!-- 姿勢ビジュアル比較（視覚的ショック） -->
-                <div class="posture-comp-box">
-                    <div class="posture-item posture-bad">
-                        <div class="posture-label">❌ 典型的な疲労姿勢（既製品70cmデスク）</div>
-                        <div class="posture-desc">机が高すぎて腕が持ち上がり、肩がすくんで僧帽筋が鬱血。頭部が前に倒れて首に約20kgの負荷がかかります。</div>
-                        <!-- Bad Posture SVG -->
-                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
-                            <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
-                            <!-- Chair -->
-                            <line x1="70" y1="100" x2="70" y2="70" stroke="#666" stroke-width="3"/>
-                            <line x1="55" y1="70" x2="85" y2="70" stroke="#666" stroke-width="3"/>
-                            <!-- Desk (Too High) -->
-                            <rect x="130" y="52" width="50" height="4" fill="#ef4444"/>
-                            <line x1="155" y1="56" x2="155" y2="100" stroke="#ef4444" stroke-width="3"/>
-                            <!-- Human Slouch (Red) -->
-                            <circle cx="95" cy="38" r="8" fill="#ef4444"/>
-                            <path d="M 90 46 Q 72 65 75 75 L 105 75 L 110 98" stroke="#ef4444" stroke-width="3" fill="none"/>
-                            <!-- Raised arm -->
-                            <path d="M 85 52 L 105 60 L 135 52" stroke="#ef4444" stroke-width="2.5" fill="none"/>
-                            <text x="140" y="44" fill="#ef4444" font-size="9" font-weight="bold">高すぎる天板</text>
-                        </svg>
-                    </div>
-
-                    <div class="posture-item posture-good">
-                        <div class="posture-label">✅ あなたの理想姿勢（人間工学ジャスト）</div>
-                        <div class="posture-desc">肘角度90度、足裏は接地。視線は水平角マイナス10〜15度に収まり、頭部モーメントと腰椎圧迫が最小化されます。</div>
-                        <!-- Good Posture SVG -->
-                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
-                            <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
-                            <!-- Chair -->
-                            <line x1="70" y1="100" x2="70" y2="65" stroke="#666" stroke-width="3"/>
-                            <line x1="55" y1="65" x2="85" y2="65" stroke="#666" stroke-width="3"/>
-                            <!-- Desk (Perfect) -->
-                            <rect x="130" y="60" width="50" height="4" fill="#10b981"/>
-                            <line x1="155" y1="64" x2="155" y2="100" stroke="#10b981" stroke-width="3"/>
-                            <!-- Human Straight (Green) -->
-                            <circle cx="75" cy="28" r="8" fill="#10b981"/>
-                            <line x1="75" y1="36" x2="75" y2="65" stroke="#10b981" stroke-width="3"/>
-                            <line x1="75" y1="65" x2="105" y2="65" stroke="#10b981" stroke-width="3"/>
-                            <line x1="105" y1="65" x2="105" y2="100" stroke="#10b981" stroke-width="3"/>
-                            <!-- Relaxed arm -->
-                            <path d="M 75 42 L 95 60 L 132 60" stroke="#10b981" stroke-width="2.5" fill="none"/>
-                            <text x="135" y="52" fill="#10b981" font-size="9" font-weight="bold">肘90°リラックス</text>
-                        </svg>
-                    </div>
+                <!-- 姿勢ビジュアル比較（身長に応じた完全動的生成） -->
+                <div class="posture-comp-box" id="posture-comp-box-dynamic">
+                    <!-- JSで動的生成 -->
                 </div>
 
                 <!-- 算出数値グリッド -->
@@ -1164,8 +1122,111 @@
             const shareUrl = encodeURIComponent(window.location.href);
             document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
 
+            renderDynamicPostureComparison(h, deskH, diffWithStandard);
             renderGears();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 解剖学的に正しいプロポーションでの姿勢比較SVG描画（身長・机の高低差で完全分岐）
+        function renderDynamicPostureComparison(h, deskH, diffWithStandard) {
+            const compBox = document.getElementById("posture-comp-box-dynamic");
+            if (!compBox) return;
+
+            const isTooHigh = (diffWithStandard > 0.8);
+            const isTooLow = (diffWithStandard < -0.8);
+
+            let badTitle = "";
+            let badDesc = "";
+            let badSvg = "";
+
+            if (isTooLow) {
+                // 机が低すぎる場合（大柄な人）
+                badTitle = `❌ 典型的な疲労姿勢（既製70cm机はあなたには【低すぎ】）`;
+                badDesc = `机が低すぎるため、背骨全体を丸めて画面を覗き込む「極度の猫背・前屈み」姿勢に。頭部（約5kg）が前方へ移動し、首・腰椎に約25kg以上のせん断応力が持続負荷されます。`;
+                badSvg = `
+                    <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                        <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
+                        <!-- Chair (Seat H=45, Ground=100) -->
+                        <line x1="65" y1="100" x2="65" y2="60" stroke="#555" stroke-width="3"/>
+                        <line x1="45" y1="60" x2="80" y2="60" stroke="#555" stroke-width="3"/>
+                        <!-- Desk (Too Low at y=72) -->
+                        <rect x="125" y="72" width="55" height="4" fill="#ef4444"/>
+                        <line x1="150" y1="76" x2="150" y2="100" stroke="#ef4444" stroke-width="3"/>
+                        <!-- Human Slouch C-curve (Red) -->
+                        <!-- Head tilted forward -->
+                        <circle cx="108" cy="40" r="7" fill="#ef4444"/>
+                        <!-- Curved spine -->
+                        <path d="M 103 45 Q 70 52 70 60 L 95 60 L 95 100" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+                        <!-- Upper arm & Forearm reaching down -->
+                        <path d="M 85 48 L 105 62 L 130 72" stroke="#ef4444" stroke-width="2" fill="none"/>
+                        <text x="130" y="66" fill="#ef4444" font-size="8" font-weight="bold">低すぎる天板</text>
+                        <text x="70" y="38" fill="#ef4444" font-size="8" font-weight="bold">極度の猫背・前傾</text>
+                    </svg>
+                `;
+            } else {
+                // 机が高すぎる場合（小柄〜標準、多くの日本人）
+                badTitle = `❌ 典型的な疲労姿勢（既製70cm机はあなたには【高すぎ】）`;
+                badDesc = `机が高すぎるため肘が持ち上がり、肩（僧帽筋）が常にすくんだ緊張状態に。腕の重み（片腕約3〜4kg）を肩だけで支え続けることになり、激しい肩こりと血行不良を引き起こします。`;
+                badSvg = `
+                    <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                        <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
+                        <!-- Chair (Seat H=38, Ground=100) -->
+                        <line x1="65" y1="100" x2="65" y2="66" stroke="#555" stroke-width="3"/>
+                        <line x1="45" y1="66" x2="80" y2="66" stroke="#555" stroke-width="3"/>
+                        <!-- Desk (Too High at y=52) -->
+                        <rect x="125" y="52" width="55" height="4" fill="#ef4444"/>
+                        <line x1="150" y1="56" x2="150" y2="100" stroke="#ef4444" stroke-width="3"/>
+                        <!-- Human Strained (Red) -->
+                        <!-- Head -->
+                        <circle cx="70" cy="30" r="7" fill="#ef4444"/>
+                        <!-- Spine & Legs (Feet barely touching or dangling) -->
+                        <line x1="70" y1="37" x2="70" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                        <line x1="70" y1="66" x2="95" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                        <line x1="95" y1="66" x2="95" y2="96" stroke="#ef4444" stroke-width="2.5"/>
+                        <!-- Raised Arm (Upper arm ~18px, Forearm ~18px) -->
+                        <path d="M 70 42 L 92 56 L 128 52" stroke="#ef4444" stroke-width="2" fill="none"/>
+                        <text x="130" y="46" fill="#ef4444" font-size="8" font-weight="bold">高すぎる天板</text>
+                        <text x="75" y="40" fill="#ef4444" font-size="8" font-weight="bold">肩甲骨のすくみ</text>
+                    </svg>
+                `;
+            }
+
+            // 理想姿勢SVG（解剖学プロポーション：上腕と前腕が1:1、肘90度、足裏接地）
+            const goodSvg = `
+                <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                    <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
+                    <!-- Chair -->
+                    <line x1="65" y1="100" x2="65" y2="64" stroke="#555" stroke-width="3"/>
+                    <line x1="45" y1="64" x2="80" y2="64" stroke="#555" stroke-width="3"/>
+                    <!-- Desk (Ideal Height at y=60) -->
+                    <rect x="125" y="60" width="55" height="4" fill="#10b981"/>
+                    <line x1="150" y1="64" x2="150" y2="100" stroke="#10b981" stroke-width="3"/>
+                    <!-- Human Upright (Green) -->
+                    <!-- Head balanced over spine -->
+                    <circle cx="68" cy="28" r="7" fill="#10b981"/>
+                    <!-- Spine natural S-curve & Legs 90 deg -->
+                    <line x1="68" y1="35" x2="68" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                    <line x1="68" y1="64" x2="95" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                    <line x1="95" y1="64" x2="95" y2="100" stroke="#10b981" stroke-width="2.5"/>
+                    <!-- Arm 90 degrees natural ratio (Upper arm ~18px, Forearm ~18px) -->
+                    <path d="M 68 40 L 78 58 L 126 60" stroke="#10b981" stroke-width="2" fill="none"/>
+                    <text x="130" y="54" fill="#10b981" font-size="8" font-weight="bold">肘90°リラックス</text>
+                    <text x="75" y="32" fill="#10b981" font-size="8" font-weight="bold">頸椎負荷最小</text>
+                </svg>
+            `;
+
+            compBox.innerHTML = `
+                <div class="posture-item posture-bad">
+                    <div class="posture-label">${badTitle}</div>
+                    <div class="posture-desc">${badDesc}</div>
+                    ${badSvg}
+                </div>
+                <div class="posture-item posture-good">
+                    <div class="posture-label">✅ あなたの理想姿勢（人間工学ジャスト）</div>
+                    <div class="posture-desc">肘角度90度、足裏は完全接地。腕の重みはデスクとアームレストに預け、視線は水平角マイナス10〜15度に収まります。</div>
+                    ${goodSvg}
+                </div>
+            `;
         }
 
         function getPainLabel(painKey) {
