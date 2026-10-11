@@ -454,11 +454,45 @@
             font-size: 13px;
             line-height: 1.5;
             color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .posture-svg-wrap {
+            position: relative;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .posture-svg {
             width: 100%;
-            height: 110px;
-            margin-top: 4px;
+            height: 120px;
+            display: block;
+        }
+        .posture-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+            justify-content: flex-start;
+        }
+        .posture-badge {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .badge-bad {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .badge-good {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         /* METRICS GRID */
@@ -1038,7 +1072,7 @@
                 single_heavy: {
                     name: "エルゴトロン LX デスクマウント モニターアーム",
                     role: "特許ガススプリング式アーム",
-                    reason: "画面上端を目の高さ、視線をマイナス10〜15度にセット。頭が前に出るストレートネックを物理的に防ぐデスクワーカーの最優先装備。",
+                    reason: "画面上端を目の高さ、視線マイナス10〜15度にセット。目線と視距離（50〜70cm）を一定に保ち、眼の毛様体筋の緊張と首下がりを防ぎます。",
                     img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&auto=format&fit=crop&q=80",
                     keyword: "エルゴトロン LX モニターアーム"
                 },
@@ -1065,12 +1099,26 @@
                     img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&auto=format&fit=crop&q=80",
                     keyword: "エルゴノミクス キーボード 分割"
                 },
+                eye_glasses: {
+                    name: "JINS SCREEN ブルーライトカットメガネ（25%〜40%CUT）",
+                    role: "高透過率・網膜保護アイウェア",
+                    reason: "液晶から放出される散乱高エネルギー青色光を遮断。毛様体筋のピント調整疲労を和らげ、夜間作業時のメラトニン分泌抑制（睡眠障害）を予防します。",
+                    img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&auto=format&fit=crop&q=80",
+                    keyword: "JINS SCREEN ブルーライト"
+                },
                 eye_light: {
-                    name: "BenQ ScreenBar Halo 間接照明付きスクリーンバー",
+                    name: "BenQ ScreenBar Halo 前後間接光モニターライト",
                     role: "映り込みゼロ・前後照度バランス照明",
-                    reason: "画面に光が反射せず文字だけを均一に照射。背面の間接照明が壁面との明暗コントラストを和らげ、長時間の瞳孔痙攣（眼精疲労）を防ぎます。",
+                    reason: "画面表面への光の反射（グレア）をゼロにしつつ手元を500luxで均一照射。背面の間接照明がモニター背景との輝度対比を緩和し、瞳孔の過剰収縮を防ぎます。",
                     img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&auto=format&fit=crop&q=80",
                     keyword: "BenQ ScreenBar Halo"
+                },
+                eye_warm: {
+                    name: "あずきのチカラ 目もと用 / めぐりズム 蒸気ホットアイマスク",
+                    role: "マイボーム腺血流促進・眼筋リセット",
+                    reason: "PC凝視で瞬きが通常の1/3に激減し蒸発した涙液油層を回復。約40℃の温熱蒸気で固まったピント調節筋（毛様体筋）と眼窩血流を短時間で解放します。",
+                    img: "https://images.unsplash.com/photo-1512290900672-1f55b9e73b4e?w=300&auto=format&fit=crop&q=80",
+                    keyword: "あずきのチカラ 目もと用"
                 },
                 footrest_essential: {
                     name: "無段階チルト 人間工学フットレスト",
@@ -1135,22 +1183,35 @@
 
             // 警告テキスト（身長と主訴に応じた動的警告文）
             const diffWithStandard = Math.round((70.0 - deskH) * 10) / 10;
+            const absDiff = Math.abs(diffWithStandard);
             const warningEl = document.getElementById("calc-warning-text");
             
             let warningMsg = "";
-            if (h <= 165) {
-                warningMsg = `⚠️ <strong>【重要】小柄な体型に対する既製品デスク（70cm）の深刻なズレ:</strong><br>あなたの適正天板高（${deskH}cm）に対し、市販デスクは「<strong>約${diffWithStandard}cm 高すぎます</strong>」。普通の椅子を上げると足が浮いて腰痛が悪化し、下げると腕が持ち上がって肩が凝ります。<strong>「最低高58cmに下がる低床昇降デスク（FlexiSpot E7等）」</strong>または<strong>「厚みのあるフットレスト」</strong>が絶対に不可欠です。`;
-            } else if (diffWithStandard > 1.0) {
-                warningMsg = `⚠️ <strong>既製品デスク（一般的な高さ70〜72cm）とのズレ:</strong><br>一般的なデスクはあなたの理想天板高（${deskH}cm）より「<strong>約${diffWithStandard}cm 高すぎます</strong>」。腕が持ち上がり、肩甲骨周りの僧帽筋が緊張して【${getPainLabel(answers.pain)}】を悪化させる主原因になっています。`;
-            } else if (diffWithStandard < -1.0) {
-                warningMsg = `⚠️ <strong>大柄な体型に対する既製品デスクの低さ警告:</strong><br>一般的な70cmデスクはあなたの体型に対して「やや低め」です。無意識に前かがみになって猫背・ストレートネックを誘発するため、天板を高く設定できる昇降デスクとモニターアームでの視線持ち上げが必須です。`;
+            if (answers.pain === 'eye') {
+                warningMsg = `👁️ <strong>【眼精疲労・頭痛の根本原因】:</strong><br>ディスプレイを長時間直視することで瞬きが1/3に激減し「涙液の蒸発・ドライアイ」が発生。さらに画面の明暗差・蛍光灯の映り込みによる「瞳孔の過剰収縮（痙攣）」と、至近距離でのピント固定による「毛様体筋の持続緊張」が眼奥の激痛・緊張型頭痛を引き起こします。姿勢の適正化に加え、<strong>ブルーライト遮断・映り込みゼロの間接光・温熱アイケア</strong>の3点介入が最優先です。`;
+            } else if (absDiff <= 1.5) {
+                warningMsg = `💡 <strong>市販70cmデスクとの適合度【ジャスト適合】:</strong><br>あなたの理想デスク高（${deskH}cm）は、一般的な市販デスク（70cm）と「わずか${absDiff}cm差」の好バランスです！天板の高さはほぼ適正なため、無理な肘の持ち上がりはありません。${answers.hours === 'heavy' ? 'ただし8時間以上の座りっぱなしは椎間板への持続圧迫を招くため、立ち作業の併用やモニターの視距離確保が大切です。' : '現在のデスク環境を活かしつつ、椅子のアームレスト調整や足裏の完全接地を意識することで疲労をゼロに抑えられます。'}`;
+            } else if (diffWithStandard > 1.5) {
+                if (h <= 165) {
+                    warningMsg = `⚠️ <strong>【重要】小柄な体型に対する既製品デスク（70cm）の深刻なズレ:</strong><br>あなたの適正天板高（${deskH}cm）に対し、市販デスクは「<strong>約${diffWithStandard}cm 高すぎます</strong>」。普通の椅子を上げると足が浮いて腰痛が悪化し、下げると腕が持ち上がって肩が凝ります。<strong>「最低高58cmに下がる低床昇降デスク（FlexiSpot E7等）」</strong>または<strong>「厚みのあるフットレスト」</strong>が絶対に不可欠です。`;
+                } else {
+                    warningMsg = `⚠️ <strong>既製品デスク（一般的な高さ70〜72cm）とのズレ:</strong><br>一般的なデスクはあなたの理想天板高（${deskH}cm）より「<strong>約${diffWithStandard}cm 高め</strong>」です。腕が持ち上がり、肩甲骨周りの僧帽筋が緊張して【${getPainLabel(answers.pain)}】を悪化させる主原因になっています。`;
+                }
             } else {
-                warningMsg = `💡 <strong>デスク高さの適合度:</strong><br>一般的な70cmデスクと近似していますが、${answers.hours === 'heavy' ? '8時間以上の超長時間作業では' : '長時間の座り作業では'}同一姿勢による椎間板内圧の上昇が腰痛を招きます。スタンディング姿勢への定期切り替えが不可欠です。`;
+                // diffWithStandard < -1.5 (天板が低すぎる大柄な人)
+                warningMsg = `⚠️ <strong>大柄な体型に対する既製品デスクの低さ警告:</strong><br>一般的な70cmデスクはあなたの体型に対して「<strong>約${absDiff}cm 低め</strong>」です。無意識に前かがみになって猫背・ストレートネックを誘発するため、天板を高く設定できる昇降デスクとモニターアームでの視線持ち上げが推奨されます。`;
             }
             warningEl.innerHTML = warningMsg;
 
             // Xシェアリンク生成（バイラル・自己開示＆共感トリガー強化版）
-            const deltaStr = diffWithStandard > 0 ? `+${diffWithStandard}cmも腕持ち上げてた` : `${Math.abs(diffWithStandard)}cmも低くて前かがみになってた`;
+            let deltaStr = "";
+            if (absDiff <= 1.5) {
+                deltaStr = `奇跡的にジャスト適合（差わずか${absDiff}cm）`;
+            } else if (diffWithStandard > 0) {
+                deltaStr = `+${diffWithStandard}cmも腕持ち上げてた`;
+            } else {
+                deltaStr = `${absDiff}cmも低くて前かがみになってた`;
+            }
             const shareText = encodeURIComponent(`そりゃ身体痛くなるわ…。\n身長${h}cmの私の理想デスク高って【${deskH}cm】なのに、市販70cm机使ってて【${deltaStr}】ことが判明した…😱\n毎日何キロもの負荷を肩や腰にかけ続けてたようなもんじゃん…！\n\nあなたの身長のジャスト寸法カルテはこちら👇\n`);
             const shareUrl = encodeURIComponent("https://fhmch.github.io/ErgoSwipe/");
             document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}&hashtags=ErgoSwipe,デスクワーク,腰痛対策,肩こり`;
@@ -1165,87 +1226,124 @@
             const compBox = document.getElementById("posture-comp-box-dynamic");
             if (!compBox) return;
 
-            const isTooHigh = (diffWithStandard > 0.8);
-            const isTooLow = (diffWithStandard < -0.8);
+            const absDiff = Math.abs(diffWithStandard);
+            const isJustFit = (absDiff <= 1.5);
+            const isTooHigh = (diffWithStandard > 1.5);
+            const isTooLow = (diffWithStandard < -1.5);
 
             let badTitle = "";
             let badDesc = "";
             let badSvg = "";
 
-            if (isTooLow) {
+            if (isJustFit) {
+                // 机の高さがほぼ適合している場合
+                badTitle = `⚠️ 既製70cm机での懸念（高さ適合・静的疲労）`;
+                badDesc = `高さのギャップは${absDiff}cmと小さく恵まれていますが、同一姿勢での連続着座により椎間板内圧の上昇や血流鬱血、眼のピント固定疲労が蓄積します。`;
+                badSvg = `
+                    <div class="posture-svg-wrap">
+                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="60" y1="98" x2="60" y2="64" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="64" x2="75" y2="64" stroke="#555" stroke-width="3"/>
+                            <!-- Desk (~60px near fit) -->
+                            <rect x="115" y="60" width="55" height="4" fill="#f59e0b"/>
+                            <line x1="140" y1="64" x2="140" y2="98" stroke="#f59e0b" stroke-width="3"/>
+                            <!-- Human Stickman (Torso x=66, Head cx=66 cy=30, Elbow x=78 y=52, Hand x=115 y=60) -->
+                            <circle cx="66" cy="30" r="6.5" fill="#f59e0b"/>
+                            <line x1="66" y1="37" x2="66" y2="64" stroke="#f59e0b" stroke-width="2.5"/>
+                            <line x1="66" y1="64" x2="90" y2="64" stroke="#f59e0b" stroke-width="2.5"/>
+                            <line x1="90" y1="64" x2="90" y2="98" stroke="#f59e0b" stroke-width="2.5"/>
+                            <!-- Arm: Shoulder(66,41) -> Elbow(78,52) -> Hand(115,60) -->
+                            <path d="M 66 41 L 78 52 L 115 60" stroke="#f59e0b" stroke-width="2" fill="none"/>
+                        </svg>
+                        <div class="posture-badge-row">
+                            <span class="posture-badge badge-bad">⚠️ 天板適合（差わずか${absDiff}cm）</span>
+                            <span class="posture-badge badge-bad">⚠️ 長時間着座による血流鬱血</span>
+                        </div>
+                    </div>
+                `;
+            } else if (isTooLow) {
                 // 机が低すぎる場合（大柄な人）
                 badTitle = `❌ 典型的な疲労姿勢（既製70cm机はあなたには【低すぎ】）`;
                 badDesc = `机が低すぎるため、背骨全体を丸めて画面を覗き込む「極度の猫背・前屈み」姿勢に。頭部（約5kg）が前方へ移動し、首・腰椎に約25kg以上のせん断応力が持続負荷されます。`;
                 badSvg = `
-                    <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
-                        <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
-                        <!-- Chair (Seat H=45, Ground=100) -->
-                        <line x1="65" y1="100" x2="65" y2="60" stroke="#555" stroke-width="3"/>
-                        <line x1="45" y1="60" x2="80" y2="60" stroke="#555" stroke-width="3"/>
-                        <!-- Desk (Too Low at y=72) -->
-                        <rect x="125" y="72" width="55" height="4" fill="#ef4444"/>
-                        <line x1="150" y1="76" x2="150" y2="100" stroke="#ef4444" stroke-width="3"/>
-                        <!-- Human Slouch C-curve (Red) -->
-                        <!-- Head tilted forward -->
-                        <circle cx="108" cy="40" r="7" fill="#ef4444"/>
-                        <!-- Curved spine -->
-                        <path d="M 103 45 Q 70 52 70 60 L 95 60 L 95 100" stroke="#ef4444" stroke-width="2.5" fill="none"/>
-                        <!-- Upper arm & Forearm reaching down -->
-                        <path d="M 85 48 L 105 62 L 130 72" stroke="#ef4444" stroke-width="2" fill="none"/>
-                        <text x="130" y="66" fill="#ef4444" font-size="8" font-weight="bold">低すぎる天板</text>
-                        <text x="70" y="38" fill="#ef4444" font-size="8" font-weight="bold">極度の猫背・前傾</text>
-                    </svg>
+                    <div class="posture-svg-wrap">
+                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
+                            <!-- Chair (Seat H=45, Ground=98) -->
+                            <line x1="60" y1="98" x2="60" y2="58" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="58" x2="75" y2="58" stroke="#555" stroke-width="3"/>
+                            <!-- Desk (Too Low at y=70) -->
+                            <rect x="115" y="70" width="55" height="4" fill="#ef4444"/>
+                            <line x1="140" y1="74" x2="140" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <!-- Slouching Torso & Head tilted forward -->
+                            <circle cx="92" cy="38" r="6.5" fill="#ef4444"/>
+                            <!-- Curved spine from pelvis(66,58) to neck(88,43) -->
+                            <path d="M 88 43 Q 66 48 66 58 L 88 58 L 88 98" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+                            <!-- Arm bent down: Shoulder(80,46) -> Elbow(92,58) -> Hand(115,70) -->
+                            <path d="M 80 46 L 92 58 L 115 70" stroke="#ef4444" stroke-width="2" fill="none"/>
+                        </svg>
+                        <div class="posture-badge-row">
+                            <span class="posture-badge badge-bad">❌ 低すぎる天板（前屈み・猫背）</span>
+                            <span class="posture-badge badge-bad">❌ 首・腰に約25kgのせん断応力</span>
+                        </div>
+                    </div>
                 `;
             } else {
                 // 机が高すぎる場合（小柄〜標準、多くの日本人）
                 badTitle = `❌ 典型的な疲労姿勢（既製70cm机はあなたには【高すぎ】）`;
                 badDesc = `机が高すぎるため肘が持ち上がり、肩（僧帽筋）が常にすくんだ緊張状態に。腕の重み（片腕約3〜4kg）を肩だけで支え続けることになり、激しい肩こりと血行不良を引き起こします。`;
                 badSvg = `
-                    <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
-                        <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
-                        <!-- Chair (Seat H=38, Ground=100) -->
-                        <line x1="65" y1="100" x2="65" y2="66" stroke="#555" stroke-width="3"/>
-                        <line x1="45" y1="66" x2="80" y2="66" stroke="#555" stroke-width="3"/>
-                        <!-- Desk (Too High at y=52) -->
-                        <rect x="125" y="52" width="55" height="4" fill="#ef4444"/>
-                        <line x1="150" y1="56" x2="150" y2="100" stroke="#ef4444" stroke-width="3"/>
-                        <!-- Human Strained (Red) -->
-                        <!-- Head -->
-                        <circle cx="70" cy="30" r="7" fill="#ef4444"/>
-                        <!-- Spine & Legs (Feet barely touching or dangling) -->
-                        <line x1="70" y1="37" x2="70" y2="66" stroke="#ef4444" stroke-width="2.5"/>
-                        <line x1="70" y1="66" x2="95" y2="66" stroke="#ef4444" stroke-width="2.5"/>
-                        <line x1="95" y1="66" x2="95" y2="96" stroke="#ef4444" stroke-width="2.5"/>
-                        <!-- Raised Arm (Upper arm ~18px, Forearm ~18px) -->
-                        <path d="M 70 42 L 92 56 L 128 52" stroke="#ef4444" stroke-width="2" fill="none"/>
-                        <text x="130" y="46" fill="#ef4444" font-size="8" font-weight="bold">高すぎる天板</text>
-                        <text x="75" y="40" fill="#ef4444" font-size="8" font-weight="bold">肩甲骨のすくみ</text>
-                    </svg>
+                    <div class="posture-svg-wrap">
+                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
+                            <!-- Chair (Seat H=38, Ground=98) -->
+                            <line x1="60" y1="98" x2="60" y2="66" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="66" x2="75" y2="66" stroke="#555" stroke-width="3"/>
+                            <!-- Desk (Too High at y=50) -->
+                            <rect x="115" y="50" width="55" height="4" fill="#ef4444"/>
+                            <line x1="140" y1="54" x2="140" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <!-- Human Strained (Red) -->
+                            <circle cx="66" cy="28" r="6.5" fill="#ef4444"/>
+                            <line x1="66" y1="35" x2="66" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="66" y1="66" x2="88" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="88" y1="66" x2="88" y2="94" stroke="#ef4444" stroke-width="2.5"/>
+                            <!-- Raised Arm: Shoulder(66,39) -> Elbow(82,53) -> Hand(115,50) -->
+                            <path d="M 66 39 L 82 53 L 115 50" stroke="#ef4444" stroke-width="2" fill="none"/>
+                        </svg>
+                        <div class="posture-badge-row">
+                            <span class="posture-badge badge-bad">❌ 高すぎる天板（肘持ち上がり）</span>
+                            <span class="posture-badge badge-bad">❌ 肩甲骨・僧帽筋の過剰緊張</span>
+                        </div>
+                    </div>
                 `;
             }
 
-            // 理想姿勢SVG（解剖学プロポーション：上腕と前腕が1:1、肘90度、足裏接地）
+            // 理想姿勢SVG（解剖学プロポーション：上腕と前腕が自然な1:1比率、肘90度、足裏接地）
             const goodSvg = `
-                <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
-                    <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
-                    <!-- Chair -->
-                    <line x1="65" y1="100" x2="65" y2="64" stroke="#555" stroke-width="3"/>
-                    <line x1="45" y1="64" x2="80" y2="64" stroke="#555" stroke-width="3"/>
-                    <!-- Desk (Ideal Height at y=60) -->
-                    <rect x="125" y="60" width="55" height="4" fill="#10b981"/>
-                    <line x1="150" y1="64" x2="150" y2="100" stroke="#10b981" stroke-width="3"/>
-                    <!-- Human Upright (Green) -->
-                    <!-- Head balanced over spine -->
-                    <circle cx="68" cy="28" r="7" fill="#10b981"/>
-                    <!-- Spine natural S-curve & Legs 90 deg -->
-                    <line x1="68" y1="35" x2="68" y2="64" stroke="#10b981" stroke-width="2.5"/>
-                    <line x1="68" y1="64" x2="95" y2="64" stroke="#10b981" stroke-width="2.5"/>
-                    <line x1="95" y1="64" x2="95" y2="100" stroke="#10b981" stroke-width="2.5"/>
-                    <!-- Arm 90 degrees natural ratio (Upper arm ~18px, Forearm ~18px) -->
-                    <path d="M 68 40 L 78 58 L 126 60" stroke="#10b981" stroke-width="2" fill="none"/>
-                    <text x="130" y="54" fill="#10b981" font-size="8" font-weight="bold">肘90°リラックス</text>
-                    <text x="75" y="32" fill="#10b981" font-size="8" font-weight="bold">頸椎負荷最小</text>
-                </svg>
+                <div class="posture-svg-wrap">
+                    <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                        <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
+                        <!-- Chair -->
+                        <line x1="60" y1="98" x2="60" y2="64" stroke="#555" stroke-width="3"/>
+                        <line x1="42" y1="64" x2="75" y2="64" stroke="#555" stroke-width="3"/>
+                        <!-- Desk (Ideal Height at y=60) -->
+                        <rect x="115" y="60" width="55" height="4" fill="#10b981"/>
+                        <line x1="140" y1="64" x2="140" y2="98" stroke="#10b981" stroke-width="3"/>
+                        <!-- Human Upright (Green) -->
+                        <circle cx="66" cy="28" r="6.5" fill="#10b981"/>
+                        <line x1="66" y1="35" x2="66" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="66" y1="64" x2="88" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="88" y1="64" x2="88" y2="98" stroke="#10b981" stroke-width="2.5"/>
+                        <!-- Arm 90 degrees natural ratio: Shoulder(66,39) -> Elbow(76,57) -> Hand(115,60) -->
+                        <path d="M 66 39 L 76 57 L 115 60" stroke="#10b981" stroke-width="2" fill="none"/>
+                    </svg>
+                    <div class="posture-badge-row">
+                        <span class="posture-badge badge-good">✅ 肘角度90°（肩リラックス）</span>
+                        <span class="posture-badge badge-good">✅ 足裏完全接地（血行安定）</span>
+                    </div>
+                </div>
             `;
 
             compBox.innerHTML = `
@@ -1347,19 +1445,23 @@
             }
             selectedGears.push(deskItem);
 
-            // 3. MONITOR ARM（首肩 or 長時間作業なら長身・デュアル）
-            if (answers.pain === 'neck' || isHeavyHours) {
+            // 3. MONITOR ARM（首肩 or 眼精疲労 or 長時間作業）
+            if (answers.pain === 'eye') {
+                selectedGears.push(gearCatalog.arms.single_heavy); // 視距離50-70cm固定用
+            } else if (answers.pain === 'neck' || isHeavyHours) {
                 selectedGears.push(gearCatalog.arms.dual_tall);
             } else {
                 selectedGears.push(gearCatalog.arms.single_heavy);
             }
 
             // 4. ACCESSORIES / TARGETED RELIEF（主訴に応じた精密処方）
-            if (answers.pain === 'wrist') {
+            if (answers.pain === 'eye') {
+                selectedGears.push(gearCatalog.accessories.eye_light);
+                selectedGears.push(gearCatalog.accessories.eye_glasses);
+                selectedGears.push(gearCatalog.accessories.eye_warm);
+            } else if (answers.pain === 'wrist') {
                 selectedGears.push(gearCatalog.accessories.wrist_mouse);
                 selectedGears.push(gearCatalog.accessories.wrist_keyboard);
-            } else if (answers.pain === 'eye') {
-                selectedGears.push(gearCatalog.accessories.eye_light);
             } else if (answers.pain === 'waist' || isSmallHeight) {
                 selectedGears.push(gearCatalog.accessories.footrest_essential);
             } else {
