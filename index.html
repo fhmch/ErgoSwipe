@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ErgoSwipe｜在宅・デスクワーク疲労ゼロ空間診断カルテ【人間工学ミリ単位算出】</title>
+    <meta name="description" content="人間工学（エルゴノミクス）に基づき、あなたの身長・主訴（腰痛・首肩こり・腱鞘炎）から理想のデスク高・座面高をミリ単位で自動算出。疲労ゼロを叶える最適なチェア・昇降デスク・アームを診断カルテとして発行します。">
+    <meta name="keywords" content="エルゴノミクス, デスクワーク 疲労, 腰痛 椅子, 昇降デスク 高さ 計算, COFO Chair, エルゴヒューマン, FlexiSpot, モニターアーム, 在宅勤務 環境改善, 肩こり デスク">
+    <link rel="canonical" href="https://fhmch.github.io/ErgoSwipe/">
+
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ErgoSwipe">
+    <meta property="og:title" content="ErgoSwipe｜在宅・デスクワーク疲労ゼロ空間診断カルテ">
+    <meta property="og:description" content="身長から理想のデスク高・座面高をミリ単位で算出。一般的な70cmデスクの危険度と最適エルゴ装備を診断。">
+    <meta property="og:url" content="https://fhmch.github.io/ErgoSwipe/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=1200&auto=format&fit=crop&q=80">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ErgoSwipe｜在宅・デスクワーク疲労ゼロ空間診断カルテ">
+    <meta name="twitter:description" content="身長から理想のデスク高・座面高をミリ単位で算出。あなたの体型と既製品デスクのズレを暴く無料診断。">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=1200&auto=format&fit=crop&q=80">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ErgoSwipe",
+      "alternateName": "エルゴスワイプ",
+      "url": "https://fhmch.github.io/ErgoSwipe/",
+      "description": "人間工学（JIS規格）に基づき、身長から理想のデスク天板高・座面高・差尺をミリ単位で算出する無料診断シミュレーター。",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-base: #060a09;
+            --bg-panel: rgba(10, 18, 16, 0.88);
+            --bg-card: #0c1714;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(16, 185, 129, 0.4);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+            
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.4);
+            --mint: #34d399;
+            --sage: #059669;
+            --red-warn: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans JP', -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(ellipse at 15% 15%, rgba(16, 185, 129, 0.09) 0%, transparent 60%),
+                radial-gradient(ellipse at 85% 75%, rgba(52, 211, 153, 0.06) 0%, transparent 60%);
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 10, 9, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, var(--emerald), var(--mint));
+            color: #042517;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 13px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-title {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sibling-badge {
+            font-size: 11px;
+            color: var(--mint);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            background: rgba(16, 185, 129, 0.08);
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+        .sibling-badge:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--mint);
+        }
+
+        /* CONTAINER */
+        main {
+            flex: 1;
+            max-width: 920px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 16px 80px 16px;
+        }
+
+        /* HERO CARD */
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 28px;
+            padding: 10px 10px;
+        }
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--mint);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            background: rgba(16, 185, 129, 0.12);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+        .hero-title {
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+        .hero-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* WIZARD CONTAINER */
+        .wizard-panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 28px 24px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            margin-bottom: 32px;
+        }
+
+        .step-progress-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .step-dot {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .step-dot.active {
+            background: var(--emerald);
+            box-shadow: 0 0 10px var(--emerald-glow);
+        }
+
+        .question-card {
+            display: none;
+        }
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--mint);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .question-title {
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        @media(min-width: 600px) {
+            .options-grid.grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .opt-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 16px 18px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-primary);
+        }
+        .opt-btn:hover {
+            border-color: var(--border-glow);
+            background: rgba(14, 25, 22, 0.95);
+            transform: translateY(-2px);
+        }
+        .opt-btn.selected {
+            border-color: var(--emerald);
+            background: rgba(16, 185, 129, 0.12);
+            box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
+        }
+        .opt-icon {
+            font-size: 24px;
+            line-height: 1;
+        }
+        .opt-text-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .opt-text-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* HEIGHT SLIDER */
+        .height-slider-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .height-val-display {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--mint);
+            margin-bottom: 4px;
+        }
+        .height-val-unit {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .slider-range {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+            margin: 20px 0 10px 0;
+            cursor: pointer;
+        }
+        .slider-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--emerald);
+            cursor: pointer;
+            box-shadow: 0 0 12px var(--emerald-glow);
+        }
+
+        .btn-wizard-next {
+            width: 100%;
+            background: linear-gradient(135deg, var(--emerald), var(--mint));
+            color: #042517;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
+            margin-top: 14px;
+        }
+        .btn-wizard-next:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        /* RESULT SECTION */
+        #result-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* KARTE CONTAINER (Medical / Lab Style) */
+        .karte-card {
+            background: linear-gradient(145deg, rgba(12, 23, 20, 0.95), rgba(7, 13, 11, 0.98));
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-radius: 20px;
+            padding: 26px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .karte-watermark {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 110px;
+            font-weight: 900;
+            color: rgba(16, 185, 129, 0.03);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .karte-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .karte-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .karte-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .karte-tag {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--mint);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* POSTURE COMPARISON BOX (Visual Impact) */
+        .posture-comp-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        @media(min-width: 640px) {
+            .posture-comp-box {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .posture-item {
+            border-radius: 14px;
+            padding: 16px;
+            border: 1px solid var(--border-glass);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .posture-bad {
+            background: rgba(239, 68, 68, 0.06);
+            border-color: rgba(239, 68, 68, 0.25);
+        }
+        .posture-good {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: rgba(16, 185, 129, 0.35);
+        }
+        .posture-label {
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .posture-bad .posture-label { color: var(--red-warn); }
+        .posture-good .posture-label { color: var(--mint); }
+        .posture-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        .posture-svg {
+            width: 100%;
+            height: 110px;
+            margin-top: 4px;
+        }
+
+        /* METRICS GRID */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .metric-item {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+        }
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .metric-unit {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        .warning-callout {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 3px solid var(--warning);
+            padding: 14px 16px;
+            border-radius: 0 10px 10px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #fde68a;
+            margin-bottom: 20px;
+        }
+
+        /* SHARE SECTION */
+        .share-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: flex-end;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 16px;
+        }
+        .btn-share-x {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-share-x:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .btn-re-calc {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-glass);
+            padding: 9px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-re-calc:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* RECOMMENDATIONS */
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gear-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+        .gear-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            transition: all 0.2s ease;
+        }
+        @media(min-width: 680px) {
+            .gear-card {
+                grid-template-columns: 130px 1fr 140px;
+                align-items: center;
+            }
+        }
+        .gear-img-box {
+            width: 100%;
+            height: 110px;
+            border-radius: 12px;
+            background: #000;
+            border: 1px solid var(--border-glass);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gear-img-box img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .gear-role {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--mint);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .gear-name {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .gear-reason {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .gear-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mall-btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .btn-amazon { background: #ff9900; color: #111; }
+        .btn-rakuten { background: #bf0000; color: #fff; }
+        .btn-yahoo { background: #ff0033; color: #fff; }
+        .mall-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* SIBLING BANNER (DeskSwipe) */
+        .sibling-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 240, 255, 0.08));
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+        @media(min-width: 600px) {
+            .sibling-banner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .sibling-banner-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .sibling-banner-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .btn-sibling {
+            background: linear-gradient(135deg, var(--emerald), var(--mint));
+            color: #042517;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 24px 16px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-group">
+            <span class="brand-badge">ERGO</span>
+            <span class="brand-title">ErgoSwipe</span>
+        </div>
+        <a href="https://fhmch.github.io/DeskSwipe/" class="sibling-badge" target="_blank">
+            🖥️ 自作PC診断 DeskSwipe ↗
+        </a>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <div class="hero-banner">
+            <div class="hero-tagline">🔬 Ergonomics Bio-Mechanics Lab</div>
+            <h1 class="hero-title">在宅・デスクワーク<br>疲労ゼロ空間診断カルテ</h1>
+            <p class="hero-desc">
+                人間工学（JIS規格）に基づき、あなたの身長から「ミリ単位の理想デスク高・座面高」を算出。
+                既製品デスクとのズレを暴き、腰痛・首肩こり・眼精疲労を根本から解消する最適装備を診断します。
+            </p>
+        </div>
+
+        <!-- WIZARD -->
+        <div class="wizard-panel" id="wizard-panel">
+            <div class="step-progress-bar">
+                <div class="step-dot active" id="dot-1"></div>
+                <div class="step-dot" id="dot-2"></div>
+                <div class="step-dot" id="dot-3"></div>
+                <div class="step-dot" id="dot-4"></div>
+            </div>
+
+            <!-- Q1: 作業時間 -->
+            <div class="question-card active" id="q-1">
+                <div class="question-header">STEP 01 / 04</div>
+                <h2 class="question-title">1日のデスクワーク時間はどのくらいですか？</h2>
+                <div class="options-grid">
+                    <button class="opt-btn" onclick="selectOption('hours', 'light')">
+                        <span class="opt-icon">☕</span>
+                        <div>
+                            <div class="opt-text-title">4時間未満（ライト作業・事務）</div>
+                            <div class="opt-text-sub">メール確認や短時間のPC作業がメイン</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('hours', 'medium')">
+                        <span class="opt-icon">💻</span>
+                        <div>
+                            <div class="opt-text-title">4〜8時間（標準在宅・オフィス）</div>
+                            <div class="opt-text-sub">一般的なフルタイムデスクワーク</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('hours', 'heavy')">
+                        <span class="opt-icon">🔥</span>
+                        <div>
+                            <div class="opt-text-title">8時間以上（ヘビー・没頭型）</div>
+                            <div class="opt-text-sub">エンジニア・クリエイター・長時間ゲーミング</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q2: 最も辛い部位 -->
+            <div class="question-card" id="q-2">
+                <div class="question-header">STEP 02 / 04</div>
+                <h2 class="question-title">いま最も負担や痛みを感じる部位はどこですか？</h2>
+                <div class="options-grid grid-2">
+                    <button class="opt-btn" onclick="selectOption('pain', 'waist')">
+                        <span class="opt-icon">🦴</span>
+                        <div>
+                            <div class="opt-text-title">腰・骨盤・お尻</div>
+                            <div class="opt-text-sub">座りっぱなしの腰痛、骨盤の後傾</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('pain', 'neck')">
+                        <span class="opt-icon">⚡</span>
+                        <div>
+                            <div class="opt-text-title">首・肩（ストレートネック）</div>
+                            <div class="opt-text-sub">画面を覗き込む姿勢、巻き肩、肩こり</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('pain', 'wrist')">
+                        <span class="opt-icon">🖐️</span>
+                        <div>
+                            <div class="opt-text-title">手首・腕・前腕</div>
+                            <div class="opt-text-sub">マウス腱鞘炎、タイピング疲れ</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('pain', 'eye')">
+                        <span class="opt-icon">👁️</span>
+                        <div>
+                            <div class="opt-text-title">目・頭痛（眼精疲労）</div>
+                            <div class="opt-text-sub">画面のギラつき、照明の映り込み</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q3: 身長スライダー -->
+            <div class="question-card" id="q-3">
+                <div class="question-header">STEP 03 / 04</div>
+                <h2 class="question-title">あなたの身長を教えてください（寸法計算用）</h2>
+                <div class="height-slider-box">
+                    <div class="height-val-display" id="height-display">170<span class="height-val-unit"> cm</span></div>
+                    <input type="range" min="145" max="195" value="170" class="slider-range" id="height-slider" oninput="updateHeight(this.value)">
+                    <div style="font-size: 12px; color: var(--text-tertiary);">スライダーを動かして身長を設定してください</div>
+                </div>
+                <button class="btn-wizard-next" onclick="nextQuestion(4)">この身長で確定して次へ ➔</button>
+            </div>
+
+            <!-- Q4: 予算・志向 -->
+            <div class="question-card" id="q-4">
+                <div class="question-header">STEP 04 / 04</div>
+                <h2 class="question-title">環境構築の予算とこだわりをお選びください</h2>
+                <div class="options-grid">
+                    <button class="opt-btn" onclick="selectOption('budget', 'value')">
+                        <span class="opt-icon">🎯</span>
+                        <div>
+                            <div class="opt-text-title">高コスパ実践派（実用3万〜5万円）</div>
+                            <div class="opt-text-sub">費用を抑えつつ、劇的に疲労を削る即効アイテムを厳選</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('budget', 'premium')">
+                        <span class="opt-icon">👑</span>
+                        <div>
+                            <div class="opt-text-title">プロ・一生モノ最高峰（本格10万円〜）</div>
+                            <div class="opt-text-sub">エルゴヒューマン/COFOなど身体を守り抜くプロ仕様</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULT SECTION (KARTE) -->
+        <div id="result-section">
+            <!-- 診断カルテカード -->
+            <div class="karte-card">
+                <div class="karte-watermark">ERGO</div>
+                <div class="karte-header">
+                    <div class="karte-title-group">
+                        <span style="font-size: 20px;">📋</span>
+                        <div class="karte-title">エルゴノミクス処方カルテ</div>
+                    </div>
+                    <div class="karte-tag" id="karte-id-tag">ID: ERGO-170-W</div>
+                </div>
+
+                <!-- 姿勢ビジュアル比較（視覚的ショック） -->
+                <div class="posture-comp-box">
+                    <div class="posture-item posture-bad">
+                        <div class="posture-label">❌ 典型的な疲労姿勢（既製品70cmデスク）</div>
+                        <div class="posture-desc">机が高すぎて腕が持ち上がり、肩がすくんで僧帽筋が鬱血。頭部が前に倒れて首に約20kgの負荷がかかります。</div>
+                        <!-- Bad Posture SVG -->
+                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="70" y1="100" x2="70" y2="70" stroke="#666" stroke-width="3"/>
+                            <line x1="55" y1="70" x2="85" y2="70" stroke="#666" stroke-width="3"/>
+                            <!-- Desk (Too High) -->
+                            <rect x="130" y="52" width="50" height="4" fill="#ef4444"/>
+                            <line x1="155" y1="56" x2="155" y2="100" stroke="#ef4444" stroke-width="3"/>
+                            <!-- Human Slouch (Red) -->
+                            <circle cx="95" cy="38" r="8" fill="#ef4444"/>
+                            <path d="M 90 46 Q 72 65 75 75 L 105 75 L 110 98" stroke="#ef4444" stroke-width="3" fill="none"/>
+                            <!-- Raised arm -->
+                            <path d="M 85 52 L 105 60 L 135 52" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+                            <text x="140" y="44" fill="#ef4444" font-size="9" font-weight="bold">高すぎる天板</text>
+                        </svg>
+                    </div>
+
+                    <div class="posture-item posture-good">
+                        <div class="posture-label">✅ あなたの理想姿勢（人間工学ジャスト）</div>
+                        <div class="posture-desc">肘角度90度、足裏は接地。視線は水平角マイナス10〜15度に収まり、頭部モーメントと腰椎圧迫が最小化されます。</div>
+                        <!-- Good Posture SVG -->
+                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="20" y1="100" x2="180" y2="100" stroke="#333" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="70" y1="100" x2="70" y2="65" stroke="#666" stroke-width="3"/>
+                            <line x1="55" y1="65" x2="85" y2="65" stroke="#666" stroke-width="3"/>
+                            <!-- Desk (Perfect) -->
+                            <rect x="130" y="60" width="50" height="4" fill="#10b981"/>
+                            <line x1="155" y1="64" x2="155" y2="100" stroke="#10b981" stroke-width="3"/>
+                            <!-- Human Straight (Green) -->
+                            <circle cx="75" cy="28" r="8" fill="#10b981"/>
+                            <line x1="75" y1="36" x2="75" y2="65" stroke="#10b981" stroke-width="3"/>
+                            <line x1="75" y1="65" x2="105" y2="65" stroke="#10b981" stroke-width="3"/>
+                            <line x1="105" y1="65" x2="105" y2="100" stroke="#10b981" stroke-width="3"/>
+                            <!-- Relaxed arm -->
+                            <path d="M 75 42 L 95 60 L 132 60" stroke="#10b981" stroke-width="2.5" fill="none"/>
+                            <text x="135" y="52" fill="#10b981" font-size="9" font-weight="bold">肘90°リラックス</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 算出数値グリッド -->
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">推奨・座面高</div>
+                        <div class="metric-value" id="calc-seat-h">41.5 <span class="metric-unit">cm</span></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">推奨・デスク天板高</div>
+                        <div class="metric-value" id="calc-desk-h">67.0 <span class="metric-unit">cm</span></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">理想差尺（座面〜天板）</div>
+                        <div class="metric-value" id="calc-diff-h">25.5 <span class="metric-unit">cm</span></div>
+                    </div>
+                </div>
+
+                <div class="warning-callout" id="calc-warning-text">
+                    <!-- JSで動的生成 -->
+                </div>
+
+                <!-- アクション（シェア・やり直し） -->
+                <div class="share-actions">
+                    <button class="btn-re-calc" onclick="resetWizard()">↺ 条件を変更して再診断</button>
+                    <a href="#" id="btn-share-x" class="btn-share-x" target="_blank">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        結果をXでシェア
+                    </a>
+                </div>
+            </div>
+
+            <!-- おすすめ装備一覧 -->
+            <div class="section-title">✨ カルテ処方：疲労ゼロ推奨セット</div>
+            <div class="gear-list" id="gear-list-container">
+                <!-- JSで動的生成 -->
+            </div>
+
+            <!-- DeskSwipe 相互リンクバナー -->
+            <div class="sibling-banner">
+                <div>
+                    <div class="sibling-banner-title">🖥️ 自作PCスペック・デスク空間選定はお済みですか？</div>
+                    <div class="sibling-banner-desc">姉妹スタジオ「DeskSwipe」では、用途（AI開発・動画編集・4Kゲーム）に合わせて自作PCパーツ8点と理想のデスク部屋を一発診断できます。</div>
+                </div>
+                <a href="https://fhmch.github.io/DeskSwipe/" class="btn-sibling" target="_blank">DeskSwipeで診断する ↗</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- LEGAL / POLICY MODAL OVERLAY -->
+    <div id="legal-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+        <div style="background:#0c1714; border:1px solid rgba(16,185,129,0.3); border-radius:20px; max-width:680px; width:100%; max-height:85vh; overflow-y:auto; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.9);">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-glass); padding-bottom:14px; margin-bottom:18px;">
+                <h3 id="legal-modal-title" style="font-size:1.15rem; font-weight:800; color:#fff;">規約情報</h3>
+                <button onclick="closeLegalModal()" style="background:rgba(255,255,255,0.1); border:none; color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1.1rem;">✕</button>
+            </div>
+            <div id="legal-modal-body" style="font-size:0.85rem; color:var(--text-secondary); line-height:1.75;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="display:flex; justify-content:center; gap:16px; margin-bottom:12px; flex-wrap:wrap;">
+            <a href="javascript:void(0)" onclick="openLegalModal('privacy')" style="color:var(--text-secondary); text-decoration:none;">プライバシーポリシー</a>
+            <span style="color:var(--border-glass);">|</span>
+            <a href="javascript:void(0)" onclick="openLegalModal('disclaimer')" style="color:var(--text-secondary); text-decoration:none;">免責事項</a>
+            <span style="color:var(--border-glass);">|</span>
+            <a href="https://github.com/fhmch/ErgoSwipe/issues" target="_blank" style="color:var(--text-secondary); text-decoration:none;">フィードバック・要望 ↗</a>
+        </div>
+        <p>© 2026 ErgoSwipe. 人間工学に基づいたデスクワーク疲労軽減診断スタジオ.</p>
+        <p style="margin-top: 6px; font-size: 11px;">※当サイトはアフィリエイト広告（Amazonアソシエイト、楽天市場、Yahoo!ショッピング含む）を掲載しています。Amazonのアソシエイトとして、適格販売により収入を得ています。</p>
+    </footer>
+
+    <script>
+        function openLegalModal(tab) {
+            const overlay = document.getElementById("legal-modal-overlay");
+            const titleEl = document.getElementById("legal-modal-title");
+            const bodyEl = document.getElementById("legal-modal-body");
+            if (!overlay || !titleEl || !bodyEl) return;
+
+            if (tab === 'privacy') {
+                titleEl.innerText = "プライバシーポリシー";
+                bodyEl.innerHTML = `
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. 個人情報の収集・利用</h4>
+                    <p>当サイト（ErgoSwipe）では、個人を特定する情報の収集は行いません。診断に入力された身長や回答データはブラウザ内でのみ計算処理され、外部サーバーに保存されることはありません。</p>
+                    
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">2. 広告配信・アフィリエイトプログラムについて</h4>
+                    <p>当サイトでは、もしもアフィリエイト、楽天市場、Yahoo!ショッピング、およびAmazonアソシエイト・プログラムを利用しています。</p>
+                    <p><strong>【Amazonアソシエイトに関する表記】</strong><br>
+                    ErgoSwipeは、Amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。Amazonのアソシエイトとして、適格販売により収入を得ています。</p>
+                `;
+            } else if (tab === 'disclaimer') {
+                titleEl.innerText = "免責事項";
+                bodyEl.innerHTML = `
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. 診断結果・寸法について</h4>
+                    <p>当サイトで算出されるデスク天板高・座面高はJIS規格（JIS S 1021）および一般的な人間工学の計算式に基づく目安値です。体型（座高、手足の長さ等）や履物の有無により個人差があります。</p>
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">2. 商品購入について</h4>
+                    <p>商品の価格、在庫状況、サイズ仕様は各ECモール（Amazon、楽天市場、Yahoo!ショッピング）およびメーカー公式情報をご確認の上、ご自身の責任においてご購入ください。</p>
+                `;
+            }
+            overlay.style.display = "flex";
+        }
+
+        function closeLegalModal() {
+            const overlay = document.getElementById("legal-modal-overlay");
+            if (overlay) overlay.style.display = "none";
+        }
+
+        const answers = {
+            hours: 'medium',
+            pain: 'waist',
+            height: 170,
+            budget: 'value'
+        };
+
+        // 精密マルチ分岐データベース（部位 × 予算 × 身長 × 時間）
+        const gearCatalog = {
+            chairs: {
+                waist_value: {
+                    name: "GrowSpica Pro / Sihoo Doro C300",
+                    role: "腰椎自動追従エルゴチェア",
+                    reason: "前傾・後傾に合わせて腰椎サポートが自動追従。骨盤の後傾を物理的に抑え、長時間座っても腰への局所圧力を分散します。",
+                    img: "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    keyword: "GrowSpica Pro"
+                },
+                waist_premium: {
+                    name: "COFO Chair Premium / オカムラ シルフィー",
+                    role: "前傾チルト＆高弾性メッシュ最高峰",
+                    reason: "前傾チルト機能でPC作業時の背骨S字カーブを強制キープ。フットレスト内蔵で後傾休憩にも完全対応する一生モノの腰痛対策。",
+                    img: "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    keyword: "COFO Chair Premium"
+                },
+                neck_value: {
+                    name: "Sihoo M57 3Dヘッドレスト付きチェア",
+                    role: "頸椎サポート特化エルゴチェア",
+                    reason: "上下・角度調整可能な3D大型ヘッドレストが後頭部から頸椎をホールド。画面を見つめる際の首の筋肉の緊張をリセットします。",
+                    img: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=300&auto=format&fit=crop&q=80",
+                    keyword: "Sihoo M57"
+                },
+                neck_premium: {
+                    name: "エルゴヒューマン PRO2 オットマン内蔵",
+                    role: "独立式3Dランバー＆ヘッドレスト最高峰",
+                    reason: "独立したヘッドレストが頸椎の自然な前弯を支え、頭部（約5kg）のモーメント荷重を完全に吸収。肩こり・首コリを元から絶ちます。",
+                    img: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=300&auto=format&fit=crop&q=80",
+                    keyword: "エルゴヒューマン PRO2"
+                },
+                wrist_general: {
+                    name: "4D可動アームレスト搭載 エルゴチェア",
+                    role: "前腕荷重分散チェア",
+                    reason: "肘置きが上下・前後・首振りに無段階連動。キーボードタイピング時に前腕の重みを100%預けられるため手首の腱鞘炎を予防します。",
+                    img: "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    keyword: "4Dアームレスト エルゴノミクスチェア"
+                }
+            },
+            desks: {
+                low_floor: {
+                    name: "FlexiSpot E7 / E8 低床デュアルモーター",
+                    role: "低床昇降デスク（昇降範囲58〜123cm）",
+                    reason: "あなたの身長では一般的なデスク（70cm）は確実に高すぎます。最低高58cmまで下がるこの低床モデルでないと肘角度90度を実現できません。",
+                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    keyword: "FlexiSpot E7"
+                },
+                standard_standing: {
+                    name: "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
+                    role: "ワンタッチ電動昇降デスク",
+                    reason: "3パターンの高さをワンタッチで記憶。1時間に15分立つだけで、腰椎への持続圧迫と下半身の鬱血を劇的にリセットします。",
+                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    keyword: "FlexiSpot EF1"
+                }
+            },
+            arms: {
+                single_heavy: {
+                    name: "エルゴトロン LX デスクマウント モニターアーム",
+                    role: "特許ガススプリング式アーム",
+                    reason: "画面上端を目の高さ、視線をマイナス10〜15度にセット。頭が前に出るストレートネックを物理的に防ぐデスクワーカーの最優先装備。",
+                    img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&auto=format&fit=crop&q=80",
+                    keyword: "エルゴトロン LX モニターアーム"
+                },
+                dual_tall: {
+                    name: "エルゴトロン LX 長身ポール / デュアルアーム",
+                    role: "ハイポジション対応デュアルアーム",
+                    reason: "立ち作業時でも画面を目線ジャストに持ち上げ可能。首を下に曲げる角度をゼロにして頸椎ヘルニアのリスクを最小化します。",
+                    img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&auto=format&fit=crop&q=80",
+                    keyword: "エルゴトロン LX 長身ポール"
+                }
+            },
+            accessories: {
+                wrist_mouse: {
+                    name: "ロジクール MX Master 3S（または Vertical / Lift）",
+                    role: "57度エルゴノミクス傾斜マウス",
+                    reason: "握手するような自然な角度で握れるため、手首の「回内（内ひねり）」による腱や正中神経の圧迫を根本から解消します。",
+                    img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300&auto=format&fit=crop&q=80",
+                    keyword: "ロジクール MX Master 3S"
+                },
+                wrist_keyboard: {
+                    name: "分離型エルゴキーボード ＆ 低反発パームレスト",
+                    role: "胸郭拡張・手首フラット入力",
+                    reason: "左右の手を肩幅に開いてタイピングできるため、巻き肩を解消。手首を上に反らさないフラット姿勢を保てます。",
+                    img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&auto=format&fit=crop&q=80",
+                    keyword: "エルゴノミクス キーボード 分割"
+                },
+                eye_light: {
+                    name: "BenQ ScreenBar Halo 間接照明付きスクリーンバー",
+                    role: "映り込みゼロ・前後照度バランス照明",
+                    reason: "画面に光が反射せず文字だけを均一に照射。背面の間接照明が壁面との明暗コントラストを和らげ、長時間の瞳孔痙攣（眼精疲労）を防ぎます。",
+                    img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&auto=format&fit=crop&q=80",
+                    keyword: "BenQ ScreenBar Halo"
+                },
+                footrest_essential: {
+                    name: "無段階チルト 人間工学フットレスト",
+                    role: "足裏接地・骨盤前傾アシスト台",
+                    reason: "デスクが高い環境で椅子を上げても、足裏が宙に浮かず安定。太もも裏の血管圧迫（むくみ）を防ぎ、骨盤の立ち上がりをサポートします。",
+                    img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&auto=format&fit=crop&q=80",
+                    keyword: "エルゴノミクス フットレスト"
+                }
+            }
+        };
+
+        function selectOption(category, value) {
+            answers[category] = value;
+            
+            if (category === 'hours') nextQuestion(2);
+            else if (category === 'pain') nextQuestion(3);
+            else if (category === 'budget') calculateAndShowResults();
+        }
+
+        function updateHeight(val) {
+            answers.height = parseInt(val);
+            document.getElementById("height-display").innerHTML = `${val}<span class="height-val-unit"> cm</span>`;
+        }
+
+        function nextQuestion(stepNum) {
+            for (let i = 1; i <= 4; i++) {
+                const qEl = document.getElementById(`q-${i}`);
+                const dotEl = document.getElementById(`dot-${i}`);
+                if (qEl) qEl.classList.remove('active');
+                if (dotEl) dotEl.classList.remove('active');
+            }
+            
+            const targetQ = document.getElementById(`q-${stepNum}`);
+            const targetDot = document.getElementById(`dot-${stepNum}`);
+            if (targetQ) targetQ.classList.add('active');
+            if (targetDot) targetDot.classList.add('active');
+        }
+
+        function resetWizard() {
+            document.getElementById("wizard-panel").style.display = "block";
+            document.getElementById("result-section").style.display = "none";
+            nextQuestion(1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calculateAndShowResults() {
+            document.getElementById("wizard-panel").style.display = "none";
+            document.getElementById("result-section").style.display = "block";
+
+            // 人間工学計算式（JIS S 1021準拠）
+            const h = answers.height;
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+
+            document.getElementById("calc-seat-h").innerHTML = `${seatH} <span class="metric-unit">cm</span>`;
+            document.getElementById("calc-desk-h").innerHTML = `${deskH} <span class="metric-unit">cm</span>`;
+            document.getElementById("calc-diff-h").innerHTML = `${diffH} <span class="metric-unit">cm</span>`;
+
+            // カルテID
+            document.getElementById("karte-id-tag").innerText = `ID: ERGO-${h}-${answers.pain.toUpperCase()}-${answers.budget.toUpperCase()}`;
+
+            // 警告テキスト（身長と主訴に応じた動的警告文）
+            const diffWithStandard = Math.round((70.0 - deskH) * 10) / 10;
+            const warningEl = document.getElementById("calc-warning-text");
+            
+            let warningMsg = "";
+            if (h <= 165) {
+                warningMsg = `⚠️ <strong>【重要】小柄な体型に対する既製品デスク（70cm）の深刻なズレ:</strong><br>あなたの適正天板高（${deskH}cm）に対し、市販デスクは「<strong>約${diffWithStandard}cm 高すぎます</strong>」。普通の椅子を上げると足が浮いて腰痛が悪化し、下げると腕が持ち上がって肩が凝ります。<strong>「最低高58cmに下がる低床昇降デスク（FlexiSpot E7等）」</strong>または<strong>「厚みのあるフットレスト」</strong>が絶対に不可欠です。`;
+            } else if (diffWithStandard > 1.0) {
+                warningMsg = `⚠️ <strong>既製品デスク（一般的な高さ70〜72cm）とのズレ:</strong><br>一般的なデスクはあなたの理想天板高（${deskH}cm）より「<strong>約${diffWithStandard}cm 高すぎます</strong>」。腕が持ち上がり、肩甲骨周りの僧帽筋が緊張して【${getPainLabel(answers.pain)}】を悪化させる主原因になっています。`;
+            } else if (diffWithStandard < -1.0) {
+                warningMsg = `⚠️ <strong>大柄な体型に対する既製品デスクの低さ警告:</strong><br>一般的な70cmデスクはあなたの体型に対して「やや低め」です。無意識に前かがみになって猫背・ストレートネックを誘発するため、天板を高く設定できる昇降デスクとモニターアームでの視線持ち上げが必須です。`;
+            } else {
+                warningMsg = `💡 <strong>デスク高さの適合度:</strong><br>一般的な70cmデスクと近似していますが、${answers.hours === 'heavy' ? '8時間以上の超長時間作業では' : '長時間の座り作業では'}同一姿勢による椎間板内圧の上昇が腰痛を招きます。スタンディング姿勢への定期切り替えが不可欠です。`;
+            }
+            warningEl.innerHTML = warningMsg;
+
+            // Xシェアリンク生成
+            const shareText = encodeURIComponent(`在宅デスクワークの疲労ゼロ診断カルテを発行した！\n私の身長(${h}cm)の理想天板高は【${deskH}cm】。市販デスク(70cm)だと【${diffWithStandard > 0 ? diffWithStandard + 'cm高すぎる' : 'ズレあり'}】らしく、${getPainLabel(answers.pain)}の原因が完全に判明した…😱\n\n#ErgoSwipe #デスクワーク #腰痛対策 #肩こり\n`);
+            const shareUrl = encodeURIComponent(window.location.href);
+            document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+
+            renderGears();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function getPainLabel(painKey) {
+            switch(painKey) {
+                case 'waist': return '腰痛・骨盤の歪み';
+                case 'neck': return '首肩コリ・ストレートネック';
+                case 'wrist': return '手首の腱鞘炎・前腕疲労';
+                case 'eye': return '眼精疲労・頭痛';
+                default: return '身体の疲労';
+            }
+        }
+
+        function getMoshimoRakutenLink(keyword) {
+            const encoded = encodeURIComponent(keyword);
+            const targetUrl = encodeURIComponent(`https://search.rakuten.co.jp/search/mall/${keyword}/`);
+            return `https://af.moshimo.com/af/c/click?a_id=5840290&p_id=54&pc_id=54&pl_id=621&url=${targetUrl}`;
+        }
+
+        function getMoshimoYahooLink(keyword) {
+            const encoded = encodeURIComponent(keyword);
+            const targetUrl = encodeURIComponent(`https://shopping.yahoo.co.jp/search?p=${keyword}`);
+            return `https://af.moshimo.com/af/c/click?a_id=5840291&p_id=1225&pc_id=1925&pl_id=18502&url=${targetUrl}`;
+        }
+
+        function getAmazonLink(keyword) {
+            const encoded = encodeURIComponent(keyword);
+            return `https://www.amazon.co.jp/s?k=${encoded}`;
+        }
+
+        function renderGears() {
+            const list = document.getElementById("gear-list-container");
+            list.innerHTML = "";
+
+            const selectedGears = [];
+            const isPremium = (answers.budget === 'premium');
+            const isSmallHeight = (answers.height <= 165);
+            const isHeavyHours = (answers.hours === 'heavy');
+
+            // 1. CHAIR（主訴 × 予算）
+            if (answers.pain === 'neck') {
+                selectedGears.push(isPremium ? gearCatalog.chairs.neck_premium : gearCatalog.chairs.neck_value);
+            } else if (answers.pain === 'wrist') {
+                selectedGears.push(gearCatalog.chairs.wrist_general);
+            } else {
+                selectedGears.push(isPremium ? gearCatalog.chairs.waist_premium : gearCatalog.chairs.waist_value);
+            }
+
+            // 2. DESK（身長 × 予算）
+            if (isSmallHeight || isPremium) {
+                selectedGears.push(gearCatalog.desks.low_floor);
+            } else {
+                selectedGears.push(gearCatalog.desks.standard_standing);
+            }
+
+            // 3. MONITOR ARM（首肩 or 長時間作業なら長身・デュアル）
+            if (answers.pain === 'neck' || isHeavyHours) {
+                selectedGears.push(gearCatalog.arms.dual_tall);
+            } else {
+                selectedGears.push(gearCatalog.arms.single_heavy);
+            }
+
+            // 4. ACCESSORIES / TARGETED RELIEF（主訴に応じた精密処方）
+            if (answers.pain === 'wrist') {
+                selectedGears.push(gearCatalog.accessories.wrist_mouse);
+                selectedGears.push(gearCatalog.accessories.wrist_keyboard);
+            } else if (answers.pain === 'eye') {
+                selectedGears.push(gearCatalog.accessories.eye_light);
+            } else if (answers.pain === 'waist' || isSmallHeight) {
+                selectedGears.push(gearCatalog.accessories.footrest_essential);
+            } else {
+                selectedGears.push(gearCatalog.accessories.eye_light);
+            }
+
+            selectedGears.forEach(gear => {
+                const card = document.createElement("div");
+                card.className = "gear-card";
+                card.innerHTML = `
+                    <div class="gear-img-box">
+                        <img src="${gear.img}" alt="${gear.name}" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="gear-role">${gear.role}</div>
+                        <div class="gear-name">${gear.name}</div>
+                        <div class="gear-reason">${gear.reason}</div>
+                    </div>
+                    <div class="gear-links">
+                        <a href="${getAmazonLink(gear.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-amazon">Amazon ↗</a>
+                        <a href="${getMoshimoRakutenLink(gear.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-rakuten">楽天市場 ↗</a>
+                        <a href="${getMoshimoYahooLink(gear.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-yahoo">Yahoo! ↗</a>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
