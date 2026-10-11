@@ -302,17 +302,75 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        .height-val-display {
+        .height-input-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .height-num-input {
+            width: 110px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1.5px solid rgba(16, 185, 129, 0.4);
+            border-radius: 12px;
+            padding: 8px 12px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 44px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--mint);
-            margin-bottom: 4px;
+            text-align: center;
+            outline: none;
+            transition: all 0.2s ease;
         }
-        .height-val-unit {
+        .height-num-input:focus {
+            border-color: var(--mint);
+            box-shadow: 0 0 16px var(--emerald-glow);
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .height-btn-adjust {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
             font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .height-btn-adjust:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--mint);
+            color: var(--mint);
+        }
+        .height-quick-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .height-quick-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-secondary);
-            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .height-quick-btn:hover, .height-quick-btn.active {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--mint);
+            color: var(--mint);
         }
         .slider-range {
             width: 100%;
@@ -321,7 +379,7 @@
             background: rgba(255, 255, 255, 0.1);
             outline: none;
             -webkit-appearance: none;
-            margin: 20px 0 10px 0;
+            margin: 16px 0 6px 0;
             cursor: pointer;
         }
         .slider-range::-webkit-slider-thumb {
@@ -816,14 +874,32 @@
                 </div>
             </div>
 
-            <!-- Q3: 身長スライダー -->
+            <!-- Q3: 身長入力（手打ち・ボタン・スライダー連動） -->
             <div class="question-card" id="q-3">
                 <div class="question-header">STEP 03 / 04</div>
                 <h2 class="question-title">あなたの身長を教えてください（寸法計算用）</h2>
                 <div class="height-slider-box">
-                    <div class="height-val-display" id="height-display">170<span class="height-val-unit"> cm</span></div>
-                    <input type="range" min="145" max="195" value="170" class="slider-range" id="height-slider" oninput="updateHeight(this.value)">
-                    <div style="font-size: 12px; color: var(--text-tertiary);">スライダーを動かして身長を設定してください</div>
+                    <div class="height-input-container">
+                        <button type="button" class="height-btn-adjust" onclick="adjustHeight(-1)" title="1cm下げる">−</button>
+                        <input type="number" id="height-num-input" class="height-num-input" min="140" max="205" value="170" oninput="updateHeight(this.value, 'input')">
+                        <span style="font-size:20px; font-weight:800; color:var(--text-secondary);">cm</span>
+                        <button type="button" class="height-btn-adjust" onclick="adjustHeight(1)" title="1cm上げる">＋</button>
+                    </div>
+
+                    <input type="range" min="145" max="195" value="170" class="slider-range" id="height-slider" oninput="updateHeight(this.value, 'slider')">
+                    
+                    <div style="font-size: 11px; color: var(--text-tertiary); margin-bottom: 8px;">数字を手入力するか、＋/ーボタンまたはスライダーで調整できます</div>
+
+                    <div class="height-quick-row">
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(150)">150cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(155)">155cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(160)">160cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(165)">165cm</button>
+                        <button type="button" class="height-quick-btn active" onclick="updateHeight(170)">170cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(175)">175cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(180)">180cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(185)">185cm</button>
+                    </div>
                 </div>
                 <button class="btn-wizard-next" onclick="nextQuestion(4)">この身長で確定して次へ ➔</button>
             </div>
@@ -883,6 +959,11 @@
                         <div class="metric-label">理想差尺（座面〜天板）</div>
                         <div class="metric-value" id="calc-diff-h">25.5 <span class="metric-unit">cm</span></div>
                     </div>
+                </div>
+
+                <!-- 椅子昇降 vs デスク昇降 物理整合性ガイド -->
+                <div class="chair-desk-harmony-box" id="chair-desk-harmony-box" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 14px; padding: 14px 18px; margin-bottom: 20px;">
+                    <!-- JSで動的生成 -->
                 </div>
 
                 <div class="warning-callout" id="calc-warning-text">
@@ -1020,35 +1101,35 @@
                     name: "GrowSpica Pro / Sihoo Doro C300",
                     role: "腰椎自動追従エルゴチェア",
                     reason: "前傾・後傾に合わせて腰椎サポートが自動追従。骨盤の後傾を物理的に抑え、長時間座っても腰への局所圧力を分散します。",
-                    img: "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/upgrade_gear_chair.jpg",
                     keyword: "GrowSpica Pro"
                 },
                 waist_premium: {
                     name: "COFO Chair Premium / オカムラ シルフィー",
                     role: "前傾チルト＆高弾性メッシュ最高峰",
                     reason: "前傾チルト機能でPC作業時の背骨S字カーブを強制キープ。フットレスト内蔵で後傾休憩にも完全対応する一生モノの腰痛対策。",
-                    img: "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_cofo_official.jpg",
                     keyword: "COFO Chair Premium"
                 },
                 neck_value: {
                     name: "Sihoo M57 3Dヘッドレスト付きチェア",
                     role: "頸椎サポート特化エルゴチェア",
                     reason: "上下・角度調整可能な3D大型ヘッドレストが後頭部から頸椎をホールド。画面を見つめる際の首の筋肉の緊張をリセットします。",
-                    img: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_chair_4d.jpg",
                     keyword: "Sihoo M57"
                 },
                 neck_premium: {
                     name: "エルゴヒューマン PRO2 オットマン内蔵",
                     role: "独立式3Dランバー＆ヘッドレスト最高峰",
                     reason: "独立したヘッドレストが頸椎の自然な前弯を支え、頭部（約5kg）のモーメント荷重を完全に吸収。肩こり・首コリを元から絶ちます。",
-                    img: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/upgrade_gear_chair.jpg",
                     keyword: "エルゴヒューマン PRO2"
                 },
                 wrist_general: {
                     name: "4D可動アームレスト搭載 エルゴチェア",
                     role: "前腕荷重分散チェア",
                     reason: "肘置きが上下・前後・首振りに無段階連動。キーボードタイピング時に前腕の重みを100%預けられるため手首の腱鞘炎を予防します。",
-                    img: "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_chair_4d.jpg",
                     keyword: "4Dアームレスト エルゴノミクスチェア"
                 }
             },
@@ -1057,14 +1138,14 @@
                     name: "FlexiSpot E7 / E8 低床デュアルモーター",
                     role: "低床昇降デスク（昇降範囲58〜123cm）",
                     reason: "あなたの身長では一般的なデスク（70cm）は確実に高すぎます。最低高58cmまで下がるこの低床モデルでないと肘角度90度を実現できません。",
-                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_flexispot_official.jpg",
                     keyword: "FlexiSpot E7"
                 },
                 standard_standing: {
                     name: "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
                     role: "ワンタッチ電動昇降デスク",
                     reason: "3パターンの高さをワンタッチで記憶。1時間に15分立つだけで、腰椎への持続圧迫と下半身の鬱血を劇的にリセットします。",
-                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_flexispot_official.jpg",
                     keyword: "FlexiSpot EF1"
                 }
             },
@@ -1073,59 +1154,66 @@
                     name: "エルゴトロン LX デスクマウント モニターアーム",
                     role: "特許ガススプリング式アーム",
                     reason: "画面上端を目の高さ、視線マイナス10〜15度にセット。目線と視距離（50〜70cm）を一定に保ち、眼の毛様体筋の緊張と首下がりを防ぎます。",
-                    img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_ergotron_official.jpg",
                     keyword: "エルゴトロン LX モニターアーム"
                 },
                 dual_tall: {
                     name: "エルゴトロン LX 長身ポール / デュアルアーム",
                     role: "ハイポジション対応デュアルアーム",
                     reason: "立ち作業時でも画面を目線ジャストに持ち上げ可能。首を下に曲げる角度をゼロにして頸椎ヘルニアのリスクを最小化します。",
-                    img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/upgrade_arm_dual.jpg",
                     keyword: "エルゴトロン LX 長身ポール"
                 }
             },
             accessories: {
                 wrist_mouse: {
-                    name: "ロジクール MX Master 3S（または Vertical / Lift）",
+                    name: "ロジクール Lift / MX Master 3S エルゴノミクスマウス",
                     role: "57度エルゴノミクス傾斜マウス",
                     reason: "握手するような自然な角度で握れるため、手首の「回内（内ひねり）」による腱や正中神経の圧迫を根本から解消します。",
-                    img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300&auto=format&fit=crop&q=80",
-                    keyword: "ロジクール MX Master 3S"
+                    img: "assets/gear_logi_lift_official.png",
+                    keyword: "ロジクール Lift 縦型マウス"
                 },
                 wrist_keyboard: {
-                    name: "分離型エルゴキーボード ＆ 低反発パームレスト",
+                    name: "左右分離型エルゴキーボード ＆ 低反発パームレスト",
                     role: "胸郭拡張・手首フラット入力",
                     reason: "左右の手を肩幅に開いてタイピングできるため、巻き肩を解消。手首を上に反らさないフラット姿勢を保てます。",
-                    img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_split_kb.jpg",
                     keyword: "エルゴノミクス キーボード 分割"
                 },
                 eye_glasses: {
                     name: "JINS SCREEN ブルーライトカットメガネ（25%〜40%CUT）",
                     role: "高透過率・網膜保護アイウェア",
                     reason: "液晶から放出される散乱高エネルギー青色光を遮断。毛様体筋のピント調整疲労を和らげ、夜間作業時のメラトニン分泌抑制（睡眠障害）を予防します。",
-                    img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_jins_official.jpg",
                     keyword: "JINS SCREEN ブルーライト"
                 },
                 eye_light: {
                     name: "BenQ ScreenBar Halo 前後間接光モニターライト",
                     role: "映り込みゼロ・前後照度バランス照明",
                     reason: "画面表面への光の反射（グレア）をゼロにしつつ手元を500luxで均一照射。背面の間接照明がモニター背景との輝度対比を緩和し、瞳孔の過剰収縮を防ぎます。",
-                    img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_screenbar_official.png",
                     keyword: "BenQ ScreenBar Halo"
                 },
                 eye_warm: {
                     name: "あずきのチカラ 目もと用 / めぐりズム 蒸気ホットアイマスク",
-                    role: "マイボーム腺血流促進・眼筋リセット",
-                    reason: "PC凝視で瞬きが通常の1/3に激減し蒸発した涙液油層を回復。約40℃の温熱蒸気で固まったピント調節筋（毛様体筋）と眼窩血流を短時間で解放します。",
-                    img: "https://images.unsplash.com/photo-1512290900672-1f55b9e73b4e?w=300&auto=format&fit=crop&q=80",
+                    role: "小林製薬公式 天然蒸気アイピロー",
+                    reason: "PC凝視で瞬きが通常の1/3に激減し蒸発した涙液油層を回復。100%あずきの天然蒸気（約40℃）で固まったピント調節筋（毛様体筋）と眼窩血流を短時間で解放します。",
+                    img: "assets/gear_azuki_official.png",
                     keyword: "あずきのチカラ 目もと用"
                 },
                 footrest_essential: {
                     name: "無段階チルト 人間工学フットレスト",
                     role: "足裏接地・骨盤前傾アシスト台",
                     reason: "デスクが高い環境で椅子を上げても、足裏が宙に浮かず安定。太もも裏の血管圧迫（むくみ）を防ぎ、骨盤の立ち上がりをサポートします。",
-                    img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_footrest.jpg",
                     keyword: "エルゴノミクス フットレスト"
+                },
+                cushion_lumbar: {
+                    name: "ランバーサポート腰痛クッション（低反発ウレタン）",
+                    role: "腰椎前弯保持サポート",
+                    reason: "骨盤の後傾を防ぎ、腰椎本来の自然なS字カーブを物理的にキープ。椅子を買い替えることなく腰への局所圧力を半減させます。",
+                    img: "assets/upgrade_gear_creator.jpg",
+                    keyword: "ランバーサポート クッション"
                 }
             }
         };
@@ -1138,9 +1226,33 @@
             else if (category === 'budget') calculateAndShowResults();
         }
 
-        function updateHeight(val) {
-            answers.height = parseInt(val);
-            document.getElementById("height-display").innerHTML = `${val}<span class="height-val-unit"> cm</span>`;
+        function updateHeight(val, source) {
+            let num = parseInt(val);
+            if (isNaN(num)) return;
+            if (num < 130) num = 130;
+            if (num > 220) num = 220;
+
+            answers.height = num;
+
+            const inputEl = document.getElementById("height-num-input");
+            const sliderEl = document.getElementById("height-slider");
+
+            if (inputEl && source !== 'input') inputEl.value = num;
+            if (sliderEl && source !== 'slider') sliderEl.value = Math.min(195, Math.max(145, num));
+
+            // 更新クイックボタンのアクティブ状態
+            document.querySelectorAll(".height-quick-btn").forEach(btn => {
+                if (parseInt(btn.innerText) === num) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+        }
+
+        function adjustHeight(delta) {
+            const current = answers.height || 170;
+            updateHeight(current + delta);
         }
 
         function nextQuestion(stepNum) {
@@ -1221,7 +1333,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 解剖学的に正しいプロポーションでの姿勢比較SVG描画（身長・机の高低差で完全分岐）
+        // 解剖学的に正しいプロポーションでの姿勢比較SVG描画（上腕・前腕比率1:1、自然なデスク密着配置）
         function renderDynamicPostureComparison(h, deskH, diffWithStandard) {
             const compBox = document.getElementById("posture-comp-box-dynamic");
             if (!compBox) return;
@@ -1238,24 +1350,24 @@
             if (isJustFit) {
                 // 机の高さがほぼ適合している場合
                 badTitle = `⚠️ 既製70cm机での懸念（高さ適合・静的疲労）`;
-                badDesc = `高さのギャップは${absDiff}cmと小さく恵まれていますが、同一姿勢での連続着座により椎間板内圧の上昇や血流鬱血、眼のピント固定疲労が蓄積します。`;
+                badDesc = `高さのギャップは${absDiff}cmと小さく恵まれていますが、同一姿勢での連続着座により椎間板内圧の上昇や下半身の血流鬱血、眼のピント固定疲労が蓄積します。`;
                 badSvg = `
                     <div class="posture-svg-wrap">
                         <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
                             <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
                             <!-- Chair -->
-                            <line x1="60" y1="98" x2="60" y2="64" stroke="#555" stroke-width="3"/>
-                            <line x1="42" y1="64" x2="75" y2="64" stroke="#555" stroke-width="3"/>
+                            <line x1="56" y1="98" x2="56" y2="64" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="64" x2="72" y2="64" stroke="#555" stroke-width="3"/>
                             <!-- Desk (~60px near fit) -->
-                            <rect x="115" y="60" width="55" height="4" fill="#f59e0b"/>
-                            <line x1="140" y1="64" x2="140" y2="98" stroke="#f59e0b" stroke-width="3"/>
-                            <!-- Human Stickman (Torso x=66, Head cx=66 cy=30, Elbow x=78 y=52, Hand x=115 y=60) -->
-                            <circle cx="66" cy="30" r="6.5" fill="#f59e0b"/>
-                            <line x1="66" y1="37" x2="66" y2="64" stroke="#f59e0b" stroke-width="2.5"/>
-                            <line x1="66" y1="64" x2="90" y2="64" stroke="#f59e0b" stroke-width="2.5"/>
-                            <line x1="90" y1="64" x2="90" y2="98" stroke="#f59e0b" stroke-width="2.5"/>
-                            <!-- Arm: Shoulder(66,41) -> Elbow(78,52) -> Hand(115,60) -->
-                            <path d="M 66 41 L 78 52 L 115 60" stroke="#f59e0b" stroke-width="2" fill="none"/>
+                            <rect x="76" y="60" width="55" height="4" fill="#f59e0b"/>
+                            <line x1="125" y1="64" x2="125" y2="98" stroke="#f59e0b" stroke-width="3"/>
+                            <!-- Human Stickman (Torso x=60, Head cx=60 cy=26, Thigh(60,64)->(78,64), Shin(78,64)->(78,98)) -->
+                            <circle cx="60" cy="26" r="6" fill="#f59e0b"/>
+                            <line x1="60" y1="32" x2="60" y2="64" stroke="#f59e0b" stroke-width="2.5"/>
+                            <line x1="60" y1="64" x2="78" y2="64" stroke="#f59e0b" stroke-width="2.5"/>
+                            <line x1="78" y1="64" x2="78" y2="98" stroke="#f59e0b" stroke-width="2.5"/>
+                            <!-- Natural Compact Arm: Shoulder(60,36) -> Elbow(68,52) -> Hand(82,58) -->
+                            <path d="M 60 36 L 68 52 L 82 58" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                         </svg>
                         <div class="posture-badge-row">
                             <span class="posture-badge badge-bad">⚠️ 天板適合（差わずか${absDiff}cm）</span>
@@ -1272,17 +1384,17 @@
                         <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
                             <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
                             <!-- Chair (Seat H=45, Ground=98) -->
-                            <line x1="60" y1="98" x2="60" y2="58" stroke="#555" stroke-width="3"/>
-                            <line x1="42" y1="58" x2="75" y2="58" stroke="#555" stroke-width="3"/>
+                            <line x1="56" y1="98" x2="56" y2="58" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="58" x2="72" y2="58" stroke="#555" stroke-width="3"/>
                             <!-- Desk (Too Low at y=70) -->
-                            <rect x="115" y="70" width="55" height="4" fill="#ef4444"/>
-                            <line x1="140" y1="74" x2="140" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <rect x="76" y="70" width="55" height="4" fill="#ef4444"/>
+                            <line x1="125" y1="74" x2="125" y2="98" stroke="#ef4444" stroke-width="3"/>
                             <!-- Slouching Torso & Head tilted forward -->
-                            <circle cx="92" cy="38" r="6.5" fill="#ef4444"/>
-                            <!-- Curved spine from pelvis(66,58) to neck(88,43) -->
-                            <path d="M 88 43 Q 66 48 66 58 L 88 58 L 88 98" stroke="#ef4444" stroke-width="2.5" fill="none"/>
-                            <!-- Arm bent down: Shoulder(80,46) -> Elbow(92,58) -> Hand(115,70) -->
-                            <path d="M 80 46 L 92 58 L 115 70" stroke="#ef4444" stroke-width="2" fill="none"/>
+                            <circle cx="74" cy="32" r="6" fill="#ef4444"/>
+                            <!-- Curved spine from pelvis(58,58) to neck(70,40) -->
+                            <path d="M 70 40 Q 56 46 58 58 L 78 58 L 78 98" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+                            <!-- Slumped Arm: Shoulder(68,42) -> Elbow(74,56) -> Hand(82,68) -->
+                            <path d="M 68 42 L 74 56 L 82 68" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                         </svg>
                         <div class="posture-badge-row">
                             <span class="posture-badge badge-bad">❌ 低すぎる天板（前屈み・猫背）</span>
@@ -1299,18 +1411,18 @@
                         <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
                             <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
                             <!-- Chair (Seat H=38, Ground=98) -->
-                            <line x1="60" y1="98" x2="60" y2="66" stroke="#555" stroke-width="3"/>
-                            <line x1="42" y1="66" x2="75" y2="66" stroke="#555" stroke-width="3"/>
-                            <!-- Desk (Too High at y=50) -->
-                            <rect x="115" y="50" width="55" height="4" fill="#ef4444"/>
-                            <line x1="140" y1="54" x2="140" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <line x1="56" y1="98" x2="56" y2="66" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="66" x2="72" y2="66" stroke="#555" stroke-width="3"/>
+                            <!-- Desk (Too High at y=48) -->
+                            <rect x="76" y="48" width="55" height="4" fill="#ef4444"/>
+                            <line x1="125" y1="52" x2="125" y2="98" stroke="#ef4444" stroke-width="3"/>
                             <!-- Human Strained (Red) -->
-                            <circle cx="66" cy="28" r="6.5" fill="#ef4444"/>
-                            <line x1="66" y1="35" x2="66" y2="66" stroke="#ef4444" stroke-width="2.5"/>
-                            <line x1="66" y1="66" x2="88" y2="66" stroke="#ef4444" stroke-width="2.5"/>
-                            <line x1="88" y1="66" x2="88" y2="94" stroke="#ef4444" stroke-width="2.5"/>
-                            <!-- Raised Arm: Shoulder(66,39) -> Elbow(82,53) -> Hand(115,50) -->
-                            <path d="M 66 39 L 82 53 L 115 50" stroke="#ef4444" stroke-width="2" fill="none"/>
+                            <circle cx="60" cy="24" r="6" fill="#ef4444"/>
+                            <line x1="60" y1="30" x2="60" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="60" y1="66" x2="78" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="78" y1="66" x2="78" y2="98" stroke="#ef4444" stroke-width="2.5"/>
+                            <!-- Shrugged / Raised Arm: Shoulder(60,33) -> Elbow(70,50) -> Hand(82,46) -->
+                            <path d="M 60 33 L 70 50 L 82 46" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                         </svg>
                         <div class="posture-badge-row">
                             <span class="posture-badge badge-bad">❌ 高すぎる天板（肘持ち上がり）</span>
@@ -1326,18 +1438,18 @@
                     <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
                         <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
                         <!-- Chair -->
-                        <line x1="60" y1="98" x2="60" y2="64" stroke="#555" stroke-width="3"/>
-                        <line x1="42" y1="64" x2="75" y2="64" stroke="#555" stroke-width="3"/>
+                        <line x1="56" y1="98" x2="56" y2="64" stroke="#555" stroke-width="3"/>
+                        <line x1="42" y1="64" x2="72" y2="64" stroke="#555" stroke-width="3"/>
                         <!-- Desk (Ideal Height at y=60) -->
-                        <rect x="115" y="60" width="55" height="4" fill="#10b981"/>
-                        <line x1="140" y1="64" x2="140" y2="98" stroke="#10b981" stroke-width="3"/>
+                        <rect x="76" y="60" width="55" height="4" fill="#10b981"/>
+                        <line x1="125" y1="64" x2="125" y2="98" stroke="#10b981" stroke-width="3"/>
                         <!-- Human Upright (Green) -->
-                        <circle cx="66" cy="28" r="6.5" fill="#10b981"/>
-                        <line x1="66" y1="35" x2="66" y2="64" stroke="#10b981" stroke-width="2.5"/>
-                        <line x1="66" y1="64" x2="88" y2="64" stroke="#10b981" stroke-width="2.5"/>
-                        <line x1="88" y1="64" x2="88" y2="98" stroke="#10b981" stroke-width="2.5"/>
-                        <!-- Arm 90 degrees natural ratio: Shoulder(66,39) -> Elbow(76,57) -> Hand(115,60) -->
-                        <path d="M 66 39 L 76 57 L 115 60" stroke="#10b981" stroke-width="2" fill="none"/>
+                        <circle cx="60" cy="26" r="6" fill="#10b981"/>
+                        <line x1="60" y1="32" x2="60" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="60" y1="64" x2="78" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="78" y1="64" x2="78" y2="98" stroke="#10b981" stroke-width="2.5"/>
+                        <!-- Arm 90 degrees natural ratio: Shoulder(60,36) -> Elbow(68,52) -> Hand(82,58) -->
+                        <path d="M 60 36 L 68 52 L 82 58" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                     </svg>
                     <div class="posture-badge-row">
                         <span class="posture-badge badge-good">✅ 肘角度90°（肩リラックス）</span>
@@ -1358,6 +1470,73 @@
                     ${goodSvg}
                 </div>
             `;
+
+            // 椅子での高さ調整に関する生体力学的解説カードの描画
+            renderChairHarmonyBox(h, deskH, diffWithStandard);
+        }
+
+        // 椅子調整と足浮き・フットレストの生体力学解説
+        function renderChairHarmonyBox(h, deskH, diffWithStandard) {
+            const harmonyBox = document.getElementById("chair-desk-harmony-box");
+            if (!harmonyBox) return;
+
+            const idealSeatH = Math.round((h * 0.244) * 10) / 10;
+            const diffWithStandard = Math.round((70.0 - deskH) * 10) / 10;
+            
+            let harmonyContent = "";
+            if (diffWithStandard > 1.5) {
+                // 机が高すぎる場合：椅子を上げると足が浮く
+                const raisedSeatH = Math.round((70.0 - (deskH - idealSeatH)) * 10) / 10;
+                harmonyContent = `
+                    <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: #60a5fa; margin-bottom: 10px;">
+                            <span>🪑 「椅子の高さを上げて70cm机に合わせる」ことは可能なのか？</span>
+                        </div>
+                        <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
+                            <p style="margin-bottom: 8px;">
+                                結論から言うと、<strong>「厚み約${diffWithStandard}cmのフットレスト（足置き台）」を併用する場合のみ可能</strong>です。
+                            </p>
+                            <p style="margin-bottom: 8px;">
+                                70cm机に合わせて椅子の座面を<strong>${raisedSeatH}cm</strong>まで持ち上げると、上半身の肘角度は90度になります。しかし、あなたの理想座面高は<strong>${idealSeatH}cm</strong>のため、<strong>足が床から約${diffWithStandard}cm浮いてブラブラ</strong>になります。
+                            </p>
+                            <div style="background: rgba(239, 68, 68, 0.1); border-left: 3px solid #ef4444; padding: 10px 12px; border-radius: 4px; font-size: 12px; color: #fca5a5; margin: 10px 0;">
+                                <strong>⚠️ 足が床から浮いたときの身体ダメージ:</strong><br>
+                                ① 大腿部裏の血管・坐骨神経が座面エッジで圧迫され、激しいむくみ・冷え・下肢静脈瘤の原因に。<br>
+                                ② 足裏の踏ん張りが消えるため骨盤が後傾し、腰椎に体重の1.8倍の圧力が集中して腰痛が悪化。
+                            </div>
+                            <p style="font-size: 13px; color: #94a3b8; margin: 0;">
+                                👉 そのため解決策は2つだけです：<br>
+                                <strong>A（最も根本的）:</strong> 最低高58cmに下がる昇降デスク（FlexiSpot E7等）で天板を${deskH}cmに下げる。<br>
+                                <strong>B（コスパ重視）:</strong> 椅子を上げた上で、足元に<strong>「エルゴノミクス フットレスト」</strong>を敷いて足裏を完全接地させる。
+                            </p>
+                        </div>
+                    </div>
+                `;
+            } else if (diffWithStandard < -1.5) {
+                // 机が低すぎる場合（大柄な人）
+                harmonyContent = `
+                    <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: #60a5fa; margin-bottom: 10px;">
+                            <span>🪑 大柄な方の椅子とデスクのバランス</span>
+                        </div>
+                        <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
+                            あなたの理想座面高は<strong>${idealSeatH}cm</strong>です。70cm机に合わせて椅子を下げてしまうと、膝が直角以上に深く曲がって股関節が圧迫されます。椅子は適正な高さに保ち、<strong>天板を高く設定できる昇降デスク</strong>や<strong>モニターアームで画面を目の高さまで持ち上げる</strong>ことが必須です。
+                        </div>
+                    </div>
+                `;
+            } else {
+                harmonyContent = `
+                    <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: #34d399; margin-bottom: 10px;">
+                            <span>🪑 椅子と机のベストセッティング</span>
+                        </div>
+                        <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
+                            あなたの理想座面高は<strong>${idealSeatH}cm</strong>、理想机高は<strong>${deskH}cm</strong>です。市販の70cm机とほぼ一致しているため、椅子の高さを${idealSeatH}cm前後に合わせ、足裏がしっかり床にペタッと着く状態でアームレストの高さを天板と揃えるのが最高のセッティングです。
+                        </div>
+                    </div>
+                `;
+            }
+            harmonyBox.innerHTML = harmonyContent;
         }
 
         function getPainLabel(painKey) {
@@ -1404,14 +1583,7 @@
             } else if (answers.pain === 'wrist') {
                 selectedGears.push(gearCatalog.chairs.wrist_general);
             } else if (answers.pain === 'eye') {
-                // 眼精疲労：後傾リクライニング時に画面を見失わないヘッドレスト付き
-                selectedGears.push({
-                    name: isPremium ? "エルゴヒューマン PRO2 オットマン内蔵" : "Sihoo M57 3Dヘッドレスト付きチェア",
-                    role: "視線維持・後傾リクライニング対応チェア",
-                    reason: "PC画面との距離を一定に保つ3Dヘッドレストを搭載。休憩時の後傾リクライニング姿勢でも首を支え、画面凝視による瞳孔疲労を解放します。",
-                    img: isPremium ? "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=300&auto=format&fit=crop&q=80" : "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
-                    keyword: isPremium ? "エルゴヒューマン PRO2" : "Sihoo M57"
-                });
+                selectedGears.push(isPremium ? gearCatalog.chairs.neck_premium : gearCatalog.chairs.neck_value);
             } else {
                 selectedGears.push(isPremium ? gearCatalog.chairs.waist_premium : gearCatalog.chairs.waist_value);
             }
@@ -1423,7 +1595,7 @@
                     name: "FlexiSpot E7 / E8 低床デュアルモーター",
                     role: "低床昇降デスク（昇降範囲58〜123cm）",
                     reason: `あなたの身長(${answers.height}cm)では市販70cm机は高すぎます。最低高58cmまで下がるこの低床モデルで初めて「肘角度90度」が実現できます。`,
-                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_flexispot_official.jpg",
                     keyword: "FlexiSpot E7"
                 };
             } else if (isTallHeight) {
@@ -1431,7 +1603,7 @@
                     name: isPremium ? "FlexiSpot E7 / E8 低床デュアルモーター" : "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
                     role: "高剛性スタンディング電動昇降デスク",
                     reason: `あなたの身長(${answers.height}cm)では立ち作業時に天板を105cm以上まで持ち上げる必要があります。高伸長時でも横揺れしない頑丈な昇降フレームです。`,
-                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_flexispot_official.jpg",
                     keyword: isPremium ? "FlexiSpot E7" : "FlexiSpot EF1"
                 };
             } else {
@@ -1439,7 +1611,7 @@
                     name: isPremium ? "FlexiSpot E7 / E8 低床デュアルモーター" : "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
                     role: "ワンタッチ電動昇降デスク",
                     reason: "3パターンの高さをワンタッチで記憶。1時間に15分立つだけで、腰椎への持続圧迫と下半身の鬱血を劇的にリセットします。",
-                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    img: "assets/gear_flexispot_official.jpg",
                     keyword: isPremium ? "FlexiSpot E7" : "FlexiSpot EF1"
                 };
             }
@@ -1462,10 +1634,14 @@
             } else if (answers.pain === 'wrist') {
                 selectedGears.push(gearCatalog.accessories.wrist_mouse);
                 selectedGears.push(gearCatalog.accessories.wrist_keyboard);
-            } else if (answers.pain === 'waist' || isSmallHeight) {
-                selectedGears.push(gearCatalog.accessories.footrest_essential);
+            } else if (answers.pain === 'neck') {
+                selectedGears.push(gearCatalog.accessories.wrist_keyboard); // 左右分離で胸郭を開き巻き肩解消
+                if (isSmallHeight) selectedGears.push(gearCatalog.accessories.footrest_essential);
+            } else if (answers.pain === 'waist') {
+                selectedGears.push(gearCatalog.accessories.cushion_lumbar);
+                if (isSmallHeight) selectedGears.push(gearCatalog.accessories.footrest_essential);
             } else {
-                selectedGears.push(gearCatalog.accessories.footrest_essential);
+                if (isSmallHeight) selectedGears.push(gearCatalog.accessories.footrest_essential);
             }
 
             selectedGears.forEach(gear => {
