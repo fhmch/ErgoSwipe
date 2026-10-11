@@ -879,6 +879,38 @@
                 </div>
                 <a href="https://fhmch.github.io/DeskSwipe/" class="btn-sibling" target="_blank">DeskSwipeで診断する ↗</a>
             </div>
+
+            <!-- SEO & ユーザー参照用: 身長別デスク高・座面高 JIS早見表（静的HTML） -->
+            <div style="margin-top:40px; padding:24px; border-radius:18px; background:rgba(12,23,20,0.6); border:1px solid var(--border-glass);">
+                <h3 style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+                    <span>📐</span>【早見表】身長別 理想のデスク高・座面高一覧（JIS S 1021準拠）
+                </h3>
+                <p style="font-size:0.78rem; color:var(--text-secondary); margin-bottom:16px; line-height:1.5;">市販デスク（70cm）とあなたの理想天板高のギャップです。差が+2cm以上の場合はフットレストまたは低床昇降デスクが必要です。</p>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:center;">
+                        <thead>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:var(--mint);">
+                                <th style="padding:8px 6px;">身長</th>
+                                <th style="padding:8px 6px;">推奨 座面高</th>
+                                <th style="padding:8px 6px;">推奨 差尺</th>
+                                <th style="padding:8px 6px;">理想 天板高</th>
+                                <th style="padding:8px 6px;">市販70cmとの差</th>
+                                <th style="padding:8px 6px;">判定・対策</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color:var(--text-primary); font-family:'JetBrains Mono', monospace;">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>150cm</td><td>36.6cm</td><td>23.5cm</td><td style="color:var(--mint); font-weight:bold;">60.1cm</td><td style="color:#ef4444;">+9.9cm</td><td style="color:#ef4444; font-family:sans-serif;">低床デスク必須</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>155cm</td><td>37.8cm</td><td>24.3cm</td><td style="color:var(--mint); font-weight:bold;">62.1cm</td><td style="color:#ef4444;">+7.9cm</td><td style="color:#ef4444; font-family:sans-serif;">低床デスク必須</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>160cm</td><td>39.0cm</td><td>25.2cm</td><td style="color:var(--mint); font-weight:bold;">64.2cm</td><td style="color:#ef4444;">+5.8cm</td><td style="color:#f59e0b; font-family:sans-serif;">フットレスト推奨</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>165cm</td><td>40.3cm</td><td>26.0cm</td><td style="color:var(--mint); font-weight:bold;">66.3cm</td><td style="color:#ef4444;">+3.7cm</td><td style="color:#f59e0b; font-family:sans-serif;">フットレスト推奨</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05); background:rgba(16,185,129,0.08);"><td>170cm</td><td>41.5cm</td><td>26.8cm</td><td style="color:var(--mint); font-weight:bold;">68.3cm</td><td style="color:#f59e0b;">+1.7cm</td><td style="color:var(--mint); font-family:sans-serif;">微調整範囲</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>175cm</td><td>42.7cm</td><td>27.7cm</td><td style="color:var(--mint); font-weight:bold;">70.4cm</td><td style="color:var(--mint);">-0.4cm</td><td style="color:var(--mint); font-family:sans-serif;">ジャスト適合</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>180cm</td><td>43.9cm</td><td>28.5cm</td><td style="color:var(--mint); font-weight:bold;">72.4cm</td><td style="color:#ef4444;">-2.4cm</td><td style="color:#f59e0b; font-family:sans-serif;">やや低い (アーム必須)</td></tr>
+                            <tr><td>185cm</td><td>45.1cm</td><td>29.3cm</td><td style="color:var(--mint); font-weight:bold;">74.4cm</td><td style="color:#ef4444;">-4.4cm</td><td style="color:#ef4444; font-family:sans-serif;">昇降天板必須</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -1117,10 +1149,11 @@
             }
             warningEl.innerHTML = warningMsg;
 
-            // Xシェアリンク生成
-            const shareText = encodeURIComponent(`在宅デスクワークの疲労ゼロ診断カルテを発行した！\n私の身長(${h}cm)の理想天板高は【${deskH}cm】。市販デスク(70cm)だと【${diffWithStandard > 0 ? diffWithStandard + 'cm高すぎる' : 'ズレあり'}】らしく、${getPainLabel(answers.pain)}の原因が完全に判明した…😱\n\n#ErgoSwipe #デスクワーク #腰痛対策 #肩こり\n`);
-            const shareUrl = encodeURIComponent(window.location.href);
-            document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+            // Xシェアリンク生成（バイラル・自己開示＆共感トリガー強化版）
+            const deltaStr = diffWithStandard > 0 ? `+${diffWithStandard}cmも腕持ち上げてた` : `${Math.abs(diffWithStandard)}cmも低くて前かがみになってた`;
+            const shareText = encodeURIComponent(`そりゃ身体痛くなるわ…。\n身長${h}cmの私の理想デスク高って【${deskH}cm】なのに、市販70cm机使ってて【${deltaStr}】ことが判明した…😱\n毎日何キロもの負荷を肩や腰にかけ続けてたようなもんじゃん…！\n\nあなたの身長のジャスト寸法カルテはこちら👇\n`);
+            const shareUrl = encodeURIComponent("https://fhmch.github.io/ErgoSwipe/");
+            document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}&hashtags=ErgoSwipe,デスクワーク,腰痛対策,肩こり`;
 
             renderDynamicPostureComparison(h, deskH, diffWithStandard);
             renderGears();
@@ -1241,19 +1274,20 @@
 
         function getMoshimoRakutenLink(keyword) {
             const encoded = encodeURIComponent(keyword);
-            const targetUrl = encodeURIComponent(`https://search.rakuten.co.jp/search/mall/${keyword}/`);
+            const targetUrl = encodeURIComponent(`https://search.rakuten.co.jp/search/mall/${encoded}/`);
             return `https://af.moshimo.com/af/c/click?a_id=5840290&p_id=54&pc_id=54&pl_id=621&url=${targetUrl}`;
         }
 
         function getMoshimoYahooLink(keyword) {
             const encoded = encodeURIComponent(keyword);
-            const targetUrl = encodeURIComponent(`https://shopping.yahoo.co.jp/search?p=${keyword}`);
+            const targetUrl = encodeURIComponent(`https://shopping.yahoo.co.jp/search?p=${encoded}`);
             return `https://af.moshimo.com/af/c/click?a_id=5840291&p_id=1225&pc_id=1925&pl_id=18502&url=${targetUrl}`;
         }
 
         function getAmazonLink(keyword) {
             const encoded = encodeURIComponent(keyword);
-            return `https://www.amazon.co.jp/s?k=${encoded}`;
+            // Amazon Associates routing (ready for Moshimo / Direct tag injection)
+            return `https://www.amazon.co.jp/s?k=${encoded}&tag=fhmch-22`;
         }
 
         function renderGears() {
@@ -1263,6 +1297,7 @@
             const selectedGears = [];
             const isPremium = (answers.budget === 'premium');
             const isSmallHeight = (answers.height <= 165);
+            const isTallHeight = (answers.height >= 176);
             const isHeavyHours = (answers.hours === 'heavy');
 
             // 1. CHAIR（主訴 × 予算）
@@ -1270,16 +1305,47 @@
                 selectedGears.push(isPremium ? gearCatalog.chairs.neck_premium : gearCatalog.chairs.neck_value);
             } else if (answers.pain === 'wrist') {
                 selectedGears.push(gearCatalog.chairs.wrist_general);
+            } else if (answers.pain === 'eye') {
+                // 眼精疲労：後傾リクライニング時に画面を見失わないヘッドレスト付き
+                selectedGears.push({
+                    name: isPremium ? "エルゴヒューマン PRO2 オットマン内蔵" : "Sihoo M57 3Dヘッドレスト付きチェア",
+                    role: "視線維持・後傾リクライニング対応チェア",
+                    reason: "PC画面との距離を一定に保つ3Dヘッドレストを搭載。休憩時の後傾リクライニング姿勢でも首を支え、画面凝視による瞳孔疲労を解放します。",
+                    img: isPremium ? "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=300&auto=format&fit=crop&q=80" : "https://images.unsplash.com/photo-1580481077195-731da03fd1d3?w=300&auto=format&fit=crop&q=80",
+                    keyword: isPremium ? "エルゴヒューマン PRO2" : "Sihoo M57"
+                });
             } else {
                 selectedGears.push(isPremium ? gearCatalog.chairs.waist_premium : gearCatalog.chairs.waist_value);
             }
 
-            // 2. DESK（身長 × 予算）
-            if (isSmallHeight || isPremium) {
-                selectedGears.push(gearCatalog.desks.low_floor);
+            // 2. DESK（身長判定で理由を完全動的化）
+            let deskItem;
+            if (isSmallHeight) {
+                deskItem = {
+                    name: "FlexiSpot E7 / E8 低床デュアルモーター",
+                    role: "低床昇降デスク（昇降範囲58〜123cm）",
+                    reason: `あなたの身長(${answers.height}cm)では市販70cm机は高すぎます。最低高58cmまで下がるこの低床モデルで初めて「肘角度90度」が実現できます。`,
+                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    keyword: "FlexiSpot E7"
+                };
+            } else if (isTallHeight) {
+                deskItem = {
+                    name: isPremium ? "FlexiSpot E7 / E8 低床デュアルモーター" : "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
+                    role: "高剛性スタンディング電動昇降デスク",
+                    reason: `あなたの身長(${answers.height}cm)では立ち作業時に天板を105cm以上まで持ち上げる必要があります。高伸長時でも横揺れしない頑丈な昇降フレームです。`,
+                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    keyword: isPremium ? "FlexiSpot E7" : "FlexiSpot EF1"
+                };
             } else {
-                selectedGears.push(gearCatalog.desks.standard_standing);
+                deskItem = {
+                    name: isPremium ? "FlexiSpot E7 / E8 低床デュアルモーター" : "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
+                    role: "ワンタッチ電動昇降デスク",
+                    reason: "3パターンの高さをワンタッチで記憶。1時間に15分立つだけで、腰椎への持続圧迫と下半身の鬱血を劇的にリセットします。",
+                    img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=300&auto=format&fit=crop&q=80",
+                    keyword: isPremium ? "FlexiSpot E7" : "FlexiSpot EF1"
+                };
             }
+            selectedGears.push(deskItem);
 
             // 3. MONITOR ARM（首肩 or 長時間作業なら長身・デュアル）
             if (answers.pain === 'neck' || isHeavyHours) {
@@ -1297,7 +1363,7 @@
             } else if (answers.pain === 'waist' || isSmallHeight) {
                 selectedGears.push(gearCatalog.accessories.footrest_essential);
             } else {
-                selectedGears.push(gearCatalog.accessories.eye_light);
+                selectedGears.push(gearCatalog.accessories.footrest_essential);
             }
 
             selectedGears.forEach(gear => {
