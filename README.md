@@ -1,50 +1,23 @@
-# 05_ErgoSwipe — 人間工学デスク環境・疲労ゼロ診断カルテ
+# 🌿 ErgoSwipe — 身長から最適なデスク高・椅子座面高を1秒計算する人間工学シミュレーター
 
-人間工学（JIS規格）に基づき、身長から理想のデスク天板高・座面高・差尺をミリ単位で自動算出するWebアプリケーションです。
-
-- **本番URL（日本語）**: [https://fhmch.github.io/ErgoSwipe/](https://fhmch.github.io/ErgoSwipe/)
-- **本番URL（英語）**: [https://fhmch.github.io/ErgoSwipe/en/](https://fhmch.github.io/ErgoSwipe/en/)
-- **姉妹ツール**: [DeskSwipe（自作PC & デスク環境選定スタジオ）](https://fhmch.github.io/DeskSwipe/)
+🔗 **Live Web App (日本語版)**: [https://fhmch.github.io/ErgoSwipe/](https://fhmch.github.io/ErgoSwipe/)  
+🌐 **Live Web App (English / Inches & Feet)**: [https://fhmch.github.io/ErgoSwipe/en/](https://fhmch.github.io/ErgoSwipe/en/)  
+🖥️ **Sister Tool — DeskSwipe (PC＆デスク環境ビルドシミュレーター)**: [https://fhmch.github.io/DeskSwipe/](https://fhmch.github.io/DeskSwipe/)
 
 ---
 
-## 🌟 主な機能と特徴
+## ✨ 概要 (Overview)
+市販のオフィスデスク・学習机の9割は「高さ70cm〜72cm」で固定されていますが、人間工学（JIS S 1021 / ISO 9241-5 / BIFMA G1）の計算式に基づくと、**高さ70cmの机がジャストフィットするのは身長176cm〜178cmの人だけ**です。  
+**ErgoSwipe** は、あなたの身長と身体の悩み（首・肩こり、腰痛、手首の痛み、眼精疲労）から、ミリ単位の理想座面高・差尺・デスク天板高・必要なフットレスト厚を1秒で算出します。
 
-1. **ミリ単位の人間工学計算**:
-   - 入力された身長（および作業スタイル）から、理想の座面高、天板高、差尺を瞬時に算出。
-   - 市販の標準デスク（70cm）との高低差を診断し、姿勢崩壊や足つき不良のリスクを警告。
-2. **解剖学的1:1比率のリアルタイム棒人間ビジュアル**:
-   - 上腕・前腕・大腿部・下腿部の比率を人間工学基準に合わせて描画。
-   - 足置き（フットレスト）が必要な状況を視覚的に明示。
-3. **公式メーカー実物写真による信頼性の高い装備処方**:
-   - AI生成画像から、信頼性の高い実在製品（COFO, FlexiSpot, Logicool Lift, BenQ ScreenBar, JINS等）のオフィシャル写真へ全面刷新。
-   - お悩み（腰痛、首肩こり、腱鞘炎、眼精疲労）× 予算スタンスに応じた処方カルテ。
-4. **グローバル（英語）対応 (`/en/`)**:
-   - センチメートル（cm）とインチ/フィート（ft/in）のシームレスな単位切替。
-   - グローバル向けEC（Amazon Global等）へのアフィリエイトリンク対応。
-5. **充実のナレッジ記事 ＆ 運営者情報**:
-   - 人間工学・差尺の基礎知識、椅子の選び方、モニターアームの効果など専門記事5本を内包。
-   - 信頼性を担保する運営者情報・利用規約モーダルを完備。
-6. **DeskSwipe への相互送客**:
-   - ヘッダーおよび診断結果にDeskSwipeへの誘導ボタンを配置し、回遊性を担保。
-
----
-
-## 📁 ディレクトリ構成
-
-```
-05_ErgoSwipe/
-  ├── index.html              # 日本語版メインアプリ
-  ├── en/
-  │    └── index.html         # 英語版メインアプリ（単位切替対応）
-  ├── assets/                 # 公式メーカー実写機材画像
-  ├── robots.txt / sitemap.xml# SEO設定ファイル
-  └── README.md
-```
-
----
-
-## 💰 収益化・アフィリエイト
-
-- **もしもアフィリエイト サイトID**: `5840291`
-- **提携先**: 楽天市場、Yahoo!ショッピング、Amazon.co.jp（再審査準備中）
+### 📏 身長別・最適デスク高さ＆座面高 詳細処方カルテ一覧
+- [身長150cmの最適デスク高さ・椅子座面高カルテ（理想天板高 59.1cm）](https://fhmch.github.io/ErgoSwipe/height/150cm.html)
+- [身長155cmの最適デスク高さ・椅子座面高カルテ（理想天板高 61.1cm）](https://fhmch.github.io/ErgoSwipe/height/155cm.html)
+- [身長158cm（日本人女性平均）の最適デスク高さ・座面高カルテ（理想天板高 62.3cm）](https://fhmch.github.io/ErgoSwipe/height/158cm.html)
+- [身長160cmの最適デスク高さ・椅子座面高カルテ（理想天板高 63.2cm）](https://fhmch.github.io/ErgoSwipe/height/160cm.html)
+- [身長165cmの最適デスク高さ・椅子座面高カルテ（理想天板高 65.3cm）](https://fhmch.github.io/ErgoSwipe/height/165cm.html)
+- [身長170cmの最適デスク高さ・椅子座面高カルテ（理想天板高 67.3cm）](https://fhmch.github.io/ErgoSwipe/height/170cm.html)
+- [身長172cm（日本人男性平均）の最適デスク高さ・座面高カルテ（理想天板高 68.2cm）](https://fhmch.github.io/ErgoSwipe/height/172cm.html)
+- [身長175cmの最適デスク高さ・椅子座面高カルテ（理想天板高 69.4cm）](https://fhmch.github.io/ErgoSwipe/height/175cm.html)
+- [身長180cmの最適デスク高さ・椅子座面高カルテ（理想天板高 71.4cm）](https://fhmch.github.io/ErgoSwipe/height/180cm.html)
+- [身長185cmの最適デスク高さ・椅子座面高カルテ（理想天板高 73.4cm）](https://fhmch.github.io/ErgoSwipe/height/185cm.html)
