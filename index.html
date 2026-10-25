@@ -1347,17 +1347,24 @@
                 }
             },
             arms: {
+                value_single: {
+                    name: "Pixio PS1S Wave ／ グリーンハウス ガススプリング式モニターアーム（高コスパ定番）",
+                    role: "予算5,000円台の圧倒的人気No.1アーム",
+                    reason: "約5,000円前後の手頃な価格ながら滑らかなガススプリング式を採用。画面上端を目線の高さ（視線マイナス10〜15度）にピタッと固定し、首下がり猫背を即座に解消します。",
+                    img: "assets/gear_ergotron_official.jpg",
+                    keyword: "Pixio PS1S モニターアーム"
+                },
                 single_heavy: {
-                    name: "エルゴトロン LX デスクマウント モニターアーム",
-                    role: "特許ガススプリング式アーム",
-                    reason: "画面上端を目の高さ、視線マイナス10〜15度にセット。目線と視距離（50〜70cm）を一定に保ち、眼の毛様体筋の緊張と首下がりを防ぎます。",
+                    name: "エルゴトロン LX デスクマウント モニターアーム（10年保証・最高峰）",
+                    role: "特許コンスタント・フォース技術アーム",
+                    reason: "大型モニターでも一切お辞儀しない世界最高峰の耐久性。画面上端を目の高さ、視距離50〜70cmにミリ単位で固定し、毛様体筋の緊張と首こりを一生涯防ぎます。",
                     img: "assets/gear_ergotron_official.jpg",
                     keyword: "エルゴトロン LX モニターアーム"
                 },
                 dual_tall: {
                     name: "エルゴトロン LX 長身ポール / デュアルアーム",
-                    role: "ハイポジション対応デュアルアーム",
-                    reason: "立ち作業時でも画面を目線ジャストに持ち上げ可能。首を下に曲げる角度をゼロにして頸椎ヘルニアのリスクを最小化します。",
+                    role: "ハイポジション・マルチ画面対応アーム",
+                    reason: "立ち作業時や長身の方でも画面を目線ジャストに持ち上げ可能。首を下に曲げる角度をゼロにして頸椎への負荷を最小化します。",
                     img: "assets/upgrade_arm_dual.jpg",
                     keyword: "エルゴトロン LX 長身ポール"
                 }
@@ -1406,11 +1413,32 @@
                     keyword: "エルゴノミクス フットレスト"
                 },
                 cushion_lumbar: {
-                    name: "ランバーサポート腰痛クッション（低反発ウレタン）",
-                    role: "腰椎前弯保持サポート",
-                    reason: "骨盤の後傾を防ぎ、腰椎本来の自然なS字カーブを物理的にキープ。椅子を買い替えることなく腰への局所圧力を半減させます。",
+                    name: "ランバーサポート腰痛クッション ＆ 体圧分散ゲルクッション（エクスジェル等）",
+                    role: "今の椅子に敷くだけ・腰椎S字保持＆座面高+3cm補正",
+                    reason: "椅子を買い替えなくても、背中にランバークッション、座面に体圧分散ゲルクッションを敷くだけで骨盤の後傾と坐骨神経の圧迫を半減。座面高を約3cmかさ上げする効果もあります。",
                     img: "assets/upgrade_gear_creator.jpg",
-                    keyword: "ランバーサポート クッション"
+                    keyword: "エクスジェル クッション ランバーサポート"
+                },
+                keyboard_tray: {
+                    name: "サンワダイレクト ／ Bauhutte 後付けクランプ式キーボードスライダー",
+                    role: "【机を買い替えない特効薬】打鍵位置をマイナス5〜7cm引き下げ",
+                    reason: "「70cmの机が高すぎるが、机自体は買い替えられない」という方の最強の解決策。天板にクランプで挟むだけで、キーボードとマウスの位置だけをあなたの理想高（63〜65cm）へ引き下げられます。",
+                    img: "assets/gear_split_kb.jpg",
+                    keyword: "クランプ式 キーボードスライダー 後付け"
+                },
+                laptop_stand: {
+                    name: "BoYata ノートパソコンスタンド（無段階高さ・角度調整）",
+                    role: "【ノートPC派の必須品】覗き込みストレートネック解消",
+                    reason: "ノートPCの画面をそのまま見ると首が35度下に折れ曲がり、首に約18kgの負荷がかかります。BoYataスタンドで画面を目線の高さまで持ち上げ、外付けキーボードで打つのが人間工学の鉄則です。",
+                    img: "assets/gear_ergotron_official.jpg",
+                    keyword: "BoYata ノートパソコンスタンド"
+                },
+                trackball_mouse: {
+                    name: "ロジクール ERGO M575SP ／ MX ERGO ワイヤレストラックボール",
+                    role: "【腕・手首を動かさない】親指操作エルゴノミクスマウス",
+                    reason: "本体を動かす必要が一切なく、腕をアームレストに置いたまま親指だけでカーソル操作が可能。僧帽筋（肩）の緊張と手首の腱鞘炎を同時にゼロにする日本のデスクワーカー大定番モデル。",
+                    img: "assets/gear_logi_lift_official.png",
+                    keyword: "ロジクール ERGO M575SP トラックボール"
                 }
             }
         };
@@ -1815,31 +1843,36 @@
             }
             selectedGears.push(deskItem);
 
-            // 3. MONITOR ARM（首肩 or 眼精疲労 or 長時間作業）
-            if (answers.pain === 'eye') {
-                selectedGears.push(gearCatalog.arms.single_heavy); // 視距離50-70cm固定用
-            } else if (answers.pain === 'neck' || isHeavyHours) {
+            // 3. MONITOR ARM（予算スタンスと身長・主訴に応じた出し分け）
+            if (!isPremium) {
+                selectedGears.push(gearCatalog.arms.value_single);
+            } else if (answers.pain === 'neck' || isHeavyHours || isTallHeight) {
                 selectedGears.push(gearCatalog.arms.dual_tall);
             } else {
                 selectedGears.push(gearCatalog.arms.single_heavy);
             }
 
-            // 4. ACCESSORIES / TARGETED RELIEF（主訴に応じた精密処方）
+            // 4. ACCESSORIES & INSTANT RELIEF（机・椅子を買い替えずに数千円で即効改善する特効薬アイテム群）
+            if (answers.height <= 169) {
+                selectedGears.push(gearCatalog.accessories.footrest_essential);
+                selectedGears.push(gearCatalog.accessories.keyboard_tray);
+            }
             if (answers.pain === 'eye') {
                 selectedGears.push(gearCatalog.accessories.eye_light);
                 selectedGears.push(gearCatalog.accessories.eye_glasses);
                 selectedGears.push(gearCatalog.accessories.eye_warm);
+                selectedGears.push(gearCatalog.accessories.laptop_stand);
             } else if (answers.pain === 'wrist') {
                 selectedGears.push(gearCatalog.accessories.wrist_mouse);
+                selectedGears.push(gearCatalog.accessories.trackball_mouse);
                 selectedGears.push(gearCatalog.accessories.wrist_keyboard);
             } else if (answers.pain === 'neck') {
-                selectedGears.push(gearCatalog.accessories.wrist_keyboard); // 左右分離で胸郭を開き巻き肩解消
-                if (isSmallHeight) selectedGears.push(gearCatalog.accessories.footrest_essential);
+                selectedGears.push(gearCatalog.accessories.laptop_stand);
+                selectedGears.push(gearCatalog.accessories.trackball_mouse);
+                selectedGears.push(gearCatalog.accessories.wrist_keyboard);
             } else if (answers.pain === 'waist') {
                 selectedGears.push(gearCatalog.accessories.cushion_lumbar);
-                if (isSmallHeight) selectedGears.push(gearCatalog.accessories.footrest_essential);
-            } else {
-                if (isSmallHeight) selectedGears.push(gearCatalog.accessories.footrest_essential);
+                selectedGears.push(gearCatalog.accessories.trackball_mouse);
             }
 
             selectedGears.forEach(gear => {
