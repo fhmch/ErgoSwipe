@@ -1004,11 +1004,13 @@
 
                 <div class="warning-callout" id="calc-warning-text"></div>
 
-                <div class="share-actions">
-                    <button class="btn-re-calc" onclick="resetWizard()">↺ Recalculate with New Settings</button>
+                <div class="share-actions" style="flex-wrap:wrap;">
+                    <button class="btn-re-calc" onclick="resetWizard()">↺ Recalculate</button>
+                    <button type="button" class="btn-re-calc" onclick="copyErgoShareUrlEn()" id="btn-copy-ergo-url" style="border-color:rgba(16,185,129,0.45); color:var(--mint);">🔗 Copy Result URL</button>
+                    <button type="button" class="btn-re-calc" onclick="downloadErgoCardImageEn()" style="border-color:rgba(0,240,255,0.45); color:var(--cyan-glow);">🖼️ Save Summary Image</button>
                     <a href="#" id="btn-share-x" class="btn-share-x" target="_blank">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        Share Results on X
+                        Share on X
                     </a>
                 </div>
             </div>
@@ -1724,6 +1726,97 @@
         // Initialize presets
         renderPresets();
         updateHeight(170, 'init');
+
+        function copyErgoShareUrlEn() {
+            const url = `${window.location.origin}${window.location.pathname}?h=${answers.height}&p=${answers.pain || 'waist'}&b=${answers.budget || 'value'}&hr=${answers.hours || 'mid'}`;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    const btn = document.getElementById("btn-copy-ergo-url");
+                    if (btn) {
+                        const orig = btn.innerText;
+                        btn.innerText = "✅ Copied Result URL!";
+                        setTimeout(() => { btn.innerText = orig; }, 2200);
+                    }
+                });
+            } else {
+                prompt("Copy your result URL:", url);
+            }
+        }
+
+        function downloadErgoCardImageEn() {
+            const h = answers.height || 170;
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round((h / 6 - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+            const canvas = document.createElement("canvas");
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext("2d");
+
+            const grad = ctx.createLinearGradient(0, 0, 1200, 630);
+            grad.addColorStop(0, "#05110e");
+            grad.addColorStop(1, "#0b1924");
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 1200, 630);
+
+            ctx.strokeStyle = "#10b981";
+            ctx.lineWidth = 4;
+            ctx.strokeRect(30, 30, 1140, 570);
+
+            ctx.fillStyle = "#10b981";
+            ctx.font = "bold 24px monospace";
+            ctx.fillText("ERGOSWIPE // BIO-MECHANICAL ERGONOMIC PRESCRIPTION", 70, 90);
+
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 42px sans-serif";
+            ctx.fillText(`Height: ${h} cm (${cmToFeetInches(h)}) — Ideal Setup`, 70, 155);
+
+            const boxes = [
+                { label: "Recommended Seat", val: `${cmToInches(seatH)}" (${seatH}cm)`, x: 70 },
+                { label: "Recommended Desk", val: `${cmToInches(deskH)}" (${deskH}cm)`, x: 450 },
+                { label: "Clearance (Delta)", val: `${cmToInches(diffH)}" (${diffH}cm)`, x: 830 }
+            ];
+            boxes.forEach(b => {
+                ctx.fillStyle = "rgba(16, 185, 129, 0.12)";
+                ctx.fillRect(b.x, 200, 320, 180);
+                ctx.strokeStyle = "rgba(16, 185, 129, 0.45)";
+                ctx.lineWidth = 2;
+                ctx.strokeRect(b.x, 200, 320, 180);
+                ctx.fillStyle = "#94a3b8";
+                ctx.font = "bold 20px sans-serif";
+                ctx.fillText(b.label, b.x + 24, 255);
+                ctx.fillStyle = "#00f0ff";
+                ctx.font = "bold 34px monospace";
+                ctx.fillText(b.val, b.x + 24, 335);
+            });
+
+            ctx.fillStyle = "#e2e8f0";
+            ctx.font = "bold 24px sans-serif";
+            ctx.fillText(`Vs Standard 29" (73.7cm) Desk: ${(73.7 - deskH) > 0 ? '+' : ''}${(73.7 - deskH).toFixed(1)} cm discrepancy`, 70, 455);
+
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = "bold 18px monospace";
+            ctx.fillText("https://fhmch.github.io/ErgoSwipe/en/  |  ISO 9241-5 & BIFMA G1-2017", 70, 550);
+
+            const link = document.createElement("a");
+            link.download = `ErgoSwipe_Prescription_${h}cm.png`;
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        }
+
+        (function initFromQueryEn() {
+            const params = new URLSearchParams(window.location.search);
+            const h = parseInt(params.get("h") || "", 10);
+            if (h && h >= 135 && h <= 210) {
+                answers.height = h;
+                answers.pain = params.get("p") || "waist";
+                answers.budget = params.get("b") || "value";
+                answers.hours = params.get("hr") || "mid";
+                updateHeight(h, "init");
+                calculateAndShowResults();
+            }
+        })();
+
     </script>
 </body>
 </html>

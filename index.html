@@ -998,9 +998,25 @@
                     <!-- JSで動的生成 -->
                 </div>
 
-                <!-- アクション（シェア・やり直し） -->
-                <div class="share-actions">
+                <!-- 現在の自宅デスク高とのカスタムギャップ比較 -->
+                <div style="background: rgba(16, 185, 129, 0.06); border: 1px dashed rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <div style="font-size: 12px; color: #cbd5e1; font-weight: 700;">
+                        📏 <strong>あなたの現在の机の高さと比較:</strong> <span id="custom-desk-diff-label" style="color: var(--mint);">市販標準 70.0cm との差を計算中</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 11px; color: var(--text-secondary);">現在の机高:</span>
+                        <button type="button" onclick="adjustCurrentDeskH(-1)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 26px; height: 26px; border-radius: 6px; cursor: pointer; font-weight: 800;">−</button>
+                        <input type="number" id="current-desk-h-input" value="70" min="55" max="85" step="0.5" oninput="updateCurrentDeskComparison()" style="width: 58px; background: #060a09; border: 1px solid var(--mint); color: #fff; border-radius: 6px; padding: 4px 6px; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 800;">
+                        <span style="font-size: 12px; color: var(--text-secondary); font-weight: 700;">cm</span>
+                        <button type="button" onclick="adjustCurrentDeskH(1)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 26px; height: 26px; border-radius: 6px; cursor: pointer; font-weight: 800;">＋</button>
+                    </div>
+                </div>
+
+                <!-- アクション（シェア・URLコピー・画像保存・やり直し） -->
+                <div class="share-actions" style="flex-wrap: wrap;">
                     <button class="btn-re-calc" onclick="resetWizard()">↺ 条件を変更して再診断</button>
+                    <button type="button" class="btn-re-calc" onclick="copyErgoShareUrl()" style="border-color: rgba(16, 185, 129, 0.45); color: var(--mint);">🔗 カルテURLをコピー</button>
+                    <button type="button" class="btn-re-calc" onclick="exportErgoKarteImage()" style="border-color: rgba(0, 240, 255, 0.45); color: #67e8f9;">🖼️ カルテ画像を保存</button>
                     <a href="#" id="btn-share-x" class="btn-share-x" target="_blank">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         結果をXでシェア
@@ -1476,7 +1492,9 @@
                 deltaStr = `${absDiff}cmも低くて前かがみになってた`;
             }
             const shareText = encodeURIComponent(`そりゃ身体痛くなるわ…。\n身長${h}cmの私の理想デスク高って【${deskH}cm】なのに、市販70cm机使ってて【${deltaStr}】ことが判明した…😱\n毎日何キロもの負荷を肩や腰にかけ続けてたようなもんじゃん…！\n\nあなたの身長のジャスト寸法カルテはこちら👇\n`);
-            const shareUrl = encodeURIComponent("https://fhmch.github.io/ErgoSwipe/");
+            const shareUrlRaw = `https://fhmch.github.io/ErgoSwipe/?h=${h}&p=${answers.pain}&b=${answers.budget}&hr=${answers.hours}`;
+            const shareUrl = encodeURIComponent(shareUrlRaw);
+            updateCurrentDeskComparison();
             document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}&hashtags=ErgoSwipe,デスクワーク,腰痛対策,肩こり`;
 
             renderDynamicPostureComparison(h, deskH, diffWithStandard);
@@ -1823,6 +1841,154 @@
             banner.innerHTML = '<span>🌐 English version available (inches & US desks):</span> <a href="en/" style="background: #00f0ff; color: #000; padding: 4px 10px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 12px;">Switch to EN</a> <button onclick="this.parentElement.remove(); sessionStorage.setItem(\'ergo_lang_prompted\', \'1\');" style="background: transparent; border: none; color: #94a3b8; cursor: pointer; font-size: 14px;">✕</button>';
             document.body.prepend(banner);
         }
+
+        function adjustCurrentDeskH(delta) {
+            const inp = document.getElementById("current-desk-h-input");
+            if (!inp) return;
+            const v = Math.min(85, Math.max(55, (parseFloat(inp.value) || 70) + delta));
+            inp.value = v;
+            updateCurrentDeskComparison();
+        }
+
+        function updateCurrentDeskComparison() {
+            const inp = document.getElementById("current-desk-h-input");
+            const lbl = document.getElementById("custom-desk-diff-label");
+            if (!inp || !lbl) return;
+            const userDeskH = parseFloat(inp.value) || 70.0;
+            const h = answers.height || 170;
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const idealDeskH = Math.round((seatH + diffH) * 10) / 10;
+            const gap = Math.round((userDeskH - idealDeskH) * 10) / 10;
+
+            if (Math.abs(gap) <= 1.0) {
+                lbl.innerHTML = `現在の机（${userDeskH}cm）はあなたの理想高（${idealDeskH}cm）と<strong>ジャスト適合（差 ${gap > 0 ? '+' : ''}${gap}cm）</strong>です！`;
+                lbl.style.color = "#34d399";
+            } else if (gap > 1.0) {
+                lbl.innerHTML = `現在の机（${userDeskH}cm）は理想（${idealDeskH}cm）より<strong>+${gap}cm 高すぎます</strong>（要フットレスト厚 約${Math.round(gap)}cm）`;
+                lbl.style.color = "#fca5a5";
+            } else {
+                lbl.innerHTML = `現在の机（${userDeskH}cm）は理想（${idealDeskH}cm）より<strong>${Math.abs(gap)}cm 低すぎます</strong>（デスクかさ上げ・昇降推奨）`;
+                lbl.style.color = "#fde68a";
+            }
+        }
+
+        function getErgoShareUrl() {
+            const h = answers.height || 170;
+            const p = answers.pain || 'waist';
+            const b = answers.budget || 'value';
+            const hr = answers.hours || 'heavy';
+            return `${window.location.origin}${window.location.pathname}?h=${h}&p=${p}&b=${b}&hr=${hr}`;
+        }
+
+        function copyErgoShareUrl() {
+            const url = getErgoShareUrl();
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert("あなたの診断カルテURLをコピーしました！SNSやメモに貼り付けて共有できます。");
+                }).catch(() => {
+                    prompt("以下のURLをコピーして共有してください：", url);
+                });
+            } else {
+                prompt("以下のURLをコピーして共有してください：", url);
+            }
+        }
+
+        function exportErgoKarteImage() {
+            const h = answers.height || 170;
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+            const gap70 = Math.round((70.0 - deskH) * 10) / 10;
+
+            const cvs = document.createElement("canvas");
+            cvs.width = 1200;
+            cvs.height = 630;
+            const ctx = cvs.getContext("2d");
+
+            const grad = ctx.createLinearGradient(0, 0, 1200, 630);
+            grad.addColorStop(0, "#05110e");
+            grad.addColorStop(1, "#0b1924");
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 1200, 630);
+
+            ctx.strokeStyle = "rgba(16, 185, 129, 0.5)";
+            ctx.lineWidth = 4;
+            ctx.strokeRect(24, 24, 1152, 582);
+
+            ctx.fillStyle = "#10b981";
+            ctx.font = 'bold 20px "JetBrains Mono", monospace';
+            ctx.fillText("ERGOSWIPE // BIO-MECHANICAL POSTURE PRESCRIPTION", 60, 78);
+
+            ctx.fillStyle = "#ffffff";
+            ctx.font = 'bold 38px "Noto Sans JP", sans-serif';
+            ctx.fillText(`身長 ${h}cm の人間工学ジャスト寸法カルテ`, 60, 135);
+
+            // 3 Metric Boxes
+            const metrics = [
+                { label: "推奨・座面高 (Seat)", val: `${seatH} cm`, col: "#34d399" },
+                { label: "推奨・デスク天板高 (Desk)", val: `${deskH} cm`, col: "#00f0ff" },
+                { label: "理想差尺 (Differential)", val: `${diffH} cm`, col: "#fbbf24" }
+            ];
+            metrics.forEach((m, i) => {
+                const bx = 60 + i * 368;
+                const by = 175;
+                ctx.fillStyle = "rgba(15, 29, 25, 0.9)";
+                ctx.fillRect(bx, by, 344, 170);
+                ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
+                ctx.lineWidth = 2;
+                ctx.strokeRect(bx, by, 344, 170);
+
+                ctx.fillStyle = "#94a3b8";
+                ctx.font = 'bold 18px "Noto Sans JP", sans-serif';
+                ctx.fillText(m.label, bx + 24, by + 48);
+
+                ctx.fillStyle = m.col;
+                ctx.font = 'bold 54px "JetBrains Mono", monospace';
+                ctx.fillText(m.val, bx + 24, by + 125);
+            });
+
+            // Gap analysis banner
+            ctx.fillStyle = "rgba(239, 68, 68, 0.14)";
+            ctx.fillRect(60, 380, 1080, 110);
+            ctx.strokeStyle = "rgba(239, 68, 68, 0.45)";
+            ctx.strokeRect(60, 380, 1080, 110);
+
+            ctx.fillStyle = "#fca5a5";
+            ctx.font = 'bold 24px "Noto Sans JP", sans-serif';
+            const gapMsg = gap70 > 0
+                ? `⚠️ 市販標準デスク(70cm)とのズレ：+${gap70}cm 高すぎ（肩こり・足浮き腰痛の原因）`
+                : `💡 市販標準デスク(70cm)との差：${Math.abs(gap70)}cm`;
+            ctx.fillText(gapMsg, 88, 428);
+
+            ctx.fillStyle = "#e2e8f0";
+            ctx.font = '19px "Noto Sans JP", sans-serif';
+            ctx.fillText(`対策処方：${gap70 > 1.5 ? '最低高58cm対応の低床電動昇降デスク または 厚み約' + Math.round(gap70) + 'cmのフットレスト導入が必須' : 'アームレスト高の同期と適正視距離(50〜70cm)の維持'}`, 88, 468);
+
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = 'bold 18px "JetBrains Mono", monospace';
+            ctx.fillText("https://fhmch.github.io/ErgoSwipe/  |  JIS S 1021 & ISO 9241 Ergonomics Calculator", 60, 560);
+
+            const link = document.createElement("a");
+            link.download = `ErgoSwipe_Karte_${h}cm.png`;
+            link.href = cvs.toDataURL("image/png");
+            link.click();
+        }
+
+        // URLパラメータからの自動カルテ復元 (?h=165&p=neck&b=value)
+        (function restoreErgoFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const hParam = parseInt(params.get("h") || "", 10);
+            if (hParam && hParam >= 135 && hParam <= 210) {
+                answers.height = hParam;
+                answers.pain = params.get("p") || "waist";
+                answers.budget = params.get("b") || "value";
+                answers.hours = params.get("hr") || "heavy";
+                updateHeight(hParam);
+                calculateAndShowResults();
+            }
+        })();
+
     </script>
 </body>
 </html>
