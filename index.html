@@ -868,7 +868,10 @@
 
             <!-- Q2: 最も辛い部位 -->
             <div class="question-card" id="q-2">
-                <div class="question-header">STEP 02 / 04</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 02 / 04</div>
+                    <button type="button" onclick="nextQuestion(1)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer;">← 前の質問に戻る</button>
+                </div>
                 <h2 class="question-title">いま最も負担や痛みを感じる部位はどこですか？</h2>
                 <div class="options-grid grid-2">
                     <button class="opt-btn" onclick="selectOption('pain', 'waist')">
@@ -904,7 +907,10 @@
 
             <!-- Q3: 身長入力（手打ち・ボタン・スライダー連動） -->
             <div class="question-card" id="q-3">
-                <div class="question-header">STEP 03 / 04</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 03 / 04</div>
+                    <button type="button" onclick="nextQuestion(2)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer;">← 前の質問に戻る</button>
+                </div>
                 <h2 class="question-title">あなたの身長を教えてください（寸法計算用）</h2>
                 <div class="height-slider-box">
                     <div class="height-input-container">
@@ -932,23 +938,33 @@
                 <button class="btn-wizard-next" onclick="nextQuestion(4)">この身長で確定して次へ ➔</button>
             </div>
 
-            <!-- Q4: 予算・志向 -->
+            <!-- Q4: 予算・志向（3段階：手軽即効ケア / 高コスパ本格 / プロ最高峰） -->
             <div class="question-card" id="q-4">
-                <div class="question-header">STEP 04 / 04</div>
-                <h2 class="question-title">環境構築の予算とこだわりをお選びください</h2>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 04 / 04</div>
+                    <button type="button" onclick="nextQuestion(3)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer;">← 前の質問に戻る</button>
+                </div>
+                <h2 class="question-title">ご希望の改善アプローチ・予算感をお選びください</h2>
                 <div class="options-grid">
+                    <button class="opt-btn" onclick="selectOption('budget', 'instant')">
+                        <span class="opt-icon">💡</span>
+                        <div>
+                            <div class="opt-text-title">手軽に即効ケア（予算 3,000円〜1.5万円｜今の机・椅子はそのまま）</div>
+                            <div class="opt-text-sub">机や椅子を買い替えず、フットレスト・後付けスライダー・スタンド・クッション等で今すぐ痛みを軽減</div>
+                        </div>
+                    </button>
                     <button class="opt-btn" onclick="selectOption('budget', 'value')">
                         <span class="opt-icon">🎯</span>
                         <div>
-                            <div class="opt-text-title">高コスパ実践派（実用3万〜5万円）</div>
-                            <div class="opt-text-sub">費用を抑えつつ、劇的に疲労を削る即効アイテムを厳選</div>
+                            <div class="opt-text-title">高コスパ本格構築（予算 3万〜6万円｜コスパ優秀なチェア・昇降デスク）</div>
+                            <div class="opt-text-sub">費用対効果が最も高いエルゴチェア・電動昇降デスク・5,000円台モニターアームで環境を一新</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('budget', 'premium')">
                         <span class="opt-icon">👑</span>
                         <div>
-                            <div class="opt-text-title">プロ・一生モノ最高峰（本格10万円〜）</div>
-                            <div class="opt-text-sub">エルゴヒューマン/COFOなど身体を守り抜くプロ仕様</div>
+                            <div class="opt-text-title">プロ・一生モノ最高峰（予算 10万円〜｜妥協なきフラッグシップ）</div>
+                            <div class="opt-text-sub">COFO / エルゴヒューマン / FlexiSpot E7 / エルゴトロン等、10年使える最高峰ギアで完全構築</div>
                         </div>
                     </button>
                 </div>
@@ -1538,7 +1554,15 @@
                 // diffWithStandard < -1.5 (天板が低すぎる大柄な人)
                 warningMsg = `⚠️ <strong>大柄な体型に対する既製品デスクの低さ警告:</strong><br>一般的な70cmデスクはあなたの体型に対して「<strong>約${absDiff}cm 低め</strong>」です。無意識に前かがみになって猫背・ストレートネックを誘発するため、天板を高く設定できる昇降デスクとモニターアームでの視線持ち上げが推奨されます。`;
             }
-            warningEl.innerHTML = warningMsg;
+            let hoursAdvice = "";
+            if (answers.hours === 'heavy') {
+                hoursAdvice = `<div style="margin-top:10px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.15); color:#fde68a; font-size:12.5px;">🔥 <strong>【1日8時間以上のヘビー作業者向け・医学的警告】:</strong> 連続着座が8時間を超えると、どんなに良い姿勢でも椎間板内圧の蓄積と下半身の血流停滞が限界に達します。<strong>「1時間に10〜15分だけ天板を上げて立つ（スタンディング交互作業）」</strong>を取り入れることが寿命と集中力を守る鍵です。</div>`;
+            } else if (answers.hours === 'medium') {
+                hoursAdvice = `<div style="margin-top:10px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.15); color:#67e8f9; font-size:12.5px;">💻 <strong>【1日4〜8時間のフルタイム作業者向けアドバイス】:</strong> 夕方16時以降に急増する首・腰の疲労は「モニターの高さ不足」と「足裏の浮き」が主因です。まずはモニターアームまたはスタンドで目線を水平にロックしましょう。</div>`;
+            } else {
+                hoursAdvice = `<div style="margin-top:10px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.15); color:#34d399; font-size:12.5px;">☕ <strong>【1日4時間未満のライト作業者向けアドバイス】:</strong> 大掛かりな家具の買い替えをしなくても、<strong>フットレスト・ノートPCスタンド・体圧分散クッション・トラックボール等の数千円の即効グッズ</strong>だけで十分に無痛環境を作れます。</div>`;
+            }
+            warningEl.innerHTML = warningMsg + hoursAdvice;
 
             // Xシェアリンク生成（バイラル・自己開示＆共感トリガー強化版）
             let deltaStr = "";
@@ -1873,6 +1897,20 @@
             } else if (answers.pain === 'waist') {
                 selectedGears.push(gearCatalog.accessories.cushion_lumbar);
                 selectedGears.push(gearCatalog.accessories.trackball_mouse);
+            }
+
+            // When user selects 'instant' (予算3,000円〜1.5万円・今の机と椅子はそのまま), move instant-relief accessories & value arm to the TOP!
+            if (answers.budget === 'instant') {
+                const chairAndDesk = selectedGears.slice(0, 2).map(g => ({
+                    ...g,
+                    role: `【将来的な本格買い替え候補】 ${g.role}`
+                }));
+                const instantItems = selectedGears.slice(2).map(g => ({
+                    ...g,
+                    role: `⚡ 【今の机・椅子のまま即効改善】 ${g.role}`
+                }));
+                selectedGears.length = 0;
+                selectedGears.push(...instantItems, ...chairAndDesk);
             }
 
             selectedGears.forEach(gear => {
