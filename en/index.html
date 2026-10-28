@@ -785,8 +785,8 @@
             gap: 8px;
         }
         .mall-btn {
-            padding: 10px 14px;
-            border-radius: 8px;
+            padding: 9px 14px;
+            border-radius: 12px;
             font-size: 12px;
             font-weight: 700;
             text-decoration: none;
@@ -795,11 +795,31 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
         }
-        .btn-amazon { background: #ff9900; color: #111; }
-        .btn-official { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
-        .mall-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-amazon {
+            background: rgba(255, 153, 0, 0.09);
+            border: 1px solid rgba(255, 153, 0, 0.35);
+            color: #ffb84d;
+        }
+        .btn-amazon:hover {
+            background: rgba(255, 153, 0, 0.22);
+            border-color: #ff9900;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(255, 153, 0, 0.35);
+            transform: translateY(-1.5px);
+        }
+        .btn-official {
+            background: rgba(255, 255, 255, 0.05);
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+        .btn-official:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1.5px);
+        }
 
         footer {
             border-top: 1px solid var(--border-glass);

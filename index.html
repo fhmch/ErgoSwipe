@@ -69,13 +69,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
     
-    <style>
+        <style>
         :root {
-            --bg-base: #060a09;
-            --bg-panel: rgba(10, 18, 16, 0.88);
-            --bg-card: #0c1714;
+            /* Sophisticated Obsidian & Deep Slate Palette */
+            --bg-base: #080c10;
+            --bg-panel: rgba(13, 20, 26, 0.85);
+            --bg-panel-solid: #0d141a;
+            --bg-card: rgba(18, 28, 36, 0.72);
+            --bg-card-hover: rgba(24, 38, 48, 0.92);
+            --bg-card-selected: rgba(16, 185, 129, 0.12);
+            
             --border-glass: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(16, 185, 129, 0.4);
+            --border-glass-strong: rgba(255, 255, 255, 0.16);
+            --border-glow: rgba(16, 185, 129, 0.45);
             
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
@@ -84,7 +90,8 @@
             --emerald: #10b981;
             --emerald-glow: rgba(16, 185, 129, 0.4);
             --mint: #34d399;
-            --sage: #059669;
+            --cyan-accent: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.35);
             --red-warn: #ef4444;
             --warning: #f59e0b;
         }
@@ -105,8 +112,10 @@
             flex-direction: column;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(ellipse at 15% 15%, rgba(16, 185, 129, 0.09) 0%, transparent 60%),
-                radial-gradient(ellipse at 85% 75%, rgba(52, 211, 153, 0.06) 0%, transparent 60%);
+                radial-gradient(ellipse at 18% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at 82% 65%, rgba(6, 182, 212, 0.06) 0%, transparent 60%),
+                radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+            letter-spacing: -0.01em;
         }
 
         /* HEADER */
@@ -114,19 +123,22 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(6, 10, 9, 0.88);
-            backdrop-filter: blur(16px);
+            background: rgba(8, 12, 16, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-glass);
-            padding: 12px 20px;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            transition: all 0.2s ease;
         }
 
         .logo-group {
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
 
         .brand-badge {
@@ -134,109 +146,147 @@
             color: #042517;
             font-family: 'Cabinet Grotesk', sans-serif;
             font-weight: 900;
-            font-size: 13px;
-            padding: 3px 8px;
-            border-radius: 6px;
-            letter-spacing: 0.5px;
+            font-size: 11.5px;
+            padding: 4px 8px;
+            border-radius: 7px;
+            letter-spacing: 0.8px;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
         }
 
         .brand-title {
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #fff, var(--text-secondary));
+            letter-spacing: -0.6px;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .sibling-badge {
-            font-size: 11px;
+            font-size: 11.5px;
+            font-weight: 700;
             color: var(--mint);
-            border: 1px solid rgba(52, 211, 153, 0.3);
-            background: rgba(16, 185, 129, 0.08);
-            padding: 4px 10px;
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            background: rgba(16, 185, 129, 0.07);
+            padding: 6px 13px;
             border-radius: 20px;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 4px;
-            transition: all 0.2s ease;
+            gap: 6px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .sibling-badge:hover {
-            background: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.18);
             border-color: var(--mint);
+            box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
+            transform: translateY(-1px);
         }
 
         /* CONTAINER */
         main {
             flex: 1;
-            max-width: 920px;
+            max-width: 940px;
             width: 100%;
             margin: 0 auto;
-            padding: 24px 16px 80px 16px;
+            padding: 32px 18px 80px 18px;
         }
 
         /* HERO CARD */
         .hero-banner {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
             padding: 10px 10px;
         }
         .hero-tagline {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11px;
+            gap: 7px;
+            font-size: 11.5px;
             font-weight: 800;
             color: var(--mint);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
-            background: rgba(16, 185, 129, 0.12);
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(16, 185, 129, 0.25);
-        }
-        .hero-title {
-            font-size: 28px;
-            font-weight: 900;
-            line-height: 1.35;
+            letter-spacing: 1.2px;
             margin-bottom: 12px;
+            background: rgba(16, 185, 129, 0.08);
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.28);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.12);
+        }
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--mint);
+            box-shadow: 0 0 8px var(--mint);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 12px var(--mint); }
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.3;
+            letter-spacing: -0.8px;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @media(max-width: 600px) {
+            .hero-title {
+                font-size: 26px;
+            }
         }
         .hero-desc {
             font-size: 14px;
             color: var(--text-secondary);
-            max-width: 620px;
+            max-width: 640px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.68;
         }
 
         /* WIZARD CONTAINER */
         .wizard-panel {
             background: var(--bg-panel);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 28px 24px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            margin-bottom: 32px;
+            border: 1px solid var(--border-glass-strong);
+            border-radius: 24px;
+            padding: 32px 28px;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
+            margin-bottom: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        .wizard-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.4), transparent);
         }
 
         .step-progress-bar {
             display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
+            gap: 10px;
+            margin-bottom: 28px;
         }
         .step-dot {
             flex: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            transition: all 0.3s ease;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 3px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .step-dot.active {
-            background: var(--emerald);
-            box-shadow: 0 0 10px var(--emerald-glow);
+            background: linear-gradient(90deg, var(--emerald), var(--mint));
+            box-shadow: 0 0 12px var(--emerald-glow);
         }
 
         .question-card {
@@ -244,28 +294,30 @@
         }
         .question-card.active {
             display: block;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .question-header {
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 11.5px;
+            font-weight: 800;
             color: var(--mint);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 6px;
+            letter-spacing: 0.8px;
         }
         .question-title {
-            font-size: 21px;
+            font-size: 22px;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             line-height: 1.4;
+            letter-spacing: -0.4px;
         }
 
         .options-grid {
@@ -282,83 +334,104 @@
         .opt-btn {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 14px;
-            padding: 16px 18px;
+            border-radius: 16px;
+            padding: 18px 20px;
             text-align: left;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             color: var(--text-primary);
+            position: relative;
         }
         .opt-btn:hover {
-            border-color: var(--border-glow);
-            background: rgba(14, 25, 22, 0.95);
+            border-color: rgba(52, 211, 153, 0.45);
+            background: var(--bg-card-hover);
             transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .opt-btn:active {
+            transform: scale(0.99);
         }
         .opt-btn.selected {
             border-color: var(--emerald);
-            background: rgba(16, 185, 129, 0.12);
-            box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
+            background: var(--bg-card-selected);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.25), inset 0 0 12px rgba(16, 185, 129, 0.08);
         }
-        .opt-icon {
-            font-size: 24px;
-            line-height: 1;
+        .opt-icon-circle {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.25s ease;
+        }
+        .opt-btn:hover .opt-icon-circle {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
         }
         .opt-text-title {
             font-size: 15px;
             font-weight: 700;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
+            letter-spacing: -0.2px;
         }
         .opt-text-sub {
             font-size: 12px;
             color: var(--text-secondary);
+            line-height: 1.45;
         }
 
         /* HEIGHT SLIDER */
         .height-slider-box {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 24px 20px;
+            border-radius: 20px;
+            padding: 28px 24px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
         .height-input-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 8px;
+            gap: 14px;
+            margin-bottom: 12px;
         }
         .height-num-input {
-            width: 110px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1.5px solid rgba(16, 185, 129, 0.4);
-            border-radius: 12px;
-            padding: 8px 12px;
+            width: 120px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1.5px solid rgba(16, 185, 129, 0.45);
+            border-radius: 14px;
+            padding: 10px 14px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 800;
             color: var(--mint);
             text-align: center;
             outline: none;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         }
         .height-num-input:focus {
             border-color: var(--mint);
-            box-shadow: 0 0 16px var(--emerald-glow);
-            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px var(--emerald-glow);
+            background: rgba(0, 0, 0, 0.7);
         }
         .height-btn-adjust {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--border-glass);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass-strong);
             color: #fff;
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            font-size: 18px;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            font-size: 20px;
             font-weight: 800;
             cursor: pointer;
             display: inline-flex;
@@ -370,30 +443,41 @@
             background: rgba(16, 185, 129, 0.2);
             border-color: var(--mint);
             color: var(--mint);
+            transform: translateY(-1px);
+        }
+        .height-btn-adjust:active {
+            transform: scale(0.92);
         }
         .height-quick-row {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 14px;
         }
         .height-quick-btn {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.09);
             color: var(--text-secondary);
-            padding: 5px 10px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
             font-family: 'JetBrains Mono', monospace;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        .height-quick-btn:hover, .height-quick-btn.active {
+        .height-quick-btn:hover {
             background: rgba(16, 185, 129, 0.15);
             border-color: var(--mint);
             color: var(--mint);
+            transform: translateY(-1px);
+        }
+        .height-quick-btn.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 182, 212, 0.2));
+            border-color: var(--mint);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
         }
         .slider-range {
             width: 100%;
@@ -402,7 +486,7 @@
             background: rgba(255, 255, 255, 0.1);
             outline: none;
             -webkit-appearance: none;
-            margin: 16px 0 6px 0;
+            margin: 18px 0 8px 0;
             cursor: pointer;
         }
         .slider-range::-webkit-slider-thumb {
@@ -410,9 +494,14 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: var(--emerald);
+            background: linear-gradient(135deg, #ffffff, var(--mint));
             cursor: pointer;
-            box-shadow: 0 0 12px var(--emerald-glow);
+            box-shadow: 0 0 14px var(--emerald-glow), 0 2px 6px rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--emerald);
+            transition: transform 0.15s ease;
+        }
+        .slider-range::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
         }
 
         .btn-wizard-next {
@@ -420,18 +509,23 @@
             background: linear-gradient(135deg, var(--emerald), var(--mint));
             color: #042517;
             border: none;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 14px;
             font-size: 16px;
             font-weight: 800;
+            letter-spacing: -0.2px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
-            margin-top: 14px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.3);
+            margin-top: 16px;
         }
         .btn-wizard-next:hover {
-            opacity: 0.95;
-            transform: translateY(-1px);
+            opacity: 0.96;
+            transform: translateY(-1.5px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+        .btn-wizard-next:active {
+            transform: scale(0.99);
         }
 
         /* RESULT SECTION */
@@ -442,23 +536,32 @@
 
         /* KARTE CONTAINER (Medical / Lab Style) */
         .karte-card {
-            background: linear-gradient(145deg, rgba(12, 23, 20, 0.95), rgba(7, 13, 11, 0.98));
-            border: 1px solid rgba(16, 185, 129, 0.35);
-            border-radius: 20px;
-            padding: 26px;
-            margin-bottom: 30px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.1);
+            background: linear-gradient(145deg, rgba(15, 24, 30, 0.95), rgba(9, 15, 20, 0.98));
+            border: 1px solid rgba(16, 185, 129, 0.38);
+            border-radius: 24px;
+            padding: 30px 28px;
+            margin-bottom: 36px;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(16, 185, 129, 0.12);
             position: relative;
             overflow: hidden;
         }
+        .karte-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--emerald), var(--cyan-accent), var(--mint));
+        }
         .karte-watermark {
             position: absolute;
-            top: -20px;
-            right: -20px;
+            top: -25px;
+            right: -25px;
             font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 110px;
+            font-size: 120px;
             font-weight: 900;
-            color: rgba(16, 185, 129, 0.03);
+            color: rgba(16, 185, 129, 0.035);
             pointer-events: none;
             user-select: none;
         }
@@ -470,36 +573,49 @@
             justify-content: space-between;
             gap: 12px;
             border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 16px;
-            margin-bottom: 20px;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
         }
         .karte-title-group {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .karte-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
             color: #fff;
+            letter-spacing: -0.4px;
         }
-        .karte-tag {
-            background: rgba(16, 185, 129, 0.15);
+        .karte-badge-verified {
+            font-size: 11px;
+            font-weight: 800;
+            background: rgba(16, 185, 129, 0.12);
             color: var(--mint);
             border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .karte-tag {
+            background: rgba(6, 182, 212, 0.12);
+            color: #67e8f9;
+            border: 1px solid rgba(6, 182, 212, 0.3);
             font-size: 11px;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* POSTURE COMPARISON BOX (Visual Impact) */
+        /* POSTURE COMPARISON BOX */
         .posture-comp-box {
             display: grid;
             grid-template-columns: 1fr;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
         @media(min-width: 640px) {
             .posture-comp-box {
@@ -507,114 +623,129 @@
             }
         }
         .posture-item {
-            border-radius: 14px;
-            padding: 16px;
+            border-radius: 18px;
+            padding: 18px;
             border: 1px solid var(--border-glass);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            backdrop-filter: blur(12px);
         }
         .posture-bad {
-            background: rgba(239, 68, 68, 0.06);
-            border-color: rgba(239, 68, 68, 0.25);
+            background: rgba(239, 68, 68, 0.05);
+            border-color: rgba(239, 68, 68, 0.28);
         }
         .posture-good {
-            background: rgba(16, 185, 129, 0.08);
-            border-color: rgba(16, 185, 129, 0.35);
+            background: rgba(16, 185, 129, 0.06);
+            border-color: rgba(16, 185, 129, 0.38);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
         }
         .posture-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 7px;
         }
-        .posture-bad .posture-label { color: var(--red-warn); }
+        .posture-bad .posture-label { color: #f87171; }
         .posture-good .posture-label { color: var(--mint); }
         .posture-desc {
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 12.5px;
+            line-height: 1.6;
             color: var(--text-secondary);
-            margin-bottom: 8px;
         }
         .posture-svg-wrap {
             position: relative;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            padding: 10px 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 14px;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
         .posture-svg {
             width: 100%;
-            height: 120px;
+            height: 125px;
             display: block;
         }
         .posture-badge-row {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 8px;
+            margin-top: 10px;
             justify-content: flex-start;
         }
         .posture-badge {
             font-size: 11px;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 4px 9px;
             border-radius: 6px;
             display: inline-flex;
             align-items: center;
             gap: 4px;
         }
         .badge-bad {
-            background: rgba(239, 68, 68, 0.15);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.14);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.35);
         }
         .badge-good {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.14);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.35);
         }
 
         /* METRICS GRID */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
         .metric-item {
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 14px;
+            border-radius: 16px;
+            padding: 18px 14px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .metric-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--mint), transparent);
         }
         .metric-label {
             font-size: 12px;
+            font-weight: 700;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .metric-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
             color: #fff;
+            letter-spacing: -0.5px;
         }
         .metric-unit {
-            font-size: 13px;
-            color: var(--text-tertiary);
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 700;
         }
 
         .warning-callout {
             background: rgba(245, 158, 11, 0.08);
             border-left: 3px solid var(--warning);
-            padding: 14px 16px;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 18px;
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.65;
             color: #fde68a;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         /* SHARE SECTION */
@@ -625,116 +756,132 @@
             align-items: center;
             justify-content: flex-end;
             border-top: 1px solid var(--border-glass);
-            padding-top: 16px;
+            padding-top: 18px;
         }
         .btn-share-x {
-            background: #fff;
-            color: #000;
+            background: #ffffff;
+            color: #000000;
             border: none;
-            padding: 9px 16px;
-            border-radius: 8px;
+            padding: 10px 18px;
+            border-radius: 10px;
             font-size: 13px;
             font-weight: 800;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             text-decoration: none;
             transition: all 0.2s ease;
         }
         .btn-share-x:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
+            background: #e2e8f0;
+            transform: translateY(-1.5px);
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
         }
         .btn-re-calc {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             color: var(--text-secondary);
             border: 1px solid var(--border-glass);
-            padding: 9px 14px;
-            border-radius: 8px;
-            font-size: 12px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 12.5px;
             font-weight: 700;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
         .btn-re-calc:hover {
             color: #fff;
             background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         /* RECOMMENDATIONS */
         .section-title {
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 800;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            letter-spacing: -0.4px;
         }
 
         .gear-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
         }
         .gear-card {
             background: var(--bg-panel);
             border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 22px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
-            transition: all 0.2s ease;
+            gap: 18px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gear-card:hover {
+            border-color: rgba(16, 185, 129, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
         @media(min-width: 680px) {
             .gear-card {
-                grid-template-columns: 130px 1fr 140px;
+                grid-template-columns: 140px 1fr 140px;
                 align-items: center;
             }
         }
         .gear-img-box {
             width: 100%;
-            height: 110px;
-            border-radius: 12px;
+            height: 120px;
+            border-radius: 14px;
             background: #000;
             border: 1px solid var(--border-glass);
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 6px;
         }
         .gear-img-box img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 92%;
+            max-height: 92%;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .gear-card:hover .gear-img-box img {
+            transform: scale(1.05);
         }
         .gear-role {
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--mint);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
         .gear-name {
-            font-size: 17px;
+            font-size: 17.5px;
             font-weight: 800;
             margin-bottom: 6px;
+            letter-spacing: -0.3px;
         }
         .gear-reason {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.65;
         }
         .gear-links {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
+
+        /* REFINED EDITORIAL MALL BUTTONS (No Cheap Banners) */
         .mall-btn {
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 9px 14px;
+            border-radius: 12px;
             font-size: 12px;
             font-weight: 700;
             text-decoration: none;
@@ -743,24 +890,57 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
         }
-        .btn-amazon { background: #ff9900; color: #111; }
-        .btn-rakuten { background: #bf0000; color: #fff; }
-        .btn-yahoo { background: #ff0033; color: #fff; }
-        .mall-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-amazon {
+            background: rgba(255, 153, 0, 0.09);
+            border: 1px solid rgba(255, 153, 0, 0.35);
+            color: #ffb84d;
+        }
+        .btn-amazon:hover {
+            background: rgba(255, 153, 0, 0.22);
+            border-color: #ff9900;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(255, 153, 0, 0.35);
+            transform: translateY(-1.5px);
+        }
+        .btn-rakuten {
+            background: rgba(239, 68, 68, 0.09);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
+        }
+        .btn-rakuten:hover {
+            background: rgba(239, 68, 68, 0.22);
+            border-color: #ef4444;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(239, 68, 68, 0.35);
+            transform: translateY(-1.5px);
+        }
+        .btn-yahoo {
+            background: rgba(244, 63, 94, 0.09);
+            border: 1px solid rgba(244, 63, 94, 0.35);
+            color: #fda4af;
+        }
+        .btn-yahoo:hover {
+            background: rgba(244, 63, 94, 0.22);
+            border-color: #f43f5e;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(244, 63, 94, 0.35);
+            transform: translateY(-1.5px);
+        }
 
         /* SIBLING BANNER (DeskSwipe) */
         .sibling-banner {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 240, 255, 0.08));
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            border-radius: 18px;
-            padding: 24px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.08));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 26px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
             align-items: flex-start;
-            margin-top: 40px;
+            margin-top: 44px;
         }
         @media(min-width: 600px) {
             .sibling-banner {
@@ -770,29 +950,36 @@
             }
         }
         .sibling-banner-title {
-            font-size: 16px;
+            font-size: 16.5px;
             font-weight: 800;
             margin-bottom: 4px;
         }
         .sibling-banner-desc {
             font-size: 13px;
             color: var(--text-secondary);
+            line-height: 1.55;
         }
         .btn-sibling {
             background: linear-gradient(135deg, var(--emerald), var(--mint));
             color: #042517;
-            padding: 10px 18px;
-            border-radius: 10px;
+            padding: 11px 20px;
+            border-radius: 12px;
             font-size: 13px;
             font-weight: 800;
             text-decoration: none;
             white-space: nowrap;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+        }
+        .btn-sibling:hover {
+            transform: translateY(-1.5px);
+            box-shadow: 0 6px 22px rgba(16, 185, 129, 0.35);
         }
 
         /* FOOTER */
         footer {
             border-top: 1px solid var(--border-glass);
-            padding: 24px 16px;
+            padding: 28px 16px;
             text-align: center;
             font-size: 12px;
             color: var(--text-tertiary);
@@ -820,7 +1007,7 @@
     <main>
         <!-- HERO -->
         <div class="hero-banner">
-            <div class="hero-tagline">🔬 Ergonomics Bio-Mechanics Lab</div>
+            <div class="hero-tagline"><span class="live-dot"></span> 🔬 Ergonomics Bio-Mechanics Lab</div>
             <h1 class="hero-title">在宅・デスクワーク<br>疲労ゼロ空間診断カルテ</h1>
             <p class="hero-desc">
                 人間工学（JIS規格）に基づき、あなたの身長から「ミリ単位の理想デスク高・座面高」を算出。
@@ -834,84 +1021,12 @@
                 <div class="step-dot active" id="dot-1"></div>
                 <div class="step-dot" id="dot-2"></div>
                 <div class="step-dot" id="dot-3"></div>
-                <div class="step-dot" id="dot-4"></div>
             </div>
 
-            <!-- Q1: 作業時間 -->
+            <!-- Q1: 身長入力（手打ち・ボタン・スライダー連動） -->
             <div class="question-card active" id="q-1">
-                <div class="question-header">STEP 01 / 04</div>
-                <h2 class="question-title">1日のデスクワーク時間はどのくらいですか？</h2>
-                <div class="options-grid">
-                    <button class="opt-btn" onclick="selectOption('hours', 'light')">
-                        <span class="opt-icon">☕</span>
-                        <div>
-                            <div class="opt-text-title">4時間未満（ライト作業・事務）</div>
-                            <div class="opt-text-sub">メール確認や短時間のPC作業がメイン</div>
-                        </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('hours', 'medium')">
-                        <span class="opt-icon">💻</span>
-                        <div>
-                            <div class="opt-text-title">4〜8時間（標準在宅・オフィス）</div>
-                            <div class="opt-text-sub">一般的なフルタイムデスクワーク</div>
-                        </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('hours', 'heavy')">
-                        <span class="opt-icon">🔥</span>
-                        <div>
-                            <div class="opt-text-title">8時間以上（ヘビー・没頭型）</div>
-                            <div class="opt-text-sub">エンジニア・クリエイター・長時間ゲーミング</div>
-                        </div>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Q2: 最も辛い部位 -->
-            <div class="question-card" id="q-2">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                    <div class="question-header" style="margin-bottom:0;">STEP 02 / 04</div>
-                    <button type="button" onclick="nextQuestion(1)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer;">← 前の質問に戻る</button>
-                </div>
-                <h2 class="question-title">いま最も負担や痛みを感じる部位はどこですか？</h2>
-                <div class="options-grid grid-2">
-                    <button class="opt-btn" onclick="selectOption('pain', 'waist')">
-                        <span class="opt-icon">🦴</span>
-                        <div>
-                            <div class="opt-text-title">腰・骨盤・お尻</div>
-                            <div class="opt-text-sub">座りっぱなしの腰痛、骨盤の後傾</div>
-                        </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('pain', 'neck')">
-                        <span class="opt-icon">⚡</span>
-                        <div>
-                            <div class="opt-text-title">首・肩（ストレートネック）</div>
-                            <div class="opt-text-sub">画面を覗き込む姿勢、巻き肩、肩こり</div>
-                        </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('pain', 'wrist')">
-                        <span class="opt-icon">🖐️</span>
-                        <div>
-                            <div class="opt-text-title">手首・腕・前腕</div>
-                            <div class="opt-text-sub">マウス腱鞘炎、タイピング疲れ</div>
-                        </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('pain', 'eye')">
-                        <span class="opt-icon">👁️</span>
-                        <div>
-                            <div class="opt-text-title">目・頭痛（眼精疲労）</div>
-                            <div class="opt-text-sub">画面のギラつき、照明の映り込み</div>
-                        </div>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Q3: 身長入力（手打ち・ボタン・スライダー連動） -->
-            <div class="question-card" id="q-3">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                    <div class="question-header" style="margin-bottom:0;">STEP 03 / 04</div>
-                    <button type="button" onclick="nextQuestion(2)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer;">← 前の質問に戻る</button>
-                </div>
-                <h2 class="question-title">あなたの身長を教えてください（寸法計算用）</h2>
+                <div class="question-header">STEP 01 / 03 ｜ DIMENSIONS</div>
+                <h2 class="question-title">あなたの身長を教えてください（適正寸法の算出）</h2>
                 <div class="height-slider-box">
                     <div class="height-input-container">
                         <button type="button" class="height-btn-adjust" onclick="adjustHeight(-1)" title="1cm下げる">−</button>
@@ -922,7 +1037,7 @@
 
                     <input type="range" min="145" max="195" value="170" class="slider-range" id="height-slider" oninput="updateHeight(this.value, 'slider')">
                     
-                    <div style="font-size: 11px; color: var(--text-tertiary); margin-bottom: 8px;">数字を手入力するか、＋/ーボタンまたはスライダーで調整できます</div>
+                    <div style="font-size: 11.5px; color: var(--text-tertiary); margin-bottom: 10px;">数字を手入力するか、＋/ーボタンまたはスライダーで調整できます</div>
 
                     <div class="height-quick-row">
                         <button type="button" class="height-quick-btn" onclick="updateHeight(150)">150cm</button>
@@ -935,36 +1050,75 @@
                         <button type="button" class="height-quick-btn" onclick="updateHeight(185)">185cm</button>
                     </div>
                 </div>
-                <button class="btn-wizard-next" onclick="nextQuestion(4)">この身長で確定して次へ ➔</button>
+                <button class="btn-wizard-next" onclick="nextQuestion(2)">この身長で確定して「お悩み」へ ➔</button>
             </div>
 
-            <!-- Q4: 予算・志向（3段階：手軽即効ケア / 高コスパ本格 / プロ最高峰） -->
-            <div class="question-card" id="q-4">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                    <div class="question-header" style="margin-bottom:0;">STEP 04 / 04</div>
-                    <button type="button" onclick="nextQuestion(3)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer;">← 前の質問に戻る</button>
+            <!-- Q2: 最も辛い部位 -->
+            <div class="question-card" id="q-2">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 02 / 03 ｜ SYMPTOM</div>
+                    <button type="button" onclick="nextQuestion(1)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:5px 12px; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer;">← 身長入力に戻る</button>
+                </div>
+                <h2 class="question-title">いま最も負担・痛みを感じている部位はどこですか？</h2>
+                <div class="options-grid grid-2">
+                    <button class="opt-btn" onclick="selectOption('pain', 'waist')">
+                        <div class="opt-icon-circle">🦴</div>
+                        <div>
+                            <div class="opt-text-title">腰・お尻・骨盤</div>
+                            <div class="opt-text-sub">座りっぱなしの腰痛、骨盤の後傾、坐骨の痛み</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('pain', 'neck')">
+                        <div class="opt-icon-circle">⚡</div>
+                        <div>
+                            <div class="opt-text-title">首・肩こり（ストレートネック）</div>
+                            <div class="opt-text-sub">机が高く肩がすくむ、画面を覗き込む首の重み</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('pain', 'wrist')">
+                        <div class="opt-icon-circle">🖐️</div>
+                        <div>
+                            <div class="opt-text-title">手首・腕・腱鞘炎</div>
+                            <div class="opt-text-sub">マウス操作のだるさ、キーボードの打鍵疲労</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('pain', 'eye')">
+                        <div class="opt-icon-circle">👁️</div>
+                        <div>
+                            <div class="opt-text-title">目・頭痛（眼精疲労）</div>
+                            <div class="opt-text-sub">画面のギラつき、照明の映り込み、焦点固定疲労</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q3: 予算・改善アプローチ -->
+            <div class="question-card" id="q-3">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 03 / 03 ｜ APPROACH</div>
+                    <button type="button" onclick="nextQuestion(2)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:5px 12px; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer;">← 部位選択に戻る</button>
                 </div>
                 <h2 class="question-title">ご希望の改善アプローチ・予算感をお選びください</h2>
                 <div class="options-grid">
                     <button class="opt-btn" onclick="selectOption('budget', 'instant')">
-                        <span class="opt-icon">💡</span>
+                        <div class="opt-icon-circle">💡</div>
                         <div>
-                            <div class="opt-text-title">手軽に即効ケア（予算 3,000円〜1.5万円｜今の机・椅子はそのまま）</div>
-                            <div class="opt-text-sub">机や椅子を買い替えず、フットレスト・後付けスライダー・スタンド・クッション等で今すぐ痛みを軽減</div>
+                            <div class="opt-text-title">手軽に即効ケア（予算 数千円〜1.5万円 ｜ 机・椅子はそのまま）</div>
+                            <div class="opt-text-sub">机や椅子を買い替えず、フットレストやスタンド等の小道具で痛みを今すぐ消す</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('budget', 'value')">
-                        <span class="opt-icon">🎯</span>
+                        <div class="opt-icon-circle">🎯</div>
                         <div>
-                            <div class="opt-text-title">高コスパ本格構築（予算 3万〜6万円｜コスパ優秀なチェア・昇降デスク）</div>
-                            <div class="opt-text-sub">費用対効果が最も高いエルゴチェア・電動昇降デスク・5,000円台モニターアームで環境を一新</div>
+                            <div class="opt-text-title">コスパ本格一新（予算 3万〜6万円 ｜ 昇降デスク or エルゴチェア）</div>
+                            <div class="opt-text-sub">費用対効果が最も高い低床昇降デスクや高機能チェアで環境を根本から一新</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('budget', 'premium')">
-                        <span class="opt-icon">👑</span>
+                        <div class="opt-icon-circle">👑</div>
                         <div>
-                            <div class="opt-text-title">プロ・一生モノ最高峰（予算 10万円〜｜妥協なきフラッグシップ）</div>
-                            <div class="opt-text-sub">COFO / エルゴヒューマン / FlexiSpot E7 / エルゴトロン等、10年使える最高峰ギアで完全構築</div>
+                            <div class="opt-text-title">プロ最高峰（予算 10万円〜 ｜ 妥協なきフラッグシップ）</div>
+                            <div class="opt-text-sub">COFO / エルゴヒューマン / FlexiSpot E7 等、10年使える最高峰ギアで完全構築</div>
                         </div>
                     </button>
                 </div>
@@ -980,6 +1134,7 @@
                     <div class="karte-title-group">
                         <span style="font-size: 20px;">📋</span>
                         <div class="karte-title">エルゴノミクス処方カルテ</div>
+                        <span class="karte-badge-verified"><span class="live-dot" style="width:5px; height:5px;"></span> JIS S 1021 解析済</span>
                     </div>
                     <div class="karte-tag" id="karte-id-tag">ID: ERGO-170-W</div>
                 </div>
@@ -1014,19 +1169,7 @@
                     <!-- JSで動的生成 -->
                 </div>
 
-                <!-- 現在の自宅デスク高とのカスタムギャップ比較 -->
-                <div style="background: rgba(16, 185, 129, 0.06); border: 1px dashed rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-                    <div style="font-size: 12px; color: #cbd5e1; font-weight: 700;">
-                        📏 <strong>あなたの現在の机の高さと比較:</strong> <span id="custom-desk-diff-label" style="color: var(--mint);">市販標準 70.0cm との差を計算中</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="font-size: 11px; color: var(--text-secondary);">現在の机高:</span>
-                        <button type="button" onclick="adjustCurrentDeskH(-1)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 26px; height: 26px; border-radius: 6px; cursor: pointer; font-weight: 800;">−</button>
-                        <input type="number" id="current-desk-h-input" value="70" min="55" max="85" step="0.5" oninput="updateCurrentDeskComparison()" style="width: 58px; background: #060a09; border: 1px solid var(--mint); color: #fff; border-radius: 6px; padding: 4px 6px; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 800;">
-                        <span style="font-size: 12px; color: var(--text-secondary); font-weight: 700;">cm</span>
-                        <button type="button" onclick="adjustCurrentDeskH(1)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 26px; height: 26px; border-radius: 6px; cursor: pointer; font-weight: 800;">＋</button>
-                    </div>
-                </div>
+                
 
                 <!-- アクション（シェア・URLコピー・画像保存・やり直し） -->
                 <div class="share-actions" style="flex-wrap: wrap;">
@@ -1057,72 +1200,13 @@
 
         </div>
 
-        <!-- SEO & 常設お役立ちコンテンツ: 身長別デスク高・座面高 JIS早見表（トップからも常時閲覧可能） -->
-        <section style="margin-top:40px; padding:24px; border-radius:18px; background:rgba(12,23,20,0.6); border:1px solid var(--border-glass);">
-            <h3 style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-                <span>📐</span>【早見表】身長別 理想のデスク高・座面高一覧（JIS S 1021準拠）
-            </h3>
-            <p style="font-size:0.78rem; color:var(--text-secondary); margin-bottom:16px; line-height:1.5;">市販デスク（70cm）とあなたの理想天板高のギャップです。差が+2cm以上の場合はフットレストまたは低床昇降デスクが必要です。</p>
-            <div style="overflow-x:auto;">
-                <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:center;">
-                    <thead>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:var(--mint);">
-                            <th style="padding:8px 6px;">身長</th>
-                            <th style="padding:8px 6px;">推奨 座面高</th>
-                            <th style="padding:8px 6px;">推奨 差尺</th>
-                            <th style="padding:8px 6px;">理想 天板高</th>
-                            <th style="padding:8px 6px;">市販70cmとの差</th>
-                            <th style="padding:8px 6px;">判定・対策</th>
-                        </tr>
-                    </thead>
-                    <tbody style="color:var(--text-primary); font-family:'JetBrains Mono', monospace;">
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>150cm</td><td>36.6cm</td><td>23.5cm</td><td style="color:var(--mint); font-weight:bold;">60.1cm</td><td style="color:#ef4444;">+9.9cm</td><td style="color:#ef4444; font-family:sans-serif;">低床デスク必須</td></tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>155cm</td><td>37.8cm</td><td>24.3cm</td><td style="color:var(--mint); font-weight:bold;">62.1cm</td><td style="color:#ef4444;">+7.9cm</td><td style="color:#ef4444; font-family:sans-serif;">低床デスク必須</td></tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>160cm</td><td>39.0cm</td><td>25.2cm</td><td style="color:var(--mint); font-weight:bold;">64.2cm</td><td style="color:#ef4444;">+5.8cm</td><td style="color:#f59e0b; font-family:sans-serif;">フットレスト推奨</td></tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>165cm</td><td>40.3cm</td><td>26.0cm</td><td style="color:var(--mint); font-weight:bold;">66.3cm</td><td style="color:#ef4444;">+3.7cm</td><td style="color:#f59e0b; font-family:sans-serif;">フットレスト推奨</td></tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05); background:rgba(16,185,129,0.08);"><td>170cm</td><td>41.5cm</td><td>26.8cm</td><td style="color:var(--mint); font-weight:bold;">68.3cm</td><td style="color:#f59e0b;">+1.7cm</td><td style="color:var(--mint); font-family:sans-serif;">微調整範囲</td></tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>175cm</td><td>42.7cm</td><td>27.7cm</td><td style="color:var(--mint); font-weight:bold;">70.4cm</td><td style="color:var(--mint);">-0.4cm</td><td style="color:var(--mint); font-family:sans-serif;">ジャスト適合</td></tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>180cm</td><td>43.9cm</td><td>28.5cm</td><td style="color:var(--mint); font-weight:bold;">72.4cm</td><td style="color:#ef4444;">-2.4cm</td><td style="color:#f59e0b; font-family:sans-serif;">やや低い (アーム必須)</td></tr>
-                        <tr><td>185cm</td><td>45.1cm</td><td>29.3cm</td><td style="color:var(--mint); font-weight:bold;">74.4cm</td><td style="color:#ef4444;">-4.4cm</td><td style="color:#ef4444; font-family:sans-serif;">昇降天板必須</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- 身長別・詳細エルゴノミクス処方カルテ一覧（pSEO内部リンクハブ） -->
-            <div style="margin-top: 32px; background: rgba(12, 23, 20, 0.75); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 18px; padding: 22px;">
-                <div style="font-size: 11px; font-weight: 800; color: var(--mint); letter-spacing: 0.5px; margin-bottom: 6px;">HEIGHT PRESCRIPTION ARCHIVES // 身長別カルテ一覧</div>
-                <h3 style="font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 8px;">🔍 身長別・最適デスク高さ＆座面高 詳細処方カルテ（150cm〜185cm）</h3>
-                <p style="font-size: 12.5px; color: var(--text-secondary); margin-bottom: 14px;">
-                    各身長における「市販70cmデスクとの具体的なギャップ」「必要なフットレスト厚」「立ち作業時の天板高」をまとめた専用カルテページです：
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-bottom: 20px;">
-                    <a href="height/150cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長150cm <span style="color:#fca5a5; font-size:11px; display:block;">理想机 59.1cm</span></a>
-                    <a href="height/155cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長155cm <span style="color:#fca5a5; font-size:11px; display:block;">理想机 61.1cm</span></a>
-                    <a href="height/158cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長158cm <span style="color:#fca5a5; font-size:11px; display:block;">女性平均・机62.3cm</span></a>
-                    <a href="height/160cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長160cm <span style="color:#fca5a5; font-size:11px; display:block;">理想机 63.2cm</span></a>
-                    <a href="height/165cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長165cm <span style="color:#fde68a; font-size:11px; display:block;">理想机 65.3cm</span></a>
-                    <a href="height/170cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長170cm <span style="color:#fde68a; font-size:11px; display:block;">理想机 67.3cm</span></a>
-                    <a href="height/172cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長172cm <span style="color:#34d399; font-size:11px; display:block;">男性平均・机68.2cm</span></a>
-                    <a href="height/175cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長175cm <span style="color:#34d399; font-size:11px; display:block;">70cm机ジャスト</span></a>
-                    <a href="height/180cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長180cm <span style="color:#67e8f9; font-size:11px; display:block;">理想机 71.4cm</span></a>
-                    <a href="height/185cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:700;">📏 身長185cm <span style="color:#67e8f9; font-size:11px; display:block;">理想机 73.4cm</span></a>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(0,240,255,0.1), rgba(16,185,129,0.08)); border: 1px solid rgba(0,240,255,0.35); border-radius: 14px; padding: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-                    <div>
-                        <div style="font-size: 11px; font-weight: 800; color: #00f0ff;">SISTER TOOL // 姉妹ツール連携</div>
-                        <div style="font-size: 15px; font-weight: 800; color: #fff; margin-top: 2px;">🖥️ 理想のデスクに乗せる「PC＆モニター・デバイス構成」を1分診断（DeskSwipe）</div>
-                        <div style="font-size: 12px; color: var(--text-secondary);">用途（ゲーム・AI・仕事）と部屋のテイストから最適パーツ一式をリアルタイム設計。</div>
-                    </div>
-                    <a href="https://fhmch.github.io/DeskSwipe/" style="background: #00f0ff; color: #041016; font-weight: 900; font-size: 12.5px; padding: 10px 16px; border-radius: 10px; text-decoration: none; white-space: nowrap;">DeskSwipe を開く ↗</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================================================== -->
-        <!-- 人間工学・デスクワーク疲労改善 実践解説ガイド（全5章） -->
-        <!-- ==================================================== -->
-        <section style="margin-top: 50px; border-top: 1px solid var(--border-glass); padding-top: 40px;">
+                <!-- 折りたたみ式 エルゴノミクス専門知識アーカイブ（SEO用・通常時は邪魔にならない設計） -->
+        <details style="margin-top: 50px; border: 1px solid var(--border-glass); border-radius: 18px; background: rgba(12, 18, 23, 0.6); padding: 16px 20px;">
+            <summary style="cursor: pointer; font-size: 14px; font-weight: 800; color: var(--mint); outline: none; display: flex; align-items: center; justify-content: space-between;">
+                <span>📚 【専門解説】JIS規格に基づく人間工学・デスクワーク疲労改善ガイド（全5章）を開く</span>
+                <span style="font-size: 11px; color: var(--text-tertiary);">クリックで展開 ▼</span>
+            </summary>
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-glass); padding-top: 24px;">
             <div style="text-align: center; margin-bottom: 32px;">
                 <span style="background: rgba(16, 185, 129, 0.15); color: var(--mint); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Ergonomics Knowledge Base</span>
                 <h2 style="font-size: 24px; font-weight: 900; color: #fff; margin-top: 10px; line-height: 1.35;">人間工学・デスク環境 実践解説ガイド</h2>
@@ -1221,7 +1305,8 @@
                     </p>
                 </article>
             </div>
-        </section>
+            </div>
+        </details>
     </main>
 
     <!-- LEGAL / POLICY MODAL OVERLAY -->
@@ -1459,13 +1544,27 @@
             }
         };
 
+        
+        let currentStep = 1;
+        function nextQuestion(step) {
+            currentStep = step;
+            for (let i = 1; i <= 3; i++) {
+                const q = document.getElementById(`q-${i}`);
+                const dot = document.getElementById(`dot-${i}`);
+                if (q) q.classList.toggle("active", i === step);
+                if (dot) dot.classList.toggle("active", i === step);
+            }
+        }
+
         function selectOption(category, value) {
             answers[category] = value;
-            
-            if (category === 'hours') nextQuestion(2);
-            else if (category === 'pain') nextQuestion(3);
-            else if (category === 'budget') calculateAndShowResults();
+            if (category === 'pain') {
+                nextQuestion(3);
+            } else if (category === 'budget') {
+                calculateAndShowResults();
+            }
         }
+    
 
         function updateHeight(val, source) {
             let num = parseInt(val);
@@ -1817,131 +1916,194 @@
             return `https://www.amazon.co.jp/s?k=${encoded}&tag=fhmch-22`;
         }
 
+        
         function renderGears() {
             const list = document.getElementById("gear-list-container");
             list.innerHTML = "";
 
-            const selectedGears = [];
-            const isPremium = (answers.budget === 'premium');
-            const isSmallHeight = (answers.height <= 165);
-            const isTallHeight = (answers.height >= 176);
-            const isHeavyHours = (answers.hours === 'heavy');
+            const h = answers.height || 170;
+            const pain = answers.pain || 'waist';
+            const budget = answers.budget || 'value';
+            const diffWithStandard = Math.round((70.0 - (Math.round((h * 0.244)*10)/10 + Math.round(((h/6)-1.5)*10)/10))*10)/10;
 
-            // 1. CHAIR（主訴 × 予算）
-            if (answers.pain === 'neck') {
-                selectedGears.push(isPremium ? gearCatalog.chairs.neck_premium : gearCatalog.chairs.neck_value);
-            } else if (answers.pain === 'wrist') {
-                selectedGears.push(gearCatalog.chairs.wrist_general);
-            } else if (answers.pain === 'eye') {
-                selectedGears.push(isPremium ? gearCatalog.chairs.neck_premium : gearCatalog.chairs.neck_value);
-            } else {
-                selectedGears.push(isPremium ? gearCatalog.chairs.waist_premium : gearCatalog.chairs.waist_value);
-            }
+            let packageTitle = "";
+            let packageDesc = "";
+            let totalPriceEst = "";
+            const items = [];
 
-            // 2. DESK（身長判定で理由を完全動的化）
-            let deskItem;
-            if (isSmallHeight) {
-                deskItem = {
-                    name: "FlexiSpot E7 / E8 低床デュアルモーター",
-                    role: "低床昇降デスク（昇降範囲58〜123cm）",
-                    reason: `あなたの身長(${answers.height}cm)では市販70cm机は高すぎます。最低高58cmまで下がるこの低床モデルで初めて「肘角度90度」が実現できます。`,
+            if (budget === 'instant') {
+                // 手軽に即効ケア（予算数千円〜1.5万円・今の机と椅子を買い替えない）
+                packageTitle = `⚡ 今の机と椅子のまま解決！【${getPainLabel(pain)}】即効改善セット`;
+                totalPriceEst = "約 7,000 円 〜 9,500 円";
+                packageDesc = `机や椅子を何万円もかけて買い替える必要はありません。市販70cm机とのギャップ（${diffWithStandard > 0 ? '+' + diffWithStandard + 'cm' : diffWithStandard + 'cm'}）と【${getPainLabel(pain)}】をピンポイントに解消する2大ギアを足すだけで、明日から痛みが激減します。`;
+
+                // Item 1: Height gap offset
+                if (diffWithStandard > 1.0) {
+                    items.push({
+                        role: `【必須処方①】足浮きと僧帽筋の緊張をゼロにする`,
+                        name: "無段階チルト 人間工学フットレスト",
+                        price: "約 3,480 円",
+                        reason: `あなたの適正天板高に対し、市販机（70cm）は+${diffWithStandard}cm高すぎます。椅子を上げた上でこのフットレストに足を置くことで、足裏完全接地と肩のリラックスを同時に成立させます。`,
+                        img: "assets/gear_footrest.jpg",
+                        keyword: "エルゴノミクス フットレスト"
+                    });
+                } else {
+                    items.push({
+                        role: `【必須処方①】打鍵位置を理想の高さへ下げる`,
+                        name: "サンワダイレクト 後付けクランプ式キーボードスライダー",
+                        price: "約 4,980 円",
+                        reason: `机に挟むだけで、キーボードとマウスの位置を理想高へ引き下げ。腕を上に持ち上げる不自然な姿勢を解消します。`,
+                        img: "assets/gear_split_kb.jpg",
+                        keyword: "後付け キーボードスライダー クランプ"
+                    });
+                }
+
+                // Item 2: Specific Pain Cure
+                if (pain === 'waist') {
+                    items.push({
+                        role: `【必須処方②】今の椅子に敷くだけ・骨盤前傾サポート`,
+                        name: "ランバーサポート腰痛クッション ＆ 体圧分散ゲル",
+                        price: "約 3,980 円",
+                        reason: "背骨の自然なS字カーブを強制保持し、座りっぱなし時の椎間板内圧を分散。椅子を買い替えずに腰への負担を半減させます。",
+                        img: "assets/upgrade_gear_creator.jpg",
+                        keyword: "ランバーサポート クッション 椅子 腰痛"
+                    });
+                } else if (pain === 'neck') {
+                    items.push({
+                        role: `【必須処方②】覗き込み猫背・ストレートネックを完全解除`,
+                        name: "BoYata 無段階PCスタンド / Pixio モニターアーム",
+                        price: "約 3,990 円 〜 4,980 円",
+                        reason: "画面上端を目線（眉間の高さ）まで持ち上げ、頭部（約5kg）の前傾モーメントによる首への15kg以上の負荷をリセットします。",
+                        img: "assets/gear_ergotron_official.jpg",
+                        keyword: "BoYata ノートパソコンスタンド"
+                    });
+                } else if (pain === 'wrist') {
+                    items.push({
+                        role: `【必須処方②】前腕のねじれと腱鞘炎を解放する`,
+                        name: "ロジクール Lift 縦型エルゴノミクスマウス（57°傾斜）",
+                        price: "約 6,900 円",
+                        reason: "握手する自然な角度で操作でき、手首の腱や神経の持続圧迫を根本から予防します。",
+                        img: "assets/gear_logi_lift_official.png",
+                        keyword: "ロジクール Lift 縦型マウス"
+                    });
+                } else {
+                    items.push({
+                        role: `【必須処方②】画面の映り込みゼロ・眼のピント疲労を予防`,
+                        name: "Quntis / BenQ モニター掛け式ライトバー",
+                        price: "約 4,500 円",
+                        reason: "画面への反射グレアを完全防止し、手元だけを適正照度で均一に照らすことで瞳孔の過剰収縮を防ぎます。",
+                        img: "assets/gear_screenbar_official.png",
+                        keyword: "Quntis モニターライト"
+                    });
+                }
+
+            } else if (budget === 'value') {
+                // コスパ本格一新（3万〜6万円）
+                packageTitle = `🎯 費用対効果No.1！【${getPainLabel(pain)}】根本解消本格セット`;
+                totalPriceEst = "約 45,000 円 〜 58,000 円";
+                packageDesc = `中途半端な小道具ではなく、環境を根本からアップグレード。あなたの身長（${h}cm）にジャスト適合する低床昇降デスクと高機能エルゴギアの最強タッグです。`;
+
+                items.push({
+                    role: `【主役①】最低高58cm対応・身長${h}cmジャストの低床天板`,
+                    name: "FlexiSpot E7 / E8 低床デュアルモーター電動昇降デスク",
+                    price: "約 35,000 円 〜 42,000 円",
+                    reason: `市販の70cm机では絶対不可能な「肘角度90度＋足裏ペタッと接地」をミリ単位で叶える低床ピストン脚を採用。`,
                     img: "assets/gear_flexispot_official.jpg",
                     keyword: "FlexiSpot E7"
-                };
-            } else if (isTallHeight) {
-                deskItem = {
-                    name: isPremium ? "FlexiSpot E7 / E8 低床デュアルモーター" : "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
-                    role: "高剛性スタンディング電動昇降デスク",
-                    reason: `あなたの身長(${answers.height}cm)では立ち作業時に天板を105cm以上まで持ち上げる必要があります。高伸長時でも横揺れしない頑丈な昇降フレームです。`,
-                    img: "assets/gear_flexispot_official.jpg",
-                    keyword: isPremium ? "FlexiSpot E7" : "FlexiSpot EF1"
-                };
+                });
+
+                if (pain === 'waist') {
+                    items.push({
+                        role: `【主役②】腰椎サポート自動追従エルゴチェア`,
+                        name: "GrowSpica Pro / Sihoo Doro C300",
+                        price: "約 39,000 円",
+                        reason: "作業姿勢の前傾・後傾に合わせて腰椎クッションが自動追従。骨盤の後傾を物理的に阻止します。",
+                        img: "assets/upgrade_gear_chair.jpg",
+                        keyword: "GrowSpica Pro"
+                    });
+                } else {
+                    items.push({
+                        role: `【主役②】スムーズ無段階ガススプリング式モニターアーム`,
+                        name: "Pixio PS1S Wave モニターアーム",
+                        price: "約 5,200 円",
+                        reason: "立ち・座りの姿勢変更時も、指一本で画面を目線の適正高へスムーズに追従させます。",
+                        img: "assets/gear_ergotron_official.jpg",
+                        keyword: "Pixio PS1S モニターアーム"
+                    });
+                }
+
             } else {
-                deskItem = {
-                    name: isPremium ? "FlexiSpot E7 / E8 低床デュアルモーター" : "FlexiSpot EF1 / EJ2 メモリー電動昇降デスク",
-                    role: "ワンタッチ電動昇降デスク",
-                    reason: "3パターンの高さをワンタッチで記憶。1時間に15分立つだけで、腰椎への持続圧迫と下半身の鬱血を劇的にリセットします。",
+                // プロ最高峰（10万円〜）
+                packageTitle = `👑 妥協なき一生モノ！【${getPainLabel(pain)}】最高峰フラッグシップセット`;
+                totalPriceEst = "約 120,000 円 〜 160,000 円";
+                packageDesc = `10年毎日使ってもビクともしない、世界最高峰の耐久性と解剖学的サポート。医師・プロクリエイターが選ぶ絶対の黄金構成です。`;
+
+                items.push({
+                    role: `【フラッグシップ①】世界標準・10年保証低床電動昇降デスク`,
+                    name: "FlexiSpot E7 Pro（コの字フレーム・低床58cm）",
+                    price: "約 57,000 円",
+                    reason: "耐荷重125kg、天板下に遮るもののないコの字フレームで脚元空間を最大化。最高峰の安定性。",
                     img: "assets/gear_flexispot_official.jpg",
-                    keyword: isPremium ? "FlexiSpot E7" : "FlexiSpot EF1"
-                };
-            }
-            selectedGears.push(deskItem);
+                    keyword: "FlexiSpot E7 Pro"
+                });
 
-            // 3. MONITOR ARM（予算スタンスと身長・主訴に応じた出し分け）
-            if (!isPremium) {
-                selectedGears.push(gearCatalog.arms.value_single);
-            } else if (answers.pain === 'neck' || isHeavyHours || isTallHeight) {
-                selectedGears.push(gearCatalog.arms.dual_tall);
-            } else {
-                selectedGears.push(gearCatalog.arms.single_heavy);
-            }
+                items.push({
+                    role: `【フラッグシップ②】前傾チルト・腰椎独立サポート最高峰`,
+                    name: pain === 'neck' ? "エルゴヒューマン PRO2 オットマン内蔵" : "COFO Chair Premium（フットレスト内蔵）",
+                    price: "約 89,000 円 〜 120,000 円",
+                    reason: "通気性抜群の超高弾性メッシュと前傾チルト機構。長時間の集中作業でも身体への荷重をゼロに分散。",
+                    img: "assets/gear_cofo_official.jpg",
+                    keyword: pain === 'neck' ? "エルゴヒューマン PRO2" : "COFO Chair Premium"
+                });
 
-            // 4. ACCESSORIES & INSTANT RELIEF（机・椅子を買い替えずに数千円で即効改善する特効薬アイテム群）
-            if (answers.height <= 169) {
-                selectedGears.push(gearCatalog.accessories.footrest_essential);
-                selectedGears.push(gearCatalog.accessories.keyboard_tray);
-            }
-            if (answers.pain === 'eye') {
-                selectedGears.push(gearCatalog.accessories.eye_light);
-                selectedGears.push(gearCatalog.accessories.eye_glasses);
-                selectedGears.push(gearCatalog.accessories.eye_warm);
-                selectedGears.push(gearCatalog.accessories.laptop_stand);
-            } else if (answers.pain === 'wrist') {
-                selectedGears.push(gearCatalog.accessories.wrist_mouse);
-                selectedGears.push(gearCatalog.accessories.trackball_mouse);
-                selectedGears.push(gearCatalog.accessories.wrist_keyboard);
-            } else if (answers.pain === 'neck') {
-                selectedGears.push(gearCatalog.accessories.laptop_stand);
-                selectedGears.push(gearCatalog.accessories.trackball_mouse);
-                selectedGears.push(gearCatalog.accessories.wrist_keyboard);
-            } else if (answers.pain === 'waist') {
-                selectedGears.push(gearCatalog.accessories.cushion_lumbar);
-                selectedGears.push(gearCatalog.accessories.trackball_mouse);
+                items.push({
+                    role: `【フラッグシップ③】特許コンスタント・フォース 10年保証アーム`,
+                    name: "エルゴトロン LX デスクマウント モニターアーム",
+                    price: "約 22,000 円",
+                    reason: "1万回以上の昇降テストに耐える世界最高峰のモニターアーム。画面が一切お辞儀せず、目の前の空中にピタッと静止します。",
+                    img: "assets/gear_ergotron_official.jpg",
+                    keyword: "エルゴトロン LX モニターアーム"
+                });
             }
 
-            // When user selects 'instant' (予算3,000円〜1.5万円・今の机と椅子はそのまま), move instant-relief accessories & value arm to the TOP!
-            if (answers.budget === 'instant') {
-                const chairAndDesk = selectedGears.slice(0, 2).map(g => ({
-                    ...g,
-                    role: `【将来的な本格買い替え候補】 ${g.role}`
-                }));
-                const instantItems = selectedGears.slice(2).map(g => ({
-                    ...g,
-                    role: `⚡ 【今の机・椅子のまま即効改善】 ${g.role}`
-                }));
-                selectedGears.length = 0;
-                selectedGears.push(...instantItems, ...chairAndDesk);
-            }
+            // Build Header for the Prescription Package
+            const headerBox = document.createElement("div");
+            headerBox.style.cssText = "background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.12)); border: 1.5px solid rgba(16,185,129,0.45); border-radius: 20px; padding: 24px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);";
+            headerBox.innerHTML = `
+                <div style="font-size: 11px; font-weight: 800; color: var(--mint); letter-spacing: 1px; margin-bottom: 6px;">🩺 YOUR CUSTOM PRESCRIPTION // あなた専用処方パッケージ</div>
+                <div style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px;">${packageTitle}</div>
+                <div style="font-size: 13px; color: #cbd5e1; line-height: 1.6; margin-bottom: 14px;">${packageDesc}</div>
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.12); padding: 8px 16px; border-radius: 10px;">
+                    <span style="font-size: 12px; color: var(--text-secondary); font-weight: 700;">パッケージ合計目安:</span>
+                    <span style="font-size: 18px; font-weight: 900; color: #34d399; font-family: 'JetBrains Mono', monospace;">${totalPriceEst}</span>
+                </div>
+            `;
+            list.appendChild(headerBox);
 
-            selectedGears.forEach(gear => {
+            // Render Item Cards
+            items.forEach((item, idx) => {
                 const card = document.createElement("div");
                 card.className = "gear-card";
                 card.innerHTML = `
                     <div class="gear-img-box">
-                        <img src="${gear.img}" alt="${gear.name}" loading="lazy">
+                        <img src="${item.img}" alt="${item.name}" loading="lazy">
                     </div>
                     <div>
-                        <div class="gear-role">${gear.role}</div>
-                        <div class="gear-name">${gear.name}</div>
-                        <div class="gear-reason">${gear.reason}</div>
+                        <div class="gear-role">${item.role}</div>
+                        <div class="gear-name">${item.name}</div>
+                        <div style="font-size: 12px; font-weight: 800; color: #fbbf24; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace;">参考価格: ${item.price}</div>
+                        <div class="gear-reason"><strong>💡 処方理由:</strong> ${item.reason}</div>
                     </div>
                     <div class="gear-links">
-                        <a href="${getAmazonLink(gear.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-amazon">Amazon ↗</a>
-                        <a href="${getMoshimoRakutenLink(gear.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-rakuten">楽天市場 ↗</a>
-                        <a href="${getMoshimoYahooLink(gear.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-yahoo">Yahoo! ↗</a>
+                        <a href="${getAmazonLink(item.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-amazon">Amazon で見る ↗</a>
+                        <a href="${getMoshimoRakutenLink(item.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-rakuten">楽天市場 で見る ↗</a>
+                        <a href="${getMoshimoYahooLink(item.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-yahoo">Yahoo! で見る ↗</a>
                     </div>
                 `;
                 list.appendChild(card);
             });
         }
-
-        // Browser Language auto-prompt for global visitors
-        if (navigator.language && navigator.language.startsWith('en') && !sessionStorage.getItem('ergo_lang_prompted')) {
-            const banner = document.createElement('div');
-            banner.style.cssText = 'background: rgba(0, 240, 255, 0.15); border-bottom: 1px solid rgba(0, 240, 255, 0.3); padding: 8px 16px; text-align: center; font-size: 13px; color: #fff; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 100; position: relative;';
-            banner.innerHTML = '<span>🌐 English version available (inches & US desks):</span> <a href="en/" style="background: #00f0ff; color: #000; padding: 4px 10px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 12px;">Switch to EN</a> <button onclick="this.parentElement.remove(); sessionStorage.setItem(\'ergo_lang_prompted\', \'1\');" style="background: transparent; border: none; color: #94a3b8; cursor: pointer; font-size: 14px;">✕</button>';
-            document.body.prepend(banner);
-        }
+    
 
         function adjustCurrentDeskH(delta) {
             const inp = document.getElementById("current-desk-h-input");
