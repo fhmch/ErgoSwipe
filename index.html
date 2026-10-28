@@ -985,6 +985,185 @@
             color: var(--text-tertiary);
             line-height: 1.6;
         }
+    
+        /* INTERACTIVE BIOMECHANICS TOY (STEP 1) */
+        .biomech-toy-card {
+            background: rgba(10, 16, 22, 0.85);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .biomech-toy-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .biomech-mode-switch {
+            display: inline-flex;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 4px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glass);
+            gap: 4px;
+        }
+        .biomech-mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .biomech-mode-btn.active.warn-mode {
+            background: rgba(239, 68, 68, 0.18);
+            color: #fca5a5;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+        .biomech-mode-btn.active.ideal-mode {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--mint);
+            box-shadow: 0 0 12px var(--emerald-glow);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        .biomech-canvas-box {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+        .biomech-svg {
+            width: 100%;
+            max-width: 380px;
+            height: 140px;
+            display: block;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .biomech-gauge-row {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 480px) {
+            .biomech-gauge-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        .biomech-gauge-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        .biomech-gauge-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+        .biomech-gauge-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .gauge-danger {
+            color: #f87171;
+            text-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+        }
+        .gauge-safe {
+            color: var(--mint);
+            text-shadow: 0 0 12px var(--emerald-glow);
+        }
+
+        /* PACKAGE SUMMARY PRESCRIPTION BOX */
+        .pkg-prescript-box {
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.06));
+            border: 1.5px solid rgba(16, 185, 129, 0.45);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.15);
+        }
+        .pkg-prescript-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.4px;
+        }
+        .pkg-price-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 182, 212, 0.2));
+            border: 1px solid var(--mint);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .pkg-btn-bundle {
+            background: linear-gradient(135deg, #ff9900, #f59e0b);
+            color: #111;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4);
+            transition: all 0.2s ease;
+            margin-top: 14px;
+        }
+        .pkg-btn-bundle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.55);
+            color: #000;
+        }
+        .pkg-btn-3d {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid #00f0ff;
+            color: #00f0ff;
+            padding: 13px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            margin-top: 14px;
+        }
+        .pkg-btn-3d:hover {
+            background: rgba(0, 240, 255, 0.3);
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
     </style>
 </head>
 <body>
@@ -1027,6 +1206,41 @@
             <div class="question-card active" id="q-1">
                 <div class="question-header">STEP 01 / 03 ｜ DIMENSIONS</div>
                 <h2 class="question-title">あなたの身長を教えてください（適正寸法の算出）</h2>
+
+                <!-- リアルタイム生体力学トイ・シミュレーター -->
+                <div class="biomech-toy-card">
+                    <div class="biomech-toy-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:16px;">🔬</span>
+                            <span style="font-size:13px; font-weight:800; color:#fff;">生体力学リアルタイム可視化</span>
+                        </div>
+                        <div class="biomech-mode-switch">
+                            <button type="button" class="biomech-mode-btn active warn-mode" id="btn-mode-standard" onclick="setBiomechPreviewMode('standard')">⚠️ 市販70cm机</button>
+                            <button type="button" class="biomech-mode-btn ideal-mode" id="btn-mode-ideal" onclick="setBiomechPreviewMode('ideal')">✨ 理想エルゴ</button>
+                        </div>
+                    </div>
+
+                    <div class="biomech-canvas-box">
+                        <div id="biomech-svg-container" style="width:100%; display:flex; justify-content:center;">
+                            <!-- JSでスライダー操作に0秒連動描画 -->
+                        </div>
+
+                        <div class="biomech-gauge-row">
+                            <div class="biomech-gauge-card">
+                                <div class="biomech-gauge-label">頚椎・肩（僧帽筋）推定負荷</div>
+                                <div class="biomech-gauge-value gauge-danger" id="biomech-neck-load">21.8 kg</div>
+                            </div>
+                            <div class="biomech-gauge-card">
+                                <div class="biomech-gauge-label">市販70cm机とのギャップ</div>
+                                <div class="biomech-gauge-value" id="biomech-gap-val">+3.5 cm</div>
+                            </div>
+                        </div>
+                        <div id="biomech-status-badge" style="font-size:12px; color:#fca5a5; font-weight:700; text-align:center;">
+                            🚨 腕の持ち上がりにより僧帽筋が持続緊張（肩こり・頭痛リスク）
+                        </div>
+                    </div>
+                </div>
+
                 <div class="height-slider-box">
                     <div class="height-input-container">
                         <button type="button" class="height-btn-adjust" onclick="adjustHeight(-1)" title="1cm下げる">−</button>
@@ -1566,6 +1780,168 @@
         }
     
 
+        
+        // リアルタイム生体力学トイ用ステート
+        let biomechMode = 'standard'; // 'standard' or 'ideal'
+
+        function setBiomechPreviewMode(mode) {
+            biomechMode = mode;
+            const btnStd = document.getElementById("btn-mode-standard");
+            const btnIdl = document.getElementById("btn-mode-ideal");
+            if (btnStd && btnIdl) {
+                btnStd.classList.toggle("active", mode === 'standard');
+                btnIdl.classList.toggle("active", mode === 'ideal');
+            }
+            renderLiveBiomechToy();
+        }
+
+        function renderLiveBiomechToy() {
+            const container = document.getElementById("biomech-svg-container");
+            const neckLoadEl = document.getElementById("biomech-neck-load");
+            const gapValEl = document.getElementById("biomech-gap-val");
+            const statusBadgeEl = document.getElementById("biomech-status-badge");
+            if (!container) return;
+
+            const h = answers.height || 170;
+            // JIS計算
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+            const gap = Math.round((70.0 - deskH) * 10) / 10;
+            const absGap = Math.abs(gap);
+
+            // 負荷計算（生体力学近似）
+            let estimatedLoadKg = 0;
+            let statusText = "";
+            let isDanger = true;
+
+            if (biomechMode === 'ideal') {
+                estimatedLoadKg = 4.5; // 自然頭部保持荷重のみ
+                isDanger = false;
+                statusText = "✨ 肘角度90°・足裏接地。首・腰へのせん断応力を最小分散！";
+            } else {
+                if (absGap <= 1.5) {
+                    estimatedLoadKg = 9.8;
+                    isDanger = false;
+                    statusText = "💡 机高は概ね適合（長時間連続着座による血流鬱血のみ注意）";
+                } else if (gap > 1.5) {
+                    // 机が高すぎる（日本人女性・小柄男性の大半）
+                    estimatedLoadKg = Math.round((14.0 + (gap * 1.8)) * 10) / 10;
+                    statusText = `🚨 机が約${gap}cm高すぎ！腕が吊り上がり、僧帽筋が持続緊張（肩こり・緊張型頭痛）`;
+                } else {
+                    // 机が低すぎる（大柄な人）
+                    estimatedLoadKg = Math.round((15.0 + (absGap * 1.7)) * 10) / 10;
+                    statusText = `🚨 机が約${absGap}cm低すぎ！画面を覗き込む極度の猫背（首・腰椎過負荷）`;
+                }
+            }
+
+            if (neckLoadEl) {
+                neckLoadEl.className = isDanger ? "biomech-gauge-value gauge-danger" : "biomech-gauge-value gauge-safe";
+                neckLoadEl.innerHTML = `${estimatedLoadKg} <span style="font-size:14px; color:var(--text-secondary);">kg</span>`;
+            }
+            if (gapValEl) {
+                gapValEl.style.color = (absGap <= 1.5) ? "var(--mint)" : ((gap > 0) ? "#f87171" : "#fbbf24");
+                gapValEl.innerHTML = (gap > 0 ? `+${gap}` : `${gap}`) + ` <span style="font-size:14px; color:var(--text-secondary);">cm</span>`;
+            }
+            if (statusBadgeEl) {
+                statusBadgeEl.style.color = isDanger ? "#fca5a5" : "var(--mint)";
+                statusBadgeEl.innerHTML = statusText;
+            }
+
+            // SVGレンダリング（0秒即応）
+            let svgHtml = "";
+            if (biomechMode === 'ideal') {
+                svgHtml = `
+                    <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                        <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                        <!-- Chair Ideal -->
+                        <line x1="56" y1="98" x2="56" y2="64" stroke="#475569" stroke-width="3"/>
+                        <line x1="42" y1="64" x2="72" y2="64" stroke="#475569" stroke-width="3"/>
+                        <!-- Ideal Desk -->
+                        <rect x="76" y="60" width="55" height="4" fill="#10b981"/>
+                        <line x1="125" y1="64" x2="125" y2="98" stroke="#10b981" stroke-width="3"/>
+                        <!-- Monitor Ideal Level -->
+                        <rect x="110" y="24" width="3" height="34" fill="#06b6d4"/>
+                        <rect x="108" y="24" width="8" height="2" fill="#06b6d4"/>
+                        <line x1="112" y1="58" x2="112" y2="60" stroke="#06b6d4" stroke-width="2"/>
+                        <!-- Sight Line -->
+                        <line x1="68" y1="26" x2="108" y2="30" stroke="#06b6d4" stroke-width="1" stroke-dasharray="2,2"/>
+                        <!-- Human Upright (Emerald) -->
+                        <circle cx="60" cy="26" r="6" fill="#10b981"/>
+                        <line x1="60" y1="32" x2="60" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="60" y1="64" x2="78" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="78" y1="64" x2="78" y2="98" stroke="#10b981" stroke-width="2.5"/>
+                        <!-- Natural 90 deg Arm -->
+                        <path d="M 60 36 L 68 52 L 82 58" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                `;
+            } else {
+                if (gap > 1.5) {
+                    // 机が高すぎる（肘持ち上がり・足ブラ）
+                    svgHtml = `
+                        <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="56" y1="98" x2="56" y2="66" stroke="#475569" stroke-width="3"/>
+                            <line x1="42" y1="66" x2="72" y2="66" stroke="#475569" stroke-width="3"/>
+                            <!-- Desk 70cm (Drawn Higher at y=52) -->
+                            <rect x="76" y="52" width="55" height="4" fill="#ef4444"/>
+                            <line x1="125" y1="56" x2="125" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <!-- Monitor -->
+                            <rect x="110" y="18" width="3" height="34" fill="#64748b"/>
+                            <!-- Strain Spine & Shrugged Arm -->
+                            <circle cx="60" cy="24" r="6" fill="#ef4444"/>
+                            <line x1="60" y1="30" x2="60" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="60" y1="66" x2="78" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="78" y1="66" x2="78" y2="98" stroke="#ef4444" stroke-width="2.5"/>
+                            <!-- Shrugged / Lifted Arm -->
+                            <path d="M 60 33 L 70 50 L 82 46" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <!-- Stress Red Glow Alert -->
+                            <circle cx="60" cy="33" r="3" fill="#f87171"/>
+                        </svg>
+                    `;
+                } else if (gap < -1.5) {
+                    // 机が低すぎる（猫背前屈み）
+                    svgHtml = `
+                        <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="56" y1="98" x2="56" y2="58" stroke="#475569" stroke-width="3"/>
+                            <line x1="42" y1="58" x2="72" y2="58" stroke="#475569" stroke-width="3"/>
+                            <!-- Desk 70cm (Too low for tall person, drawn at y=70) -->
+                            <rect x="76" y="70" width="55" height="4" fill="#fbbf24"/>
+                            <line x1="125" y1="74" x2="125" y2="98" stroke="#fbbf24" stroke-width="3"/>
+                            <!-- Monitor -->
+                            <rect x="110" y="38" width="3" height="32" fill="#64748b"/>
+                            <!-- Curved Spine / Slouched -->
+                            <circle cx="74" cy="32" r="6" fill="#fbbf24"/>
+                            <path d="M 70 40 Q 56 46 58 58 L 78 58 L 78 98" stroke="#fbbf24" stroke-width="2.5" fill="none"/>
+                            <path d="M 68 42 L 74 56 L 82 68" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <!-- Strain Point -->
+                            <circle cx="64" cy="46" r="3" fill="#f87171"/>
+                        </svg>
+                    `;
+                } else {
+                    // 概ね適合
+                    svgHtml = `
+                        <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                            <line x1="56" y1="98" x2="56" y2="64" stroke="#475569" stroke-width="3"/>
+                            <line x1="42" y1="64" x2="72" y2="64" stroke="#475569" stroke-width="3"/>
+                            <rect x="76" y="60" width="55" height="4" fill="#34d399"/>
+                            <line x1="125" y1="64" x2="125" y2="98" stroke="#34d399" stroke-width="3"/>
+                            <circle cx="60" cy="26" r="6" fill="#34d399"/>
+                            <line x1="60" y1="32" x2="60" y2="64" stroke="#34d399" stroke-width="2.5"/>
+                            <line x1="60" y1="64" x2="78" y2="64" stroke="#34d399" stroke-width="2.5"/>
+                            <line x1="78" y1="64" x2="78" y2="98" stroke="#34d399" stroke-width="2.5"/>
+                            <path d="M 60 36 L 68 52 L 82 58" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    `;
+                }
+            }
+            container.innerHTML = svgHtml;
+        }
+
         function updateHeight(val, source) {
             let num = parseInt(val);
             if (isNaN(num)) return;
@@ -1579,6 +1955,9 @@
 
             if (inputEl && source !== 'input') inputEl.value = num;
             if (sliderEl && source !== 'slider') sliderEl.value = Math.min(195, Math.max(145, num));
+
+            // リアルタイム生体力学トイの即座更新
+            renderLiveBiomechToy();
 
             // 更新クイックボタンのアクティブ状態
             document.querySelectorAll(".height-quick-btn").forEach(btn => {
@@ -1595,19 +1974,7 @@
             updateHeight(current + delta);
         }
 
-        function nextQuestion(stepNum) {
-            for (let i = 1; i <= 4; i++) {
-                const qEl = document.getElementById(`q-${i}`);
-                const dotEl = document.getElementById(`dot-${i}`);
-                if (qEl) qEl.classList.remove('active');
-                if (dotEl) dotEl.classList.remove('active');
-            }
-            
-            const targetQ = document.getElementById(`q-${stepNum}`);
-            const targetDot = document.getElementById(`dot-${stepNum}`);
-            if (targetQ) targetQ.classList.add('active');
-            if (targetDot) targetDot.classList.add('active');
-        }
+
 
         function resetWizard() {
             document.getElementById("wizard-panel").style.display = "block";
@@ -1924,59 +2291,64 @@
             const h = answers.height || 170;
             const pain = answers.pain || 'waist';
             const budget = answers.budget || 'value';
-            const diffWithStandard = Math.round((70.0 - (Math.round((h * 0.244)*10)/10 + Math.round(((h/6)-1.5)*10)/10))*10)/10;
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+            const diffWithStandard = Math.round((70.0 - deskH) * 10) / 10;
 
+            let packageBadge = "";
             let packageTitle = "";
-            let packageDesc = "";
             let totalPriceEst = "";
+            let packageDesc = "";
+            let amazonBundleQuery = "";
             const items = [];
 
             if (budget === 'instant') {
-                // 手軽に即効ケア（予算数千円〜1.5万円・今の机と椅子を買い替えない）
-                packageTitle = `⚡ 今の机と椅子のまま解決！【${getPainLabel(pain)}】即効改善セット`;
-                totalPriceEst = "約 7,000 円 〜 9,500 円";
-                packageDesc = `机や椅子を何万円もかけて買い替える必要はありません。市販70cm机とのギャップ（${diffWithStandard > 0 ? '+' + diffWithStandard + 'cm' : diffWithStandard + 'cm'}）と【${getPainLabel(pain)}】をピンポイントに解消する2大ギアを足すだけで、明日から痛みが激減します。`;
+                packageBadge = "⚡ 机・椅子を買い替えない即効処方";
+                packageTitle = `今の家具を活かして【${getPainLabel(pain)}】を即リセットする解決パッケージ`;
+                totalPriceEst = "総額 約 7,980 円 〜 9,800 円";
+                packageDesc = `何万円もかけて家具を総入れ替えする必要はありません。市販70cm机とのギャップ（${diffWithStandard > 0 ? '+' + diffWithStandard + 'cm' : diffWithStandard + 'cm'}）と【${getPainLabel(pain)}】の痛点だけをピンポイントで無効化する2大装備です。`;
 
-                // Item 1: Height gap offset
                 if (diffWithStandard > 1.0) {
                     items.push({
                         role: `【必須処方①】足浮きと僧帽筋の緊張をゼロにする`,
-                        name: "無段階チルト 人間工学フットレスト",
+                        name: "無段階チルト エルゴノミクスフットレスト",
                         price: "約 3,480 円",
-                        reason: `あなたの適正天板高に対し、市販机（70cm）は+${diffWithStandard}cm高すぎます。椅子を上げた上でこのフットレストに足を置くことで、足裏完全接地と肩のリラックスを同時に成立させます。`,
+                        reason: `机に合わせて椅子を上げても足裏が完全接地。太もも裏の圧迫と腰椎への体重集中を防ぎます。`,
                         img: "assets/gear_footrest.jpg",
                         keyword: "エルゴノミクス フットレスト"
                     });
                 } else {
                     items.push({
-                        role: `【必須処方①】打鍵位置を理想の高さへ下げる`,
-                        name: "サンワダイレクト 後付けクランプ式キーボードスライダー",
+                        role: `【必須処方①】打鍵位置を理想の${deskH}cmへ下げる`,
+                        name: "サンワダイレクト 後付けキーボードスライダー",
                         price: "約 4,980 円",
-                        reason: `机に挟むだけで、キーボードとマウスの位置を理想高へ引き下げ。腕を上に持ち上げる不自然な姿勢を解消します。`,
+                        reason: `挟むだけで打鍵面を適正高に配置。腕の吊り上がりによる肩甲骨のコリを解消。`,
                         img: "assets/gear_split_kb.jpg",
                         keyword: "後付け キーボードスライダー クランプ"
                     });
                 }
 
-                // Item 2: Specific Pain Cure
                 if (pain === 'waist') {
                     items.push({
-                        role: `【必須処方②】今の椅子に敷くだけ・骨盤前傾サポート`,
+                        role: `【必須処方②】骨盤後傾を物理阻止・椎間板保護`,
                         name: "ランバーサポート腰痛クッション ＆ 体圧分散ゲル",
                         price: "約 3,980 円",
-                        reason: "背骨の自然なS字カーブを強制保持し、座りっぱなし時の椎間板内圧を分散。椅子を買い替えずに腰への負担を半減させます。",
+                        reason: "背骨の自然なS字カーブをキープし、座面からの反発圧力を均一分散。",
                         img: "assets/upgrade_gear_creator.jpg",
                         keyword: "ランバーサポート クッション 椅子 腰痛"
                     });
+                    amazonBundleQuery = "フットレスト ランバーサポート 腰痛クッション";
                 } else if (pain === 'neck') {
                     items.push({
                         role: `【必須処方②】覗き込み猫背・ストレートネックを完全解除`,
-                        name: "BoYata 無段階PCスタンド / Pixio モニターアーム",
-                        price: "約 3,990 円 〜 4,980 円",
-                        reason: "画面上端を目線（眉間の高さ）まで持ち上げ、頭部（約5kg）の前傾モーメントによる首への15kg以上の負荷をリセットします。",
+                        name: "ガススプリング式 無段階モニターアーム",
+                        price: "約 4,500 円",
+                        reason: "画面上端を目線の高さに合わせ、頭部（約5kg）の前傾による20kgの首負荷をリセット。",
                         img: "assets/gear_ergotron_official.jpg",
-                        keyword: "BoYata ノートパソコンスタンド"
+                        keyword: "モニターアーム シングル ガススプリング"
                     });
+                    amazonBundleQuery = "フットレスト モニターアーム";
                 } else if (pain === 'wrist') {
                     items.push({
                         role: `【必須処方②】前腕のねじれと腱鞘炎を解放する`,
@@ -1986,28 +2358,30 @@
                         img: "assets/gear_logi_lift_official.png",
                         keyword: "ロジクール Lift 縦型マウス"
                     });
+                    amazonBundleQuery = "フットレスト エルゴマウス";
                 } else {
                     items.push({
                         role: `【必須処方②】画面の映り込みゼロ・眼のピント疲労を予防`,
-                        name: "Quntis / BenQ モニター掛け式ライトバー",
+                        name: "Quntis モニター掛け式ライトバー（非対称光学）",
                         price: "約 4,500 円",
-                        reason: "画面への反射グレアを完全防止し、手元だけを適正照度で均一に照らすことで瞳孔の過剰収縮を防ぎます。",
+                        reason: "画面への反射光を遮断し、手元だけを適正照度で均一に照らして瞳孔の疲労を防ぎます。",
                         img: "assets/gear_screenbar_official.png",
                         keyword: "Quntis モニターライト"
                     });
+                    amazonBundleQuery = "フットレスト モニターライト";
                 }
 
             } else if (budget === 'value') {
-                // コスパ本格一新（3万〜6万円）
-                packageTitle = `🎯 費用対効果No.1！【${getPainLabel(pain)}】根本解消本格セット`;
-                totalPriceEst = "約 45,000 円 〜 58,000 円";
-                packageDesc = `中途半端な小道具ではなく、環境を根本からアップグレード。あなたの身長（${h}cm）にジャスト適合する低床昇降デスクと高機能エルゴギアの最強タッグです。`;
+                packageBadge = "🎯 費用対効果No.1 根本解決セット";
+                packageTitle = `身長${h}cmジャストの低床昇降天板 ＆ 人間工学本格セット`;
+                totalPriceEst = "総額 約 42,000 円 〜 58,000 円";
+                packageDesc = `小細工ではなく環境の根本をアップグレード。あなたの体型にミリ単位で合致する低床昇降デスクと必須ギアの黄金構成です。`;
 
                 items.push({
-                    role: `【主役①】最低高58cm対応・身長${h}cmジャストの低床天板`,
+                    role: `【主役①】最低高58cm対応・身長${h}cmジャスト天板`,
                     name: "FlexiSpot E7 / E8 低床デュアルモーター電動昇降デスク",
                     price: "約 35,000 円 〜 42,000 円",
-                    reason: `市販の70cm机では絶対不可能な「肘角度90度＋足裏ペタッと接地」をミリ単位で叶える低床ピストン脚を採用。`,
+                    reason: `市販70cm机では絶対不可能な「肘角度90度＋足裏ペタッと接地」をミリ単位で成立。`,
                     img: "assets/gear_flexispot_official.jpg",
                     keyword: "FlexiSpot E7"
                 });
@@ -2015,102 +2389,102 @@
                 if (pain === 'waist') {
                     items.push({
                         role: `【主役②】腰椎サポート自動追従エルゴチェア`,
-                        name: "GrowSpica Pro / Sihoo Doro C300",
+                        name: "GrowSpica Pro / Sihoo 人間工学オフィスチェア",
                         price: "約 39,000 円",
-                        reason: "作業姿勢の前傾・後傾に合わせて腰椎クッションが自動追従。骨盤の後傾を物理的に阻止します。",
+                        reason: "姿勢の前傾・後傾に合わせて腰椎クッションが自動追従。骨盤の後傾を物理的に阻止。",
                         img: "assets/upgrade_gear_chair.jpg",
                         keyword: "GrowSpica Pro"
                     });
+                    amazonBundleQuery = "FlexiSpot エルゴノミクスチェア";
                 } else {
                     items.push({
                         role: `【主役②】スムーズ無段階ガススプリング式モニターアーム`,
                         name: "Pixio PS1S Wave モニターアーム",
                         price: "約 5,200 円",
-                        reason: "立ち・座りの姿勢変更時も、指一本で画面を目線の適正高へスムーズに追従させます。",
+                        reason: "立ち・座りの姿勢変更時も、指一本で画面を目線の適正高へスムーズに追従。",
                         img: "assets/gear_ergotron_official.jpg",
                         keyword: "Pixio PS1S モニターアーム"
                     });
+                    amazonBundleQuery = "FlexiSpot モニターアーム";
                 }
 
             } else {
-                // プロ最高峰（10万円〜）
-                packageTitle = `👑 妥協なき一生モノ！【${getPainLabel(pain)}】最高峰フラッグシップセット`;
-                totalPriceEst = "約 120,000 円 〜 160,000 円";
-                packageDesc = `10年毎日使ってもビクともしない、世界最高峰の耐久性と解剖学的サポート。医師・プロクリエイターが選ぶ絶対の黄金構成です。`;
+                packageBadge = "👑 妥協なき一生モノ フラッグシップ";
+                packageTitle = `10年毎日使っても壊れない、世界最高峰エルゴ空間`;
+                totalPriceEst = "総額 約 120,000 円 〜 160,000 円";
+                packageDesc = `医師・プロクリエイターが選ぶ絶対の黄金構成。解剖学的な正しさ、最高峰の耐久性と静音性を両立。`;
 
                 items.push({
                     role: `【フラッグシップ①】世界標準・10年保証低床電動昇降デスク`,
                     name: "FlexiSpot E7 Pro（コの字フレーム・低床58cm）",
                     price: "約 57,000 円",
-                    reason: "耐荷重125kg、天板下に遮るもののないコの字フレームで脚元空間を最大化。最高峰の安定性。",
+                    reason: "耐荷重125kg、天板下に遮るもののないコの字フレームで脚元空間を最大化。",
                     img: "assets/gear_flexispot_official.jpg",
                     keyword: "FlexiSpot E7 Pro"
                 });
 
                 items.push({
-                    role: `【フラッグシップ②】前傾チルト・腰椎独立サポート最高峰`,
-                    name: pain === 'neck' ? "エルゴヒューマン PRO2 オットマン内蔵" : "COFO Chair Premium（フットレスト内蔵）",
+                    role: `【フラッグシップ②】世界最高峰 人間工学ワークチェア`,
+                    name: "COFO Chair Premium / エルゴヒューマン PRO2",
                     price: "約 89,000 円 〜 120,000 円",
-                    reason: "通気性抜群の超高弾性メッシュと前傾チルト機構。長時間の集中作業でも身体への荷重をゼロに分散。",
-                    img: "assets/gear_cofo_official.jpg",
-                    keyword: pain === 'neck' ? "エルゴヒューマン PRO2" : "COFO Chair Premium"
+                    reason: "背骨全体を吸い付くようにホールドし、体圧分散とランバー可動で腰痛を完封。",
+                    img: "assets/gear_herman_official.jpg",
+                    keyword: "COFO Chair Premium"
                 });
-
-                items.push({
-                    role: `【フラッグシップ③】特許コンスタント・フォース 10年保証アーム`,
-                    name: "エルゴトロン LX デスクマウント モニターアーム",
-                    price: "約 22,000 円",
-                    reason: "1万回以上の昇降テストに耐える世界最高峰のモニターアーム。画面が一切お辞儀せず、目の前の空中にピタッと静止します。",
-                    img: "assets/gear_ergotron_official.jpg",
-                    keyword: "エルゴトロン LX モニターアーム"
-                });
+                amazonBundleQuery = "FlexiSpot エルゴヒューマン";
             }
 
-            // Build Header for the Prescription Package
-            const headerBox = document.createElement("div");
-            headerBox.style.cssText = "background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.12)); border: 1.5px solid rgba(16,185,129,0.45); border-radius: 20px; padding: 24px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);";
-            headerBox.innerHTML = `
-                <div style="font-size: 11px; font-weight: 800; color: var(--mint); letter-spacing: 1px; margin-bottom: 6px;">🩺 YOUR CUSTOM PRESCRIPTION // あなた専用処方パッケージ</div>
-                <div style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px;">${packageTitle}</div>
-                <div style="font-size: 13px; color: #cbd5e1; line-height: 1.6; margin-bottom: 14px;">${packageDesc}</div>
-                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.12); padding: 8px 16px; border-radius: 10px;">
-                    <span style="font-size: 12px; color: var(--text-secondary); font-weight: 700;">パッケージ合計目安:</span>
-                    <span style="font-size: 18px; font-weight: 900; color: #34d399; font-family: 'JetBrains Mono', monospace;">${totalPriceEst}</span>
+            // 処方箋パッケージボックスのHTML
+            const amazonBundleUrl = `https://www.amazon.co.jp/s?k=${encodeURIComponent(amazonBundleQuery)}&tag=fhmch-22`;
+            const deskSwipeUrl = `https://fhmch.github.io/DeskSwipe/?h=${h}&deskH=${deskH}&seatH=${seatH}&preset=wood_wqhd`;
+
+            let html = `
+                <div class="pkg-prescript-box">
+                    <div style="font-size:12px; font-weight:800; color:var(--mint); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:4px;">${packageBadge}</div>
+                    <div class="pkg-prescript-title">📦 ${packageTitle}</div>
+                    <div class="pkg-price-badge">${totalPriceEst}</div>
+                    <p style="font-size:13px; color:var(--text-secondary); line-height:1.65; margin-bottom:14px;">${packageDesc}</p>
+                    
+                    <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                        <a href="${amazonBundleUrl}" target="_blank" rel="noopener" class="pkg-btn-bundle">
+                            🛒 Amazonでこのセット内容を一括チェック ↗
+                        </a>
+                        <a href="${deskSwipeUrl}" target="_blank" rel="noopener" class="pkg-btn-3d">
+                            🖥️ この理想寸法で3Dデスク部屋をシミュレーション ↗
+                        </a>
+                    </div>
                 </div>
             `;
-            list.appendChild(headerBox);
 
-            // Render Item Cards
+            // 個別ギアカード
+            html += `<div style="display:flex; flex-direction:column; gap:20px;">`;
             items.forEach((item, idx) => {
-                const card = document.createElement("div");
-                card.className = "gear-card";
-                card.innerHTML = `
-                    <div class="gear-img-box">
-                        <img src="${item.img}" alt="${item.name}" loading="lazy">
-                    </div>
-                    <div>
-                        <div class="gear-role">${item.role}</div>
-                        <div class="gear-name">${item.name}</div>
-                        <div style="font-size: 12px; font-weight: 800; color: #fbbf24; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace;">参考価格: ${item.price}</div>
-                        <div class="gear-reason"><strong>💡 処方理由:</strong> ${item.reason}</div>
-                    </div>
-                    <div class="gear-links">
-                        <a href="${getAmazonLink(item.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-amazon">Amazon で見る ↗</a>
-                        <a href="${getMoshimoRakutenLink(item.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-rakuten">楽天市場 で見る ↗</a>
-                        <a href="${getMoshimoYahooLink(item.keyword)}" target="_blank" rel="nofollow" class="mall-btn btn-yahoo">Yahoo! で見る ↗</a>
+                const amazonUrl = `https://www.amazon.co.jp/s?k=${encodeURIComponent(item.keyword)}&tag=fhmch-22`;
+                const rakutenUrl = `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(item.keyword)}/`;
+                const yahooUrl = `https://shopping.yahoo.co.jp/search?p=${encodeURIComponent(item.keyword)}`;
+
+                html += `
+                    <div class="gear-card">
+                        <div class="gear-img-box">
+                            <img src="${item.img}" alt="${item.name}" loading="lazy">
+                        </div>
+                        <div class="gear-content">
+                            <div class="gear-role">${item.role}</div>
+                            <div class="gear-name">${item.name}</div>
+                            <div style="font-family:'JetBrains Mono'; font-size:13.5px; font-weight:800; color:var(--mint); margin-bottom:6px;">参考価格: ${item.price}</div>
+                            <p class="gear-reason">${item.reason}</p>
+                            <div class="gear-links" style="margin-top:12px;">
+                                <a href="${amazonUrl}" class="mall-btn btn-amazon" target="_blank" rel="noopener">Amazonで探す ↗</a>
+                                <a href="${rakutenUrl}" class="mall-btn btn-rakuten" target="_blank" rel="noopener">楽天市場で探す ↗</a>
+                                <a href="${yahooUrl}" class="mall-btn btn-yahoo" target="_blank" rel="noopener">Yahoo!で探す ↗</a>
+                            </div>
+                        </div>
                     </div>
                 `;
-                list.appendChild(card);
             });
-        }
-    
+            html += `</div>`;
 
-        function adjustCurrentDeskH(delta) {
-            const inp = document.getElementById("current-desk-h-input");
-            if (!inp) return;
-            const v = Math.min(85, Math.max(55, (parseFloat(inp.value) || 70) + delta));
-            inp.value = v;
-            updateCurrentDeskComparison();
+            list.innerHTML = html;
         }
 
         function updateCurrentDeskComparison() {
