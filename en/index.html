@@ -22,45 +22,79 @@
       }, true);
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ErgoSwipe — Bio-Mechanical Ergonomic Desk & Posture Calculator</title>
-    <meta name="description" content="Calculate your scientifically ideal desk and chair height based on ergonomics standards. Expose standard 29-inch desk flaws, eliminate back and neck pain, and discover tailored ergonomic gear.">
-    <meta name="keywords" content="Ergonomic Desk Height Calculator, Standing Desk Height, Chair Height, Back Pain Work From Home, Neck Strain, FlexiSpot, Ergotron, Logitech Lift">
-    <link rel="canonical" href="https://fhmch.github.io/ErgoSwipe/en/">
+    <meta name="description" content="Calculate your scientifically ideal desk and chair height based on ISO 9241-5 and BIFMA ergonomic standards. Expose standard 29-inch desk flaws, eliminate back and neck pain, and discover tailored ergonomic gear.">
+    <meta name="keywords" content="Ergonomic Desk Height Calculator, Standing Desk Height, Chair Height, Back Pain Work From Home, Neck Strain, FlexiSpot, Ergotron, Logitech Lift, ISO 9241-5">
+        <link rel="canonical" href="https://fhmch.github.io/ErgoSwipe/en/">
     <link rel="alternate" hreflang="ja" href="https://fhmch.github.io/ErgoSwipe/">
     <link rel="alternate" hreflang="en" href="https://fhmch.github.io/ErgoSwipe/en/">
     <link rel="alternate" hreflang="x-default" href="https://fhmch.github.io/ErgoSwipe/">
+    <link rel="alternate" hreflang="ja" href="https://fhmch.github.io/ErgoSwipe/en/">
+    <link rel="alternate" hreflang="en" href="https://fhmch.github.io/ErgoSwipe/en/">
+    <link rel="alternate" hreflang="x-default" href="https://fhmch.github.io/ErgoSwipe/en/">
     <meta name="google-site-verification" content="d536nA_kytEpTfIoXgrpyWSsg56ak4_C3uykiGik1qM" />
-    
-    <!-- Open Graph / Social Meta -->
+
+    <!-- OGP -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fhmch.github.io/ErgoSwipe/en/">
-    <meta property="og:title" content="ErgoSwipe — Bio-Mechanical Ergonomic Desk & Posture Calculator">
-    <meta property="og:description" content="Find out your scientifically ideal desk & chair height in inches/cm. Reveal how standard 29-inch desks strain your spine and discover customized ergonomic prescriptions.">
-    <meta property="og:image" content="https://fhmch.github.io/ErgoSwipe/assets/gear_flexispot_official.jpg">
+    <meta property="og:site_name" content="ErgoSwipe">
+    <meta property="og:title" content="ErgoSwipe — Bio-Mechanical Desk & Posture Calculator">
+    <meta property="og:description" content="Calculate your ideal desk & chair height in inches/cm. Reveal how standard 29-inch desks strain your spine and discover customized ergonomic prescriptions.">
+    <meta property="og:url" content="https://fhmch.github.io/ErgoSwipe/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=1200&auto=format&fit=crop&q=80">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ErgoSwipe — Bio-Mechanical Desk & Posture Calculator">
     <meta name="twitter:description" content="Is your 29-inch desk ruining your posture? Calculate your exact ergonomic measurements and see the biomechanical difference.">
-    <meta name="twitter:image" content="https://fhmch.github.io/ErgoSwipe/assets/gear_flexispot_official.jpg">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=1200&auto=format&fit=crop&q=80">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ErgoSwipe",
+      "alternateName": "ErgoSwipe Calculator",
+      "url": "https://fhmch.github.io/ErgoSwipe/",
+      "description": "Calculate your ideal desk and chair height down to the millimeter based on ISO 9241-5 and BIFMA ergonomic standards.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
-
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+    
+        <style>
         :root {
-            --bg-base: #06090e;
-            --bg-surface: #0d131f;
-            --bg-card: rgba(18, 26, 43, 0.7);
+            /* Sophisticated Obsidian & Deep Slate Palette */
+            --bg-base: #080c10;
+            --bg-panel: rgba(13, 20, 26, 0.85);
+            --bg-panel-solid: #0d141a;
+            --bg-card: rgba(18, 28, 36, 0.72);
+            --bg-card-hover: rgba(24, 38, 48, 0.92);
+            --bg-card-selected: rgba(16, 185, 129, 0.12);
+            
             --border-glass: rgba(255, 255, 255, 0.08);
-            --border-focus: rgba(0, 240, 255, 0.4);
-            --cyan-glow: #00f0ff;
-            --mint: #10b981;
-            --mint-hover: #059669;
+            --border-glass-strong: rgba(255, 255, 255, 0.16);
+            --border-glow: rgba(16, 185, 129, 0.45);
+            
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-tertiary: #64748b;
-            --accent-purple: #8b5cf6;
+            
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.4);
+            --mint: #34d399;
+            --cyan-accent: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.35);
             --red-warn: #ef4444;
             --warning: #f59e0b;
         }
@@ -69,224 +103,224 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans JP', -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--bg-base);
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
-                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
             color: var(--text-primary);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(ellipse at 18% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at 82% 65%, rgba(6, 182, 212, 0.06) 0%, transparent 60%),
+                radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+            letter-spacing: -0.01em;
         }
 
+        /* HEADER */
         header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 12, 16, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 24px;
-            background: rgba(6, 9, 14, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-glass);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            transition: all 0.2s ease;
         }
 
         .logo-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
         }
 
         .brand-badge {
-            background: linear-gradient(135deg, var(--cyan-glow), var(--mint));
-            color: #000;
+            background: linear-gradient(135deg, var(--emerald), var(--mint));
+            color: #042517;
+            font-family: 'Cabinet Grotesk', sans-serif;
             font-weight: 900;
-            font-size: 11px;
-            padding: 3px 7px;
-            border-radius: 6px;
-            letter-spacing: 0.5px;
+            font-size: 11.5px;
+            padding: 4px 8px;
+            border-radius: 7px;
+            letter-spacing: 0.8px;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
         }
 
         .brand-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.5px;
-        }
-
-        .lang-switch-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass);
-            color: var(--text-primary);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .lang-switch-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .sibling-badge {
-            display: none;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-        @media(min-width: 640px) {
-            .sibling-badge { display: flex; }
-        }
-        .sibling-badge:hover {
-            color: var(--cyan-glow);
-            border-color: rgba(0, 240, 255, 0.3);
-        }
-
-        main {
-            flex: 1;
-            max-width: 840px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 32px 16px 64px;
-        }
-
-        .hero-banner {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .hero-tagline {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            color: var(--cyan-glow);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .hero-title {
-            font-size: 28px;
-            font-weight: 900;
-            line-height: 1.25;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            background: linear-gradient(180deg, #fff 0%, #cbd5e1 100%);
+            letter-spacing: -0.6px;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        @media(min-width: 640px) {
-            .hero-title { font-size: 36px; }
+
+        .sibling-badge {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--mint);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            background: rgba(16, 185, 129, 0.07);
+            padding: 6px 13px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .sibling-badge:hover {
+            background: rgba(16, 185, 129, 0.18);
+            border-color: var(--mint);
+            box-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
+            transform: translateY(-1px);
         }
 
+        /* CONTAINER */
+        main {
+            flex: 1;
+            max-width: 940px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 32px 18px 80px 18px;
+        }
+
+        /* HERO CARD */
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 10px 10px;
+        }
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11.5px;
+            font-weight: 800;
+            color: var(--mint);
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            background: rgba(16, 185, 129, 0.08);
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.28);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.12);
+        }
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--mint);
+            box-shadow: 0 0 8px var(--mint);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 12px var(--mint); }
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.3;
+            letter-spacing: -0.8px;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @media(max-width: 600px) {
+            .hero-title {
+                font-size: 26px;
+            }
+        }
         .hero-desc {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.6;
-            max-width: 620px;
+            max-width: 640px;
             margin: 0 auto;
+            line-height: 1.68;
         }
 
         /* WIZARD CONTAINER */
         .wizard-panel {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(16px);
-            border-radius: 20px;
-            padding: 24px 20px;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-            margin-bottom: 32px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass-strong);
+            border-radius: 24px;
+            padding: 32px 28px;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
+            margin-bottom: 36px;
+            position: relative;
+            overflow: hidden;
         }
-        @media(min-width: 640px) {
-            .wizard-panel { padding: 32px; }
+        .wizard-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.4), transparent);
         }
 
         .step-progress-bar {
             display: flex;
-            justify-content: center;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 28px;
         }
         .step-dot {
-            width: 32px;
-            height: 4px;
-            border-radius: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            flex: 1;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 3px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .step-dot.active {
-            background: var(--cyan-glow);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            background: linear-gradient(90deg, var(--emerald), var(--mint));
+            box-shadow: 0 0 12px var(--emerald-glow);
         }
 
         .question-card {
             display: none;
-            animation: fadeIn 0.3s ease;
         }
         .question-card.active {
             display: block;
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .question-header {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--cyan-glow);
-            letter-spacing: 1px;
-            margin-bottom: 6px;
+            font-size: 11.5px;
+            font-weight: 800;
+            color: var(--mint);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.8px;
         }
         .question-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
-            color: #fff;
-            margin-bottom: 20px;
-            line-height: 1.35;
+            margin-bottom: 22px;
+            line-height: 1.4;
+            letter-spacing: -0.4px;
         }
 
         .options-grid {
@@ -294,197 +328,207 @@
             grid-template-columns: 1fr;
             gap: 12px;
         }
-        @media(min-width: 640px) {
+        @media(min-width: 600px) {
             .options-grid.grid-2 {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         .opt-btn {
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 14px;
-            padding: 16px 18px;
+            border-radius: 16px;
+            padding: 18px 20px;
             text-align: left;
-            color: var(--text-primary);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
+            color: var(--text-primary);
+            position: relative;
         }
         .opt-btn:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: var(--border-focus);
+            border-color: rgba(52, 211, 153, 0.45);
+            background: var(--bg-card-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
-        .opt-icon {
-            font-size: 24px;
-            line-height: 1;
-            flex-shrink: 0;
+        .opt-btn:active {
+            transform: scale(0.99);
+        }
+        .opt-btn.selected {
+            border-color: var(--emerald);
+            background: var(--bg-card-selected);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.25), inset 0 0 12px rgba(16, 185, 129, 0.08);
+        }
+        .opt-icon-circle {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.25s ease;
+        }
+        .opt-btn:hover .opt-icon-circle {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
         }
         .opt-text-title {
             font-size: 15px;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
+            letter-spacing: -0.2px;
         }
         .opt-text-sub {
             font-size: 12px;
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
-        /* HEIGHT INPUT COMPONENT */
-        .height-control-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-
-        .unit-toggle-row {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-        .unit-pill-btn {
-            background: rgba(255, 255, 255, 0.05);
+        /* HEIGHT SLIDER */
+        .height-slider-box {
+            background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            color: var(--text-secondary);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
+            border-radius: 20px;
+            padding: 28px 24px;
+            text-align: center;
+            margin-bottom: 22px;
         }
-        .unit-pill-btn.active {
-            background: var(--cyan-glow);
-            color: #000;
-            border-color: var(--cyan-glow);
-        }
-
-        .height-display-box {
+        .height-input-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 16px;
+            gap: 14px;
+            margin-bottom: 12px;
         }
-        .height-step-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass);
-            color: #fff;
-            font-size: 20px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s ease;
-        }
-        .height-step-btn:hover {
-            background: rgba(0, 240, 255, 0.15);
-            border-color: var(--cyan-glow);
-            color: var(--cyan-glow);
-        }
-
         .height-num-input {
-            width: 100px;
+            width: 120px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1.5px solid rgba(16, 185, 129, 0.45);
+            border-radius: 14px;
+            padding: 10px 14px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 800;
-            color: var(--cyan-glow);
-            background: transparent;
-            border: none;
+            color: var(--mint);
             text-align: center;
             outline: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         }
-        .height-unit-label {
-            font-size: 18px;
+        .height-num-input:focus {
+            border-color: var(--mint);
+            box-shadow: 0 0 20px var(--emerald-glow);
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .height-btn-adjust {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass-strong);
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .height-btn-adjust:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--mint);
+            color: var(--mint);
+            transform: translateY(-1px);
+        }
+        .height-btn-adjust:active {
+            transform: scale(0.92);
+        }
+        .height-quick-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .height-quick-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 700;
-            color: var(--text-tertiary);
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-
-        .height-slider {
+        .height-quick-btn:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--mint);
+            color: var(--mint);
+            transform: translateY(-1px);
+        }
+        .height-quick-btn.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 182, 212, 0.2));
+            border-color: var(--mint);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+        }
+        .slider-range {
             width: 100%;
             height: 8px;
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.1);
             outline: none;
             -webkit-appearance: none;
+            margin: 18px 0 8px 0;
             cursor: pointer;
         }
-        .height-slider::-webkit-slider-thumb {
+        .slider-range::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            background: var(--cyan-glow);
-            box-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+            background: linear-gradient(135deg, #ffffff, var(--mint));
             cursor: pointer;
-            transition: transform 0.1s ease;
+            box-shadow: 0 0 14px var(--emerald-glow), 0 2px 6px rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--emerald);
+            transition: transform 0.15s ease;
         }
-        .height-slider::-webkit-slider-thumb:hover {
+        .slider-range::-webkit-slider-thumb:hover {
             transform: scale(1.15);
         }
 
-        .height-presets-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-        }
-        @media(min-width: 640px) {
-            .height-presets-grid {
-                grid-template-columns: repeat(8, 1fr);
-            }
-        }
-        .height-preset-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            border-radius: 8px;
-            padding: 8px 4px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.15s ease;
-        }
-        .height-preset-btn:hover, .height-preset-btn.active {
-            background: rgba(0, 240, 255, 0.15);
-            border-color: var(--cyan-glow);
-            color: var(--cyan-glow);
-        }
-
-        .btn-next-step {
+        .btn-wizard-next {
             width: 100%;
-            background: linear-gradient(135deg, var(--cyan-glow), var(--mint));
-            color: #000;
+            background: linear-gradient(135deg, var(--emerald), var(--mint));
+            color: #042517;
             border: none;
-            border-radius: 12px;
             padding: 16px;
+            border-radius: 14px;
             font-size: 16px;
             font-weight: 800;
+            letter-spacing: -0.2px;
             cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.2s ease;
-            box-shadow: 0 8px 24px rgba(0, 240, 255, 0.25);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.3);
+            margin-top: 16px;
         }
-        .btn-next-step:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(0, 240, 255, 0.35);
+        .btn-wizard-next:hover {
+            opacity: 0.96;
+            transform: translateY(-1.5px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+        .btn-wizard-next:active {
+            transform: scale(0.99);
         }
 
         /* RESULT SECTION */
@@ -493,58 +537,79 @@
             animation: fadeIn 0.4s ease;
         }
 
+        /* KARTE CONTAINER (Medical / Lab Style) */
         .karte-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(16px);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 32px;
+            background: linear-gradient(145deg, rgba(15, 24, 30, 0.95), rgba(9, 15, 20, 0.98));
+            border: 1px solid rgba(16, 185, 129, 0.38);
+            border-radius: 24px;
+            padding: 30px 28px;
+            margin-bottom: 36px;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(16, 185, 129, 0.12);
             position: relative;
             overflow: hidden;
         }
-        @media(min-width: 640px) {
-            .karte-card { padding: 32px; }
+        .karte-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--emerald), var(--cyan-accent), var(--mint));
         }
-
         .karte-watermark {
             position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 140px;
+            top: -25px;
+            right: -25px;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 120px;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.015);
+            color: rgba(16, 185, 129, 0.035);
             pointer-events: none;
             user-select: none;
-            font-family: 'JetBrains Mono', monospace;
         }
 
         .karte-header {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            gap: 12px;
             border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 16px;
-            margin-bottom: 20px;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
         }
         .karte-title-group {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .karte-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
             color: #fff;
+            letter-spacing: -0.4px;
         }
-        .karte-tag {
-            background: rgba(16, 185, 129, 0.15);
+        .karte-badge-verified {
+            font-size: 11px;
+            font-weight: 800;
+            background: rgba(16, 185, 129, 0.12);
             color: var(--mint);
             border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .karte-tag {
+            background: rgba(6, 182, 212, 0.12);
+            color: #67e8f9;
+            border: 1px solid rgba(6, 182, 212, 0.3);
             font-size: 11px;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
             font-family: 'JetBrains Mono', monospace;
         }
 
@@ -553,7 +618,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
         @media(min-width: 640px) {
             .posture-comp-box {
@@ -561,164 +626,189 @@
             }
         }
         .posture-item {
-            border-radius: 14px;
-            padding: 16px;
+            border-radius: 18px;
+            padding: 18px;
             border: 1px solid var(--border-glass);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            backdrop-filter: blur(12px);
         }
         .posture-bad {
-            background: rgba(239, 68, 68, 0.06);
-            border-color: rgba(239, 68, 68, 0.25);
+            background: rgba(239, 68, 68, 0.05);
+            border-color: rgba(239, 68, 68, 0.28);
         }
         .posture-good {
-            background: rgba(16, 185, 129, 0.08);
-            border-color: rgba(16, 185, 129, 0.35);
+            background: rgba(16, 185, 129, 0.06);
+            border-color: rgba(16, 185, 129, 0.38);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
         }
         .posture-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 7px;
         }
-        .posture-bad .posture-label { color: var(--red-warn); }
+        .posture-bad .posture-label { color: #f87171; }
         .posture-good .posture-label { color: var(--mint); }
         .posture-desc {
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 12.5px;
+            line-height: 1.6;
             color: var(--text-secondary);
-            margin-bottom: 8px;
         }
         .posture-svg-wrap {
             position: relative;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            padding: 10px 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 14px;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
         .posture-svg {
             width: 100%;
-            height: 120px;
+            height: 125px;
             display: block;
         }
         .posture-badge-row {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 8px;
+            margin-top: 10px;
+            justify-content: flex-start;
         }
         .posture-badge {
             font-size: 11px;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 4px 9px;
             border-radius: 6px;
             display: inline-flex;
             align-items: center;
             gap: 4px;
         }
         .badge-bad {
-            background: rgba(239, 68, 68, 0.15);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.14);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.35);
         }
         .badge-good {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.14);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.35);
         }
 
         /* METRICS GRID */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
         .metric-item {
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 14px;
+            border-radius: 16px;
+            padding: 18px 14px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .metric-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--mint), transparent);
         }
         .metric-label {
             font-size: 12px;
+            font-weight: 700;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .metric-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
             color: #fff;
+            letter-spacing: -0.5px;
         }
         .metric-unit {
-            font-size: 13px;
-            color: var(--text-tertiary);
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 700;
         }
 
         .warning-callout {
             background: rgba(245, 158, 11, 0.08);
             border-left: 3px solid var(--warning);
-            padding: 14px 16px;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 18px;
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.65;
             color: #fde68a;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
+        /* SHARE SECTION */
         .share-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 24px;
+            align-items: center;
+            justify-content: flex-end;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 18px;
         }
-        .btn-re-calc {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-glass);
-            color: var(--text-primary);
-            padding: 12px 18px;
+        .btn-share-x {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px 18px;
             border-radius: 10px;
             font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-share-x:hover {
+            background: #e2e8f0;
+            transform: translateY(-1.5px);
+            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+        }
+        .btn-re-calc {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-glass);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 12.5px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
         }
         .btn-re-calc:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .btn-share-x {
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.25);
             color: #fff;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-        .btn-share-x:hover {
-            background: #111;
-            border-color: #fff;
-            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* GEAR LIST */
+        /* RECOMMENDATIONS */
         .section-title {
-            font-size: 18px;
+            font-size: 21px;
             font-weight: 800;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: -0.4px;
         }
+
         .gear-list {
             display: flex;
             flex-direction: column;
@@ -726,64 +816,72 @@
             margin-bottom: 40px;
         }
         .gear-card {
-            background: var(--bg-card);
+            background: var(--bg-panel);
             border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 18px;
+            border-radius: 20px;
+            padding: 22px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
-            align-items: center;
-            transition: all 0.2s ease;
-        }
-        @media(min-width: 640px) {
-            .gear-card {
-                grid-template-columns: 120px 1fr 160px;
-            }
+            gap: 18px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .gear-card:hover {
-            border-color: var(--border-focus);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(16, 185, 129, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        @media(min-width: 680px) {
+            .gear-card {
+                grid-template-columns: 140px 1fr 140px;
+                align-items: center;
+            }
         }
         .gear-img-box {
             width: 100%;
-            height: 110px;
-            border-radius: 10px;
-            background: #0b111b;
+            height: 120px;
+            border-radius: 14px;
+            background: #000;
+            border: 1px solid var(--border-glass);
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 6px;
         }
         .gear-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 92%;
+            max-height: 92%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .gear-card:hover .gear-img-box img {
+            transform: scale(1.05);
         }
         .gear-role {
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--mint);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
         .gear-name {
-            font-size: 16px;
+            font-size: 17.5px;
             font-weight: 800;
             margin-bottom: 6px;
+            letter-spacing: -0.3px;
         }
         .gear-reason {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.65;
         }
         .gear-links {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
+
+        /* REFINED EDITORIAL MALL BUTTONS (No Cheap Banners) */
         .mall-btn {
             padding: 9px 14px;
             border-radius: 12px;
@@ -810,42 +908,290 @@
             box-shadow: 0 0 16px rgba(255, 153, 0, 0.35);
             transform: translateY(-1.5px);
         }
-        .btn-official {
-            background: rgba(255, 255, 255, 0.05);
-            color: #f8fafc;
-            border: 1px solid rgba(255, 255, 255, 0.16);
+        .btn-rakuten {
+            background: rgba(239, 68, 68, 0.09);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
         }
-        .btn-official:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.3);
+        .btn-rakuten:hover {
+            background: rgba(239, 68, 68, 0.22);
+            border-color: #ef4444;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(239, 68, 68, 0.35);
+            transform: translateY(-1.5px);
+        }
+        .btn-yahoo {
+            background: rgba(244, 63, 94, 0.09);
+            border: 1px solid rgba(244, 63, 94, 0.35);
+            color: #fda4af;
+        }
+        .btn-yahoo:hover {
+            background: rgba(244, 63, 94, 0.22);
+            border-color: #f43f5e;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(244, 63, 94, 0.35);
             transform: translateY(-1.5px);
         }
 
+        /* SIBLING BANNER (DeskSwipe) */
+        .sibling-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.08));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+            margin-top: 44px;
+        }
+        @media(min-width: 600px) {
+            .sibling-banner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .sibling-banner-title {
+            font-size: 16.5px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .sibling-banner-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+        .btn-sibling {
+            background: linear-gradient(135deg, var(--emerald), var(--mint));
+            color: #042517;
+            padding: 11px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+        }
+        .btn-sibling:hover {
+            transform: translateY(-1.5px);
+            box-shadow: 0 6px 22px rgba(16, 185, 129, 0.35);
+        }
+
+        /* FOOTER */
         footer {
             border-top: 1px solid var(--border-glass);
-            padding: 24px 16px;
+            padding: 28px 16px;
             text-align: center;
             font-size: 12px;
             color: var(--text-tertiary);
             line-height: 1.6;
         }
+    
+        /* INTERACTIVE BIOMECHANICS TOY (STEP 1) */
+        .biomech-toy-card {
+            background: rgba(10, 16, 22, 0.85);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .biomech-toy-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .biomech-mode-switch {
+            display: inline-flex;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 4px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glass);
+            gap: 4px;
+        }
+        .biomech-mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .biomech-mode-btn.active.warn-mode {
+            background: rgba(239, 68, 68, 0.18);
+            color: #fca5a5;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+        .biomech-mode-btn.active.ideal-mode {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--mint);
+            box-shadow: 0 0 12px var(--emerald-glow);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        .biomech-canvas-box {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+        .biomech-svg {
+            width: 100%;
+            max-width: 380px;
+            height: 140px;
+            display: block;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .biomech-gauge-row {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 480px) {
+            .biomech-gauge-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        .biomech-gauge-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        .biomech-gauge-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+        .biomech-gauge-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .gauge-danger {
+            color: #f87171;
+            text-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+        }
+        .gauge-safe {
+            color: var(--mint);
+            text-shadow: 0 0 12px var(--emerald-glow);
+        }
+
+        /* PACKAGE SUMMARY PRESCRIPTION BOX */
+        .pkg-prescript-box {
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.06));
+            border: 1.5px solid rgba(16, 185, 129, 0.45);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.15);
+        }
+        .pkg-prescript-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.4px;
+        }
+        .pkg-price-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 182, 212, 0.2));
+            border: 1px solid var(--mint);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .pkg-btn-bundle {
+            background: linear-gradient(135deg, #ff9900, #f59e0b);
+            color: #111;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4);
+            transition: all 0.2s ease;
+            margin-top: 14px;
+        }
+        .pkg-btn-bundle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.55);
+            color: #000;
+        }
+        .pkg-btn-3d {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid #00f0ff;
+            color: #00f0ff;
+            padding: 13px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            margin-top: 14px;
+        }
+        .pkg-btn-3d:hover {
+            background: rgba(0, 240, 255, 0.3);
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+    
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spinReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-left">
-            <a href="./" class="logo-group">
-                <span class="brand-badge">ERGO</span>
-                <span class="brand-title">ErgoSwipe</span>
-            </a>
+        <div class="logo-group">
+            <span class="brand-badge">ERGO</span>
+            <span class="brand-title">ErgoSwipe</span>
         </div>
-        <div class="header-right">
+        <div style="display: flex; align-items: center; gap: 10px;">
             <a href="https://fhmch.github.io/DeskSwipe/en/" class="sibling-badge" target="_blank">
-                🖥️ Custom PC & Battlestation Studio ↗
+                🖥️ Battlestation Builder (DeskSwipe) ↗
             </a>
-            <a href="../index.html" class="lang-switch-btn">
-                🌐 日本語 (JP)
+            <a href="../index.html" class="lang-switch-btn" style="background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border-glass); color: var(--text-primary); padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease;">
+                🌐 English
             </a>
         </div>
     </header>
@@ -853,11 +1199,11 @@
     <main>
         <!-- HERO -->
         <div class="hero-banner">
-            <div class="hero-tagline">🔬 Ergonomics Bio-Mechanics Lab</div>
-            <h1 class="hero-title">Work-From-Home Ergonomics<br>Zero-Fatigue Desk Prescription</h1>
+            <div class="hero-tagline"><span class="live-dot"></span> 🔬 Ergonomics Bio-Mechanics Lab (ISO 9241-5 / BIFMA)</div>
+            <h1 class="hero-title">Bio-Mechanical Desk &amp; Posture<br>Ergonomic Prescription</h1>
             <p class="hero-desc">
-                Calculates your scientifically ideal desk and chair height down to millimeters and inches based on ISO/BIFMA standards.
-                Exposes how standard 29" (74cm) fixed desks ruin posture and prescribes custom gear for back, neck, and eye strain.
+                Calculates your scientifically ideal desk and seat height down to the millimeter based on ISO/BIFMA ergonomic standards.
+                Exposes how standard 29-inch desks strain your spine and delivers a tailored zero-fatigue prescription.
             </p>
         </div>
 
@@ -867,290 +1213,355 @@
                 <div class="step-dot active" id="dot-1"></div>
                 <div class="step-dot" id="dot-2"></div>
                 <div class="step-dot" id="dot-3"></div>
-                <div class="step-dot" id="dot-4"></div>
             </div>
 
-            <!-- Q1: HOURS -->
+            <!-- Dynamic Section -->
             <div class="question-card active" id="q-1">
-                <div class="question-header">STEP 01 / 04</div>
-                <h2 class="question-title">How many hours a day do you spend at your desk?</h2>
-                <div class="options-grid">
-                    <button class="opt-btn" onclick="selectOption('hours', 'light')">
-                        <span class="opt-icon">☕</span>
-                        <div>
-                            <div class="opt-text-title">Under 4 Hours (Light / Casual)</div>
-                            <div class="opt-text-sub">Emails, browsing, and quick tasks</div>
+                <div class="question-header">STEP 01 / 03 ｜ ANATOMICAL DIMENSIONS</div>
+                <h2 class="question-title">Enter your height to calculate exact ergonomic measurements</h2>
+
+                <!-- Dynamic Section -->
+                <div class="biomech-toy-card">
+                    <div class="biomech-toy-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:16px;">🔬</span>
+                            <span style="font-size:13px; font-weight:800; color:#fff;">Real-Time Biomechanics Simulation</span>
                         </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('hours', 'medium')">
-                        <span class="opt-icon">💻</span>
-                        <div>
-                            <div class="opt-text-title">4 – 8 Hours (Standard Full-Time)</div>
-                            <div class="opt-text-sub">Daily office or remote work shift</div>
+                        <div class="biomech-mode-switch">
+                            <button type="button" class="biomech-mode-btn active warn-mode" id="btn-mode-standard" onclick="setBiomechPreviewMode('standard')">⚠️ Standard 29-inch Desk</button>
+                            <button type="button" class="biomech-mode-btn ideal-mode" id="btn-mode-ideal" onclick="setBiomechPreviewMode('ideal')">✨ Ideal Ergonomics</button>
                         </div>
-                    </button>
-                    <button class="opt-btn" onclick="selectOption('hours', 'heavy')">
-                        <span class="opt-icon">🔥</span>
-                        <div>
-                            <div class="opt-text-title">8+ Hours (Heavy / Deep Focus)</div>
-                            <div class="opt-text-sub">Software engineers, creators, hardcore gaming</div>
+                    </div>
+
+                    <div class="biomech-canvas-box">
+                        <div id="biomech-svg-container" style="width:100%; display:flex; justify-content:center;">
+                            <!-- Dynamic Section -->
                         </div>
-                    </button>
+
+                        <div class="biomech-gauge-row">
+                            <div class="biomech-gauge-card">
+                                <div class="biomech-gauge-label">Estimated Cervical Spine & Trapezius Load</div>
+                                <div class="biomech-gauge-value gauge-danger" id="biomech-neck-load">21.8 kg</div>
+                            </div>
+                            <div class="biomech-gauge-card">
+                                <div class="biomech-gauge-label">Discrepancy vs 29-inch Commercial Desk</div>
+                                <div class="biomech-gauge-value" id="biomech-gap-val">+3.5 cm</div>
+                            </div>
+                        </div>
+                        <div id="biomech-status-badge" style="font-size:12px; color:#fca5a5; font-weight:700; text-align:center;">
+                            🚨 Shoulder elevation creates chronic trapezius tension (Stiffness & tension headache risk)
+                        </div>
+                    </div>
                 </div>
+
+                <div class="height-slider-box">
+                    <div class="height-input-container">
+                        <button type="button" class="height-btn-adjust" onclick="adjustHeight(-1)" title="Decrease 1cm">−</button>
+                        <input type="number" id="height-num-input" class="height-num-input" min="140" max="205" value="170" oninput="updateHeight(this.value, 'input')">
+                        <span style="font-size:20px; font-weight:800; color:var(--text-secondary);">cm</span>
+                        <button type="button" class="height-btn-adjust" onclick="adjustHeight(1)" title="Increase 1cm">＋</button>
+                    </div>
+
+                    <input type="range" min="145" max="195" value="170" class="slider-range" id="height-slider" oninput="updateHeight(this.value, 'slider')">
+                    
+                    <div style="font-size: 11.5px; color: var(--text-tertiary); margin-bottom: 10px;">Type your height directly, use +/- buttons, or slide the bar (supports 4'9" to 6'5")</div>
+
+                    <div class="height-quick-row">
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(150)">150cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(155)">155cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(160)">160cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(165)">165cm</button>
+                        <button type="button" class="height-quick-btn active" onclick="updateHeight(170)">170cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(175)">175cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(180)">180cm</button>
+                        <button type="button" class="height-quick-btn" onclick="updateHeight(185)">185cm</button>
+                    </div>
+                </div>
+                <button class="btn-wizard-next" onclick="nextQuestion(2)">Confirm Height & Choose Symptoms ➔</button>
             </div>
 
-            <!-- Q2: PAIN POINT -->
+            <!-- Dynamic Section -->
             <div class="question-card" id="q-2">
-                <div class="question-header">STEP 02 / 04</div>
-                <h2 class="question-title">Where do you experience the most strain or pain?</h2>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 02 / 03 ｜ SYMPTOM & STRAIN AREA</div>
+                    <button type="button" onclick="nextQuestion(1)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:5px 12px; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer;">← Back to Height</button>
+                </div>
+                <h2 class="question-title">Where do you experience the most strain or pain during desk work?</h2>
                 <div class="options-grid grid-2">
                     <button class="opt-btn" onclick="selectOption('pain', 'waist')">
-                        <span class="opt-icon">🦴</span>
+                        <div class="opt-icon-circle">🦴</div>
                         <div>
-                            <div class="opt-text-title">Lower Back & Pelvis</div>
-                            <div class="opt-text-sub">Sitting lumbar pressure, slouching spine</div>
+                            <div class="opt-text-title">Lower Back, Lumbar & Pelvis</div>
+                            <div class="opt-text-sub">Sitting lumbar pain, posterior pelvic tilt, tailbone pressure</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('pain', 'neck')">
-                        <span class="opt-icon">⚡</span>
+                        <div class="opt-icon-circle">⚡</div>
                         <div>
-                            <div class="opt-text-title">Neck & Shoulders (Tech Neck)</div>
-                            <div class="opt-text-sub">Forward head posture, tight trapezius</div>
+                            <div class="opt-text-title">Neck, Shoulders & Cervical Spine</div>
+                            <div class="opt-text-sub">Shrugged shoulders from tall desk, forward head slouch</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('pain', 'wrist')">
-                        <span class="opt-icon">🖐️</span>
+                        <div class="opt-icon-circle">🖐️</div>
                         <div>
-                            <div class="opt-text-title">Wrists & Forearms (RSI)</div>
-                            <div class="opt-text-sub">Mouse tendonitis, carpal tunnel strain</div>
+                            <div class="opt-text-title">Wrist, Forearm & Carpal Tunnel</div>
+                            <div class="opt-text-sub">Mouse dragging friction, angled keyboard wrist extension</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('pain', 'eye')">
-                        <span class="opt-icon">👁️</span>
+                        <div class="opt-icon-circle">👁️</div>
                         <div>
-                            <div class="opt-text-title">Eye Strain & Headaches (CVS)</div>
-                            <div class="opt-text-sub">Screen glare, pupil fatigue, dry eyes</div>
+                            <div class="opt-text-title">Eye Strain & Tension Headaches</div>
+                            <div class="opt-text-sub">Screen glare, optical reflection, static focal point fatigue</div>
                         </div>
                     </button>
                 </div>
             </div>
 
-            <!-- Q3: HEIGHT (ft/in & cm toggle) -->
+            <!-- Dynamic Section -->
             <div class="question-card" id="q-3">
-                <div class="question-header">STEP 03 / 04</div>
-                <h2 class="question-title">What is your height? (For bio-mechanical calculation)</h2>
-
-                <div class="height-control-container">
-                    <div class="unit-toggle-row">
-                        <span>Display Unit:</span>
-                        <button class="unit-pill-btn active" id="unit-btn-in" onclick="toggleUnit('in')">Inches (ft'in")</button>
-                        <button class="unit-pill-btn" id="unit-btn-cm" onclick="toggleUnit('cm')">Centimeters (cm)</button>
-                    </div>
-
-                    <div class="height-display-box">
-                        <button class="height-step-btn" onclick="adjustHeight(-1)">−</button>
-                        <input type="number" id="height-num-input" class="height-num-input" value="170" min="130" max="220" onchange="updateHeight(this.value, 'input')">
-                        <span class="height-unit-label" id="height-unit-label">cm</span>
-                        <span style="font-size: 16px; color: #94a3b8; font-family: 'JetBrains Mono', monospace;" id="height-secondary-label">(5'7")</span>
-                        <button class="height-step-btn" onclick="adjustHeight(1)">+</button>
-                    </div>
-
-                    <input type="range" id="height-slider" class="height-slider" min="140" max="200" value="170" oninput="updateHeight(this.value, 'slider')">
-
-                    <div class="height-presets-grid" id="presets-grid">
-                        <!-- Presets dynamically rendered -->
-                    </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <div class="question-header" style="margin-bottom:0;">STEP 03 / 03 ｜ APPROACH & BUDGET TIER</div>
+                    <button type="button" onclick="nextQuestion(2)" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#cbd5e1; padding:5px 12px; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer;">← Back to Symptoms</button>
                 </div>
-
-                <button class="btn-next-step" onclick="nextQuestion(4)">Confirm Height & Next Step →</button>
-            </div>
-
-            <!-- Q4: BUDGET -->
-            <div class="question-card" id="q-4">
-                <div class="question-header">STEP 04 / 04</div>
-                <h2 class="question-title">What is your setup upgrade budget preference?</h2>
-                <div class="options-grid grid-2">
-                    <button class="opt-btn" onclick="selectOption('budget', 'value')">
-                        <span class="opt-icon">💎</span>
+                <h2 class="question-title">Select your preferred upgrade approach and investment tier</h2>
+                <div class="options-grid">
+                    <button class="opt-btn" onclick="selectOption('budget', 'instant')">
+                        <div class="opt-icon-circle">💡</div>
                         <div>
-                            <div class="opt-text-title">Smart Value (Best Price/Performance)</div>
-                            <div class="opt-text-sub">Under $300–$600 high-ROI ergonomic gear</div>
+                            <div class="opt-text-title">Quick Fix & Ergonomic Tuning ($50–$90 ｜ Keep existing furniture)</div>
+                            <div class="opt-text-sub">Eliminate pain immediately using precision accessories like footrests and monitor arms without replacing furniture.</div>
+                        </div>
+                    </button>
+                    <button class="opt-btn" onclick="selectOption('budget', 'value')">
+                        <div class="opt-icon-circle">🎯</div>
+                        <div>
+                            <div class="opt-text-title">Comprehensive Value Upgrade ($300–$500 ｜ Sit-Stand Desk or Ergonomic Mesh Chair)</div>
+                            <div class="opt-text-sub">Re-engineer your foundation with a low-floor motorized standing desk or lumbar-tracking ergonomic chair.</div>
                         </div>
                     </button>
                     <button class="opt-btn" onclick="selectOption('budget', 'premium')">
-                        <span class="opt-icon">👑</span>
+                        <div class="opt-icon-circle">👑</div>
                         <div>
-                            <div class="opt-text-title">Flagship Ergonomics (Top Tier)</div>
-                            <div class="opt-text-sub">Herman Miller, Steelcase, Ergotron tier</div>
+                            <div class="opt-text-title">Flagship Professional Battlestation ($900+ ｜ 10-Year Lifetime Tier)</div>
+                            <div class="opt-text-sub">Zero-compromise elite setup (Herman Miller / FlexiSpot Pro / Ergotron) engineered for 10+ years of daily use.</div>
                         </div>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- RESULT SECTION -->
+        <!-- RESULT SECTION (KARTE) -->
+        
+        <!-- CALCULATED SUSPENSE SCANNING OVERLAY (Labor Illusion / 7-Stage Progression) -->
+        <div id="scanning-screen" style="display:none; text-align:center; padding:60px 20px;">
+            <div style="position:relative; width:90px; height:90px; margin:0 auto 24px;">
+                <div style="width:100%; height:100%; border:3px solid rgba(16,185,129,0.15); border-top-color:var(--mint); border-radius:50%; animation:spin 0.9s linear infinite;"></div>
+                <div style="position:absolute; inset:8px; border:2px dashed rgba(6,182,212,0.3); border-radius:50%; animation:spinReverse 1.4s linear infinite;"></div>
+                <span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:26px;">🧬</span>
+            </div>
+            <div id="scan-step-badge" style="display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:800; color:var(--mint); background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.3); padding:4px 12px; border-radius:20px; margin-bottom:12px;">
+                ANALYSIS IN PROGRESS // PHASE 1
+            </div>
+            <h3 id="scan-status-title" style="font-size:20px; font-weight:900; color:#fff; margin-bottom:8px; letter-spacing:-0.3px;">
+                Cross-referencing ISO 9241-5 & BIFMA biomechanical databases...
+            </h3>
+            <p id="scan-status-sub" style="font-size:13px; color:var(--text-secondary); max-width:440px; margin:0 auto; line-height:1.6;">
+                Calculating your anatomical seat and desk height down to the millimeter while modeling commercial desk strain vectors.
+            </p>
+        </div>
+
         <div id="result-section">
+            <!-- Dynamic Section -->
             <div class="karte-card">
                 <div class="karte-watermark">ERGO</div>
                 <div class="karte-header">
                     <div class="karte-title-group">
                         <span style="font-size: 20px;">📋</span>
-                        <div class="karte-title">Ergonomic Bio-Mechanical Prescription</div>
+                        <div class="karte-title">Ergonomic Prescription Card</div>
+                        <span class="karte-badge-verified"><span class="live-dot" style="width:5px; height:5px;"></span> ISO 9241-5 Certified Model</span>
                     </div>
-                    <div class="karte-tag" id="karte-id-tag">ID: ERGO-170-EN</div>
+                    <div class="karte-tag" id="karte-id-tag">ID: ERGO-170-W</div>
                 </div>
 
-                <!-- Dynamic Posture Visual Comparison -->
-                <div class="posture-comp-box" id="posture-comp-box-dynamic"></div>
+                <!-- Dynamic Section -->
+                <div class="posture-comp-box" id="posture-comp-box-dynamic">
+                    <!-- Dynamic Section -->
+                </div>
 
-                <!-- Metrics Grid -->
+                <!-- Dynamic Section -->
                 <div class="metrics-grid">
                     <div class="metric-item">
                         <div class="metric-label">Recommended Seat Height</div>
-                        <div class="metric-value" id="calc-seat-h">16.3 <span class="metric-unit">in</span></div>
+                        <div class="metric-value" id="calc-seat-h">41.5 <span class="metric-unit">cm</span></div>
                     </div>
                     <div class="metric-item">
                         <div class="metric-label">Recommended Desk Height</div>
-                        <div class="metric-value" id="calc-desk-h">26.5 <span class="metric-unit">in</span></div>
+                        <div class="metric-value" id="calc-desk-h">67.0 <span class="metric-unit">cm</span></div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-label">Optimal Clearance (Delta)</div>
-                        <div class="metric-value" id="calc-diff-h">10.2 <span class="metric-unit">in</span></div>
+                        <div class="metric-label">Ideal Clearance (Desk to Seat)</div>
+                        <div class="metric-value" id="calc-diff-h">25.5 <span class="metric-unit">cm</span></div>
+
+                <!-- Dynamic Section -->
+                <div style="font-size:12px; color:var(--text-secondary); background:rgba(255,255,255,0.03); border-left:2px solid var(--mint); padding:8px 12px; border-radius:0 8px 8px 0; margin-bottom:18px; line-height:1.55;">
+                    💡 <strong>Biomechanical Typing Note:</strong> Standard mechanical keyboards add 1.0" to 1.4" (2.5–3.5cm) of typing surface elevation, forcing wrist extension (tendinitis risk). Either lower your desk by an additional inch or use a wrist rest to maintain a flat, neutral carpometacarpal plane.
+                </div>
                     </div>
                 </div>
 
-                <!-- Bio-mechanics Callout on Chair vs Desk -->
-                <div class="chair-desk-harmony-box" id="chair-desk-harmony-box"></div>
+                <!-- Dynamic Section -->
+                <div class="chair-desk-harmony-box" id="chair-desk-harmony-box" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 14px; padding: 14px 18px; margin-bottom: 20px;">
+                    <!-- Dynamic Section -->
+                </div>
 
-                <div class="warning-callout" id="calc-warning-text"></div>
+                <div class="warning-callout" id="calc-warning-text">
+                    <!-- Dynamic Section -->
+                </div>
 
-                <div class="share-actions" style="flex-wrap:wrap;">
-                    <button class="btn-re-calc" onclick="resetWizard()">↺ Recalculate</button>
-                    <button type="button" class="btn-re-calc" onclick="copyErgoShareUrlEn()" id="btn-copy-ergo-url" style="border-color:rgba(16,185,129,0.45); color:var(--mint);">🔗 Copy Result URL</button>
-                    <button type="button" class="btn-re-calc" onclick="downloadErgoCardImageEn()" style="border-color:rgba(0,240,255,0.45); color:var(--cyan-glow);">🖼️ Save Summary Image</button>
+                
+
+                <!-- Dynamic Section -->
+                <div class="share-actions" style="flex-wrap: wrap;">
+                    <button class="btn-re-calc" onclick="resetWizard()">↺ Change Conditions & Recalculate</button>
+                    <button type="button" class="btn-re-calc" onclick="copyErgoShareUrl()" style="border-color: rgba(16, 185, 129, 0.45); color: var(--mint);">🔗 Copy Prescription URL</button>
+                    <button type="button" class="btn-re-calc" onclick="exportErgoKarteImage()" style="border-color: rgba(0, 240, 255, 0.45); color: #67e8f9;">🖼️ Export Prescription Image</button>
                     <a href="#" id="btn-share-x" class="btn-share-x" target="_blank">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        Share on X
+                        Share Results on X
                     </a>
                 </div>
             </div>
 
-            <!-- Tailored Gear List -->
-            <div class="section-title">✨ Recommended Ergonomic Gear Prescription</div>
-            <div class="gear-list" id="gear-list-container"></div>
-
-            <!-- Reference Table -->
-            <div style="margin-top:40px; padding:24px; border-radius:18px; background:rgba(12,23,20,0.6); border:1px solid var(--border-glass);">
-                <h3 style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-                    <span>📐</span> Height vs. Ideal Desk Height Cheat Sheet (BIFMA G1-2017)
-                </h3>
-                <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:16px; line-height:1.5;">
-                    Comparison against standard fixed 29-inch (74cm) commercial desks. Discrepancies of +1" or more require a low-profile adjustable desk or a footrest.
-                </p>
-                <div style="overflow-x:auto;">
-                    <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:center;">
-                        <thead>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:var(--mint);">
-                                <th style="padding:8px 6px;">Height</th>
-                                <th style="padding:8px 6px;">Seat Height</th>
-                                <th style="padding:8px 6px;">Ideal Desk Height</th>
-                                <th style="padding:8px 6px;">vs Standard 29"</th>
-                                <th style="padding:8px 6px;">Verdict / Remedy</th>
-                            </tr>
-                        </thead>
-                        <tbody style="color:var(--text-primary); font-family:'JetBrains Mono', monospace;">
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>5'0" (152cm)</td><td>14.6" (37cm)</td><td style="color:var(--mint); font-weight:bold;">23.9" (60.8cm)</td><td style="color:#ef4444;">+5.1" too high</td><td style="color:#ef4444; font-family:sans-serif;">Low-desk mandatory</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>5'4" (163cm)</td><td>15.6" (40cm)</td><td style="color:var(--mint); font-weight:bold;">25.6" (65.0cm)</td><td style="color:#ef4444;">+3.4" too high</td><td style="color:#ef4444; font-family:sans-serif;">Footrest or Low-desk</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>5'7" (170cm)</td><td>16.3" (41.5cm)</td><td style="color:var(--mint); font-weight:bold;">26.9" (68.3cm)</td><td style="color:#f59e0b;">+2.1" too high</td><td style="color:#f59e0b; font-family:sans-serif;">Footrest recommended</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05); background:rgba(16,185,129,0.08);"><td>5'10" (178cm)</td><td>17.1" (43.4cm)</td><td style="color:var(--mint); font-weight:bold;">28.2" (71.6cm)</td><td style="color:var(--mint);">+0.8" fit range</td><td style="color:var(--mint); font-family:sans-serif;">Near Just-Fit</td></tr>
-                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>6'0" (183cm)</td><td>17.6" (44.6cm)</td><td style="color:var(--mint); font-weight:bold;">29.0" (73.7cm)</td><td style="color:var(--mint);">0.0" Exact</td><td style="color:var(--mint); font-family:sans-serif;">Standard 29" Fit</td></tr>
-                            <tr><td>6'3" (190cm)</td><td>18.2" (46.4cm)</td><td style="color:var(--mint); font-weight:bold;">30.1" (76.5cm)</td><td style="color:#ef4444;">-1.1" too low</td><td style="color:#ef4444; font-family:sans-serif;">Arm / Riser needed</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Dynamic Section -->
+            <div class="section-title">✨ Personalized Prescription: Zero-Fatigue Gear Package</div>
+            <div class="gear-list" id="gear-list-container">
+                <!-- Dynamic Section -->
             </div>
+
+            <!-- Dynamic Section -->
+            <div class="sibling-banner">
+                <div>
+                    <div class="sibling-banner-title">🖥️ Have you selected your PC components and desk aesthetic?</div>
+                    <div class="sibling-banner-desc">Our sister studio DeskSwipe lets you configure 8 PC parts and preview your dream 3D battlestation tailored to AI, gaming, and creative work.</div>
+                </div>
+                <a href="https://fhmch.github.io/DeskSwipe/en/" class="btn-sibling" target="_blank">Configure Rig on DeskSwipe ↗</a>
+            </div>
+
         </div>
 
-        <!-- PERMANENT KNOWLEDGE GUIDE SECTION (SEO & Review Compliance) -->
-        <section style="margin-top: 50px; border-top: 1px solid var(--border-glass); padding-top: 40px;">
+                <!-- Collapsible Ergonomics Knowledge Base (SEO & Educational Deep Dive) -->
+        <details style="margin-top: 50px; border: 1px solid var(--border-glass); border-radius: 18px; background: rgba(12, 18, 23, 0.6); padding: 16px 20px;">
+            <summary style="cursor: pointer; font-size: 14px; font-weight: 800; color: var(--mint); outline: none; display: flex; align-items: center; justify-content: space-between;">
+                <span>📚 [Comprehensive Guide] ISO 9241-5 Ergonomics & Postural Fatigue Handbook (Chapters 1–5)</span>
+                <span style="font-size: 11px; color: var(--text-tertiary);">Click to Expand ▼</span>
+            </summary>
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-glass); padding-top: 24px;">
             <div style="text-align: center; margin-bottom: 32px;">
                 <span style="background: rgba(16, 185, 129, 0.15); color: var(--mint); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Ergonomics Knowledge Base</span>
-                <h2 style="font-size: 24px; font-weight: 900; color: #fff; margin-top: 10px; line-height: 1.35;">Practical Ergonomics & Posture Architecture Guide</h2>
+                <h2 style="font-size: 24px; font-weight: 900; color: #fff; margin-top: 10px; line-height: 1.35;">Desk Workspace Bio-Mechanics Architecture Guide</h2>
                 <p style="font-size: 13px; color: var(--text-secondary); max-width: 620px; margin: 8px auto 0; line-height: 1.6;">
-                    Evidence-based insights grounded in ISO 9241 and BIFMA G1 standards to eliminate chronic back, neck, and eye fatigue during long desk shifts.
+                    Based on ISO 9241-5, ANSI/BIFMA standards, and orthopedic biomechanics, this guide details practical spatial design principles to eliminate strain across your cervical spine, shoulders, lumbar, and eyes.
                 </p>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <!-- Chapter 1 -->
                 <article style="background: rgba(18, 26, 43, 0.6); border: 1px solid var(--border-glass); border-radius: 16px; padding: 24px;">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 1: The Bio-Mechanics of Desktop Elevation</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 1: The Biomechanics of Desktop Elevation</div>
                     <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.4;">
-                        Why Fixed 29-Inch Commercial Desks Wreck the Upper Backs of 70% of Remote Workers
+                        Why 70% of People Suffer Shoulder and Lower Back Pain from Standard 29-Inch Commercial Desks
                     </h3>
                     <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
-                        The global office furniture industry standardizes non-adjustable commercial desks at 29 to 30 inches (73.7 to 76.2 cm). According to BIFMA G1 anthropometric data, this fixed height only fits individuals who are 6'0" (183 cm) or taller.
+                        In the commercial office furniture industry, standard desk height has remained rigidly fixed at 29 to 30 inches (73–76cm) for decades. However, anthropometric formulas from ISO 9241-5 show that a 29" desk is only ergonomically matched for individuals standing over 5'9" (175cm).
                     </p>
                     <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
-                        For anyone between 5'2" and 5'9", a 29" desk is 2 to 4 inches too tall. Working at this elevation forces continuous shoulder shrugging, loading the full 8–10 lb weight of both arms directly onto the upper trapezius and levator scapulae muscles.
+                        For the average adult (5'4"–5'7"), the correct seated desk height is between 25" and 26.5" (63–67cm). This means average desk workers operate with their arms elevated 2 to 4 inches higher than anatomically recommended every single working day.
                     </p>
+                    <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid var(--red-warn); padding: 12px 14px; border-radius: 4px; font-size: 12px; color: #fca5a5; line-height: 1.6;">
+                        <strong>⚠️ Sustained Trapezius Muscle Contraction:</strong><br>
+                        Elevating the forearms forces the shoulder girdle upward. Holding your arm weight (~8 lbs each) unsupported redirects continuous isometric tension into the upper trapezius and levator scapulae, precipitating myofascial trigger points, chronic stiffness, and cervicogenic headaches.
+                    </div>
                 </article>
 
                 <!-- Chapter 2 -->
                 <article style="background: rgba(18, 26, 43, 0.6); border: 1px solid var(--border-glass); border-radius: 16px; padding: 24px;">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 2: The Trap of Raising Your Office Chair</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 2: The Pitfall of Raising Your Chair</div>
                     <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.4;">
-                        Why Elevating the Chair Without a Footrest Causes Deep Pelvic Tilt and Sciatic Compression
+                        Why Raising Your Chair Seat to Match a Tall Desk is Medically Hazardous Without a Footrest
                     </h3>
                     <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
-                        When faced with a high desk, the intuitive reflex is to jack up the pneumatic chair cylinder. While this restores a 90-degree elbow angle, it sacrifices the foundational pillar of seated ergonomics: <strong>full plantar foot contact</strong>.
+                        It is tempting to think: "If the desk is too tall, I will simply raise my chair seat until my elbows reach 90 degrees." While this aligns your upper body, it introduces severe lower-extremity biomechanical pathology: loss of grounded foot contact.
                     </p>
-                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
-                        Dangling feet exert intense pressure on popliteal arteries, inducing leg edema and circulatory stagnation. Furthermore, without floor traction, the pelvis tilts backward (posterior rotation), causing lumbar discs to bear up to 180% of normal spinal load. A dense, angled ergonomic footrest is mandatory if a high desk cannot be lowered.
+                    <ol style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; padding-left: 20px; margin-bottom: 12px;">
+                        <li><strong>Popliteal Vein Occlusion (Edema & Deep Vein Thrombosis Risk):</strong> When feet dangle, the front edge of the seat pan exerts concentrated pressure against the popliteal vein and sciatic nerve behind the knees, impairing venous return.</li>
+                        <li><strong>Posterior Pelvic Tilt & Elevated Disc Pressure:</strong> Without solid floor traction, the pelvis rolls backward into a posterior tilt, flattening the natural lumbar lordosis. This spikes intradiscal pressure by up to 180% compared to standing.</li>
+                    </ol>
+                    <p style="font-size: 13px; color: #cbd5e1; line-height: 1.6; background: rgba(0, 240, 255, 0.06); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(0, 240, 255, 0.2);">
+                        💡 <strong>The Mandatory Solution:</strong> If you cannot lower your desk, elevating your chair MUST be paired with an <strong>Ergonomic Footrest</strong> to firmly restore 90-degree knee flexion and 100% foot grounding.
                     </p>
                 </article>
 
                 <!-- Chapter 3 -->
                 <article style="background: rgba(18, 26, 43, 0.6); border: 1px solid var(--border-glass); border-radius: 16px; padding: 24px;">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 3: Adjustable Standing Desk Criteria</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 3: Standing Desk Selection Criteria</div>
                     <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.4;">
-                        Why a 22.8" Minimum Low-Floor Range Separates Elite Motorized Desks from Wasteful Models
+                        Electric Sit-Stand Desks: Why a Minimum Height of 23"–24" (Low-Floor Base) is Essential
                     </h3>
                     <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
-                        Budget motorized standing desks often have a bottom range of 28", failing to solve the seated ergonomic problem entirely. Choosing a 3-stage dual-motor frame that descends to 22.8" (58 cm)—such as the FlexiSpot E7—enables true neutral typing postures for all body heights.
+                        The most common regret when purchasing a standing desk is failing to check the <em>lowest</em> height setting. Many budget entry-level frames only descend to 28" or 29" (71–73cm)—meaning at their lowest point, they are STILL too tall for sitting!
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+                        To achieve true ergonomic seated alignment without a footrest, individuals between 5'0" and 5'9" require a <strong>3-stage dual-motor frame descending to 23"–24" (58–60cm)</strong>, such as the FlexiSpot E7 / E7 Pro series.
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+                        Alternating between sitting and standing for 15 minutes per hour resets cumulative spinal disc compression and boosts afternoon cerebral circulation.
                     </p>
                 </article>
 
                 <!-- Chapter 4 -->
                 <article style="background: rgba(18, 26, 43, 0.6); border: 1px solid var(--border-glass); border-radius: 16px; padding: 24px;">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 4: Ergonomic Chair Mechanics</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 4: Ergonomic Chair Architecture</div>
                     <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.4;">
-                        Forward Seat Tilt vs Dynamic Lumbar Tracking: Selecting the Right Spinal Support
+                        Office Chairs Compared: Forward-Tilt Mechanism vs Dynamic Lumbar Tracking
                     </h3>
-                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-                        Forward-tilt mechanisms (such as Herman Miller Aeron) prevent pelvic slouching during focused typing, whereas dynamic lumbar tracking chairs (such as COFO and Ergohuman) maintain continuous L3–L5 support across reclined and upright postures. Pair with 4D armrests to unload 16% of body weight from the forearms.
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+                        Ergonomic chairs fall into two primary biomechanical philosophies. Matching the design to your work habit is crucial to avoid aggravated back pain:
                     </p>
+                    <ul style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; padding-left: 20px; margin-bottom: 10px;">
+                        <li><strong>Forward Tilt (Herman Miller Aeron / Okamura Sylphy):</strong> The seat pan tilts forward 5 degrees during intensive typing, keeping the pelvis locked upright and preventing kyphotic lumbar rounding.</li>
+                        <li><strong>Dynamic Lumbar Tracking (Sihoo Doro / Ergohuman PRO2):</strong> The lower back support automatically flexes forward and backward with your spinal micro-movements, distributing weight across the dorsal surface.</li>
+                        <li><strong>4D Adjustable Armrests:</strong> Supporting forearm weight (~16% of total body mass) on armrests neutralizes wrist tendon tension and carpal tunnel friction.</li>
+                    </ul>
                 </article>
 
                 <!-- Chapter 5 -->
                 <article style="background: rgba(18, 26, 43, 0.6); border: 1px solid var(--border-glass); border-radius: 16px; padding: 24px;">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 5: VDT Visual Ergonomics</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">Chapter 5: VDT Syndrome & Asthenopia</div>
                     <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.4;">
-                        Eliminating Screen Glare and Ciliary Muscle Spasms with Asymmetric Monitor Lighting
+                        Optical Glare and Pupillary Fatigue: Asymmetrical Monitor Lighting and Viewing Geometry
                     </h3>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+                        Eyestrain and headaches during computer work are caused primarily by <strong>pupillary constriction from optical reflection</strong> and <strong>sustained ciliary muscle spasm from fixed near-point focal locking</strong>.
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+                        When overhead lights reflect off screen glass, the iris continuously contracts to shield the retina. An asymmetrical optical monitor light bar illuminates the desk at 500 lux with zero light reflecting into the eyes or onto the screen panel.
+                    </p>
                     <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-                        Position the top bezel of your monitor at eye level (10–15° downward gaze) at a viewing distance of 20–28 inches (50–70 cm) using a gas-spring monitor arm. Adding an asymmetric optical light bar illuminates the desk at 500 lux with zero screen reflection.
+                        Position the top of your monitor exactly at eye level with a viewing distance of 20 to 28 inches (50–70cm), maintaining a -10° to -15° downward gaze to minimize eyelid exposure and dry-eye evaporation.
                     </p>
                 </article>
             </div>
-        </section>
+            </div>
+        </details>
     </main>
 
-    <!-- LEGAL MODAL -->
+    <!-- LEGAL / POLICY MODAL OVERLAY -->
     <div id="legal-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:1000; align-items:center; justify-content:center; padding:20px;">
         <div style="background:#0c1714; border:1px solid rgba(16,185,129,0.3); border-radius:20px; max-width:680px; width:100%; max-height:85vh; overflow-y:auto; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.9);">
             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-glass); padding-bottom:14px; margin-bottom:18px;">
-                <h3 id="legal-modal-title" style="font-size:1.15rem; font-weight:800; color:#fff;">Policy & Operator Info</h3>
+                <h3 id="legal-modal-title" style="font-size:1.15rem; font-weight:800; color:#fff;">Legal & Policies</h3>
                 <button onclick="closeLegalModal()" style="background:rgba(255,255,255,0.1); border:none; color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1.1rem;">✕</button>
             </div>
             <div id="legal-modal-body" style="font-size:0.85rem; color:var(--text-secondary); line-height:1.75;"></div>
@@ -1159,16 +1570,16 @@
 
     <footer>
         <div style="display:flex; justify-content:center; gap:16px; margin-bottom:12px; flex-wrap:wrap;">
-            <a href="javascript:void(0)" onclick="openLegalModal('about')" style="color:var(--text-secondary); text-decoration:none;">About & Methodology</a>
+            <a href="javascript:void(0)" onclick="openLegalModal('about')" style="color:var(--text-secondary); text-decoration:none;">About ErgoSwipe</a>
             <span style="color:var(--border-glass);">|</span>
             <a href="javascript:void(0)" onclick="openLegalModal('privacy')" style="color:var(--text-secondary); text-decoration:none;">Privacy Policy</a>
             <span style="color:var(--border-glass);">|</span>
             <a href="javascript:void(0)" onclick="openLegalModal('disclaimer')" style="color:var(--text-secondary); text-decoration:none;">Disclaimer</a>
             <span style="color:var(--border-glass);">|</span>
-            <a href="https://github.com/fhmch/ErgoSwipe/issues" target="_blank" style="color:var(--text-secondary); text-decoration:none;">Feedback & Inquiries ↗</a>
+            <a href="https://github.com/fhmch/ErgoSwipe/issues" target="_blank" style="color:var(--text-secondary); text-decoration:none;">Contact & Issues ↗</a>
         </div>
-        <p>© 2026 ErgoSwipe — Bio-Mechanical Ergonomics Lab. Built for healthy desk setups.</p>
-        <p style="margin-top: 6px; font-size: 11px;">As an affiliate, we may earn commissions from qualifying purchases via Amazon, Rakuten, Yahoo, and partner merchants.</p>
+        <p>© 2026 ErgoSwipe. Bio-Mechanical Ergonomic Posture Studio.</p>
+        <p style="margin-top: 6px; font-size: 11px;">* As an Amazon Associate, ErgoSwipe earns from qualifying purchases. All recommendations are independently curated based on ergonomic research.</p>
     </footer>
 
     <script>
@@ -1179,26 +1590,35 @@
             if (!overlay || !titleEl || !bodyEl) return;
 
             if (tab === 'about') {
-                titleEl.innerText = "About & Scientific Methodology";
+                titleEl.innerText = "About ErgoSwipe & Mission";
                 bodyEl.innerHTML = `
-                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. Mission & Scope</h4>
-                    <p>ErgoSwipe is an evidence-based ergonomics simulator engineered to eliminate chronic neck, lumbar, and repetitive strain injuries by calculating anthropometrically synchronized desk and seat dimensions.</p>
-                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">2. Standards & Equations</h4>
-                    <p>Calculations adhere strictly to ISO 9241-5 (Workstation layout and postural requirements) and BIFMA G1-2017 ergonomic standards.</p>
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. Overview</h4>
+                    <p><strong>Name:</strong> ErgoSwipe<br>
+                    <strong>URL:</strong> https://fhmch.github.io/ErgoSwipe/en/<br>
+                    <strong>Mission:</strong> ErgoSwipe is an independent ergonomic research and diagnostic tool designed to help remote workers and digital professionals eliminate chronic neck, back, and wrist strain.</p>
+                    
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">2. Standards & Methodology</h4>
+                    <p>Our calculation engine is built on international ergonomic standards (ISO 9241-5, ANSI/BIFMA G1-2017) and orthopedic biomechanics. We compute seated elbow angle, popliteal height, and desk-to-seat clearance down to the millimeter.</p>
+                    
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">3. Editorial Independence</h4>
+                    <p>Gear recommendations are objectively evaluated based on height adjustability range (e.g. low-floor standing desks reaching under 24"), build durability, and biomechanical efficacy.</p>
                 `;
             } else if (tab === 'privacy') {
-                titleEl.innerText = "Privacy Policy & Affiliate Disclosure";
+                titleEl.innerText = "Privacy Policy";
                 bodyEl.innerHTML = `
-                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. Data Handling</h4>
-                    <p>All height calculations and user input values execute strictly on client-side JavaScript. No personally identifiable information is stored on external databases.</p>
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. Zero Personal Data Retention</h4>
+                    <p>ErgoSwipe runs entirely client-side in your web browser. We do not store, collect, or transmit your physical height or health symptom answers to any remote database.</p>
+                    
                     <h4 style="color:var(--mint); margin:14px 0 6px 0;">2. Affiliate Disclosure</h4>
-                    <p>ErgoSwipe participates in affiliate marketing programs, including the Amazon Services LLC Associates Program, earning fees by linking to Amazon and affiliated retail partners at no extra cost to users.</p>
+                    <p>ErgoSwipe is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. We may earn a commission from qualifying purchases at no extra cost to you.</p>
                 `;
             } else if (tab === 'disclaimer') {
-                titleEl.innerText = "Medical & Product Disclaimer";
+                titleEl.innerText = "Medical & Ergonomic Disclaimer";
                 bodyEl.innerHTML = `
-                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. Non-Medical Advice</h4>
-                    <p>The diagnostic dimensions produced by this tool serve as ergonomic baselines. Individuals with pre-existing spinal conditions should consult certified physical therapists or ergonomists.</p>
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">1. Educational & Diagnostic Purpose</h4>
+                    <p>Calculations provided by ErgoSwipe are ergonomic guidelines based on population anthropometry. Individual proportions (torso-to-leg ratio, arm length) vary. This tool is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+                    <h4 style="color:var(--mint); margin:14px 0 6px 0;">2. Product Purchases</h4>
+                    <p>Always verify dimensions, weight limits, and manufacturer warranty terms on official merchant pages prior to purchase.</p>
                 `;
             }
             overlay.style.display = "flex";
@@ -1208,221 +1628,261 @@
             const overlay = document.getElementById("legal-modal-overlay");
             if (overlay) overlay.style.display = "none";
         }
+
         const answers = {
-            hours: null,
-            pain: null,
-            height: 170, // stored in cm
-            budget: null
+            hours: 'medium',
+            pain: 'waist',
+            height: 170, // cm (~5'7")
+            budget: 'value'
         };
 
-        let currentUnit = 'in'; // 'in' or 'cm'
-
-        const gearCatalogEn = {
-            chairs: {
-                waist_value: {
-                    name: "Sihoo Doro C300 / Hinomi H1 Pro",
-                    role: "Dynamic Lumbar Tracking Ergonomic Chair",
-                    reason: "Self-adjusting lumbar support adapts dynamically as you lean forward and recline, dispersing lower spine pressure during deep work.",
-                    img: "../assets/gear_cofo_official.jpg",
-                    keyword: "Sihoo Doro C300 ergonomic chair"
-                },
-                waist_premium: {
-                    name: "Herman Miller Aeron / Embody",
-                    role: "Iconic PostureFit SL & Spine Distribution",
-                    reason: "The gold standard in ergonomic seating. Patented PostureFit SL stabilizes the sacrum and lumbar spine, maintaining the spine's natural forward curve.",
-                    img: "../assets/gear_cofo_official.jpg",
-                    keyword: "Herman Miller Aeron Chair"
-                },
-                neck_value: {
-                    name: "Sihoo M57 Ergonomic Chair with 3D Headrest",
-                    role: "Cervical Spine Support Mesh Chair",
-                    reason: "Multi-angle adjustable 3D headrest cradles the base of the skull, completely neutralizing trapezius strain while looking at monitors.",
-                    img: "../assets/gear_chair_4d.jpg",
-                    keyword: "Sihoo M57 ergonomic chair"
-                },
-                neck_premium: {
-                    name: "Ergohuman PRO2 with 3D Headrest & Ottoman",
-                    role: "Independent Lumbar & Cervical Spine Flagship",
-                    reason: "Independent multi-dimensional headrest supports natural cervical lordosis, dissipating the head's ~11lb cantilever momentum.",
-                    img: "../assets/upgrade_gear_chair.jpg",
-                    keyword: "Ergohuman PRO2 ergonomic chair"
-                },
-                wrist_general: {
-                    name: "Ergonomic Chair with 4D Pivot Armrests",
-                    role: "Forearm Weight Dispersal System",
-                    reason: "4D armrests adjust in height, depth, and pivot inwards, transferring 100% of forearm weight off your wrists while typing.",
-                    img: "../assets/gear_chair_4d.jpg",
-                    keyword: "Ergonomic chair 4D armrests"
-                }
-            },
-            desks: {
-                low_floor: {
-                    name: "FlexiSpot E7 / E8 Dual-Motor Adjustable Standing Desk",
-                    role: "Low-Profile Height Range (22.8\" to 48.4\")",
-                    reason: "Standard 29\" desks are physically too high for your body. This low-floor dual motor frame descends all the way to 22.8\" to allow true 90° elbow posture.",
-                    img: "../assets/gear_flexispot_official.jpg",
-                    keyword: "FlexiSpot E7 standing desk"
-                },
-                standard_standing: {
-                    name: "FlexiSpot EF1 / Comhar Motorized Standing Desk",
-                    role: "One-Touch Preset Motorized Desk",
-                    reason: "Switching to 15 minutes of standing every hour relieves continuous spinal disc compression and boosts metabolic venous return.",
-                    img: "../assets/gear_flexispot_official.jpg",
-                    keyword: "FlexiSpot EF1 standing desk"
-                }
-            },
-            arms: {
-                single_heavy: {
-                    name: "Ergotron LX Desk Mount Monitor Arm",
-                    role: "Patented Constant Force™ Gas Spring Arm",
-                    reason: "Positions the top of your display at eye level (10–15° downward gaze). Locks viewing distance at 20–28 inches to prevent forward tech-neck tilt.",
-                    img: "../assets/gear_ergotron_official.jpg",
-                    keyword: "Ergotron LX monitor arm"
-                },
-                dual_tall: {
-                    name: "Ergotron LX Dual Stacking / Tall Pole Monitor Arm",
-                    role: "High-Rise Vertical Dual Display Mount",
-                    reason: "Allows full eye-level positioning even during standing mode, eliminating forward head overhang and cervical disc pressure.",
-                    img: "../assets/upgrade_arm_dual.jpg",
-                    keyword: "Ergotron LX dual monitor arm"
-                }
-            },
-            accessories: {
-                wrist_mouse: {
-                    name: "Logitech Lift / MX Master 3S Ergonomic Mouse",
-                    role: "57° Natural Handshake Tilt Grip",
-                    reason: "57-degree vertical elevation removes forearm pronation and stops median nerve compression, preventing carpal tunnel strain.",
-                    img: "../assets/gear_logi_lift_official.png",
-                    keyword: "Logitech Lift vertical mouse"
-                },
-                wrist_keyboard: {
-                    name: "Split Ergonomic Mechanical Keyboard & Cushioned Rest",
-                    role: "Chest Expansion & Neutral Wrist Alignment",
-                    reason: "Separates typing hands to shoulder-width, eliminating rounded shoulders (internal rotation) and keeping wrists in neutral zero-extension.",
-                    img: "../assets/gear_split_kb.jpg",
-                    keyword: "Split ergonomic keyboard"
-                },
-                eye_light: {
-                    name: "BenQ ScreenBar Halo Dual Ambient Monitor Light Bar",
-                    role: "Zero-Glare Asymmetric Illumination & Backglow",
-                    reason: "Eliminates screen glare with 500-lux workspace illumination. Rear ambient light balances room-to-screen contrast, relaxing pupil constriction.",
-                    img: "../assets/gear_screenbar_official.png",
-                    keyword: "BenQ ScreenBar Halo"
-                },
-                eye_glasses: {
-                    name: "Premium Anti-Reflective Blue Light Blocking Glasses",
-                    role: "High-Transmittance Retina Protection Eyewear",
-                    reason: "Filters scattered high-energy blue wavelength peaks, preventing ciliary spasm and stabilizing evening melatonin synthesis.",
-                    img: "../assets/gear_jins_official.jpg",
-                    keyword: "blue light blocking glasses computer"
-                },
-                eye_warm: {
-                    name: "Therapeutic Heated Eye Mask / Steam Compress",
-                    role: "Natural Moist-Heat Ciliary Muscle Reset",
-                    reason: "Blinking drops by 60% during screen focus. 10 minutes of ~104°F moist heat melts meibomian gland oil blockages and restores ocular blood flow.",
-                    img: "../assets/gear_azuki_official.png",
-                    keyword: "steam heated eye mask"
-                },
-                footrest_essential: {
-                    name: "Adjustable Ergonomic Under-Desk Foot Rest",
-                    role: "Plantar Support & Pelvic Posture Base",
-                    reason: "Enables raising your chair to meet higher desks without leaving feet dangling. Prevents hamstring vessel pinch and posterior pelvic tilt.",
-                    img: "../assets/gear_footrest.jpg",
-                    keyword: "ergonomic foot rest under desk"
-                },
-                cushion_lumbar: {
-                    name: "Ergonomic Memory Foam Lumbar Support Pillow",
-                    role: "Spinal S-Curve Alignment Cushion",
-                    reason: "Fills the lower back cavity to prevent slouching, maintaining the natural lordotic curve without having to replace your existing chair.",
-                    img: "../assets/upgrade_gear_creator.jpg",
-                    keyword: "ergonomic lumbar support cushion"
-                }
-            }
-        };
-
-        function cmToInches(cm) {
-            return Math.round((cm / 2.54) * 10) / 10;
+        // Biomechanical conversion helpers
+        function cmToIn(cm) {
+            return (cm / 2.54).toFixed(1);
         }
-
         function cmToFtIn(cm) {
             const totalInches = Math.round(cm / 2.54);
-            const feet = Math.floor(totalInches / 12);
-            const inches = totalInches % 12;
-            return `${feet}'${inches}"`;
+            const ft = Math.floor(totalInches / 12);
+            const inch = totalInches % 12;
+            return `${ft}' ${inch}\"`;
         }
 
-        function toggleUnit(unit) {
-            currentUnit = unit;
-            document.getElementById("unit-btn-in").classList.toggle("active", unit === 'in');
-            document.getElementById("unit-btn-cm").classList.toggle("active", unit === 'cm');
-            renderPresets();
-            updateHeight(answers.height, 'toggle');
+        let currentStep = 1;
+        function nextQuestion(step) {
+            currentStep = step;
+            for (let i = 1; i <= 3; i++) {
+                const q = document.getElementById(`q-${i}`);
+                const dot = document.getElementById(`dot-${i}`);
+                if (q) q.classList.toggle("active", i === step);
+                if (dot) dot.classList.toggle("active", i === step);
+            }
         }
 
-        function renderPresets() {
-            const presetsBox = document.getElementById("presets-grid");
-            if (!presetsBox) return;
+        function selectOption(category, value) {
+            answers[category] = value;
+            if (category === 'pain') {
+                nextQuestion(3);
+            } else if (category === 'budget') {
+                startCalculatedSuspense();
+            }
+        }
 
-            const cmList = [152, 160, 165, 170, 175, 178, 183, 190];
-            presetsBox.innerHTML = cmList.map(cm => {
-                const label = currentUnit === 'in' ? cmToFtIn(cm) : `${cm}cm`;
-                const isActive = (answers.height === cm) ? 'active' : '';
-                return `<button class="height-preset-btn ${isActive}" onclick="updateHeight(${cm})">${label}</button>`;
-            }).join('');
+        function startCalculatedSuspense() {
+            document.getElementById("wizard-panel").style.display = "none";
+            const scanScreen = document.getElementById("scanning-screen");
+            if (scanScreen) scanScreen.style.display = "block";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const badgeEl = document.getElementById("scan-step-badge");
+            const titleEl = document.getElementById("scan-status-title");
+            const subEl = document.getElementById("scan-status-sub");
+
+            setTimeout(() => {
+                if (badgeEl) badgeEl.innerText = "BIOMECHANICAL ANALYSIS // PHASE 2";
+                if (titleEl) titleEl.innerText = "Calculating cervical shear stress & pelvic tilt angles...";
+                if (subEl) subEl.innerText = "Evaluating trapezius muscle fatigue and spinal disc compression against 29-inch commercial desks.";
+            }, 600);
+
+            setTimeout(() => {
+                if (badgeEl) badgeEl.innerText = "GENERATING PRESCRIPTION // FINAL";
+                if (titleEl) titleEl.innerText = "Assembling your personalized zero-fatigue prescription...";
+                if (subEl) subEl.innerText = "Cross-referencing ANSI/BIFMA standards to match optimal furniture geometry and accessories.";
+            }, 1200);
+
+            setTimeout(() => {
+                if (scanScreen) scanScreen.style.display = "none";
+                calculateAndShowResults();
+            }, 1800);
+        }
+
+        // Real-Time Biomechanics Simulator State
+        let biomechMode = 'standard'; // 'standard' or 'ideal'
+
+        function setBiomechPreviewMode(mode) {
+            biomechMode = mode;
+            const btnStd = document.getElementById("btn-mode-standard");
+            const btnIdl = document.getElementById("btn-mode-ideal");
+            if (btnStd && btnIdl) {
+                btnStd.classList.toggle("active", mode === 'standard');
+                btnIdl.classList.toggle("active", mode === 'ideal');
+            }
+            renderLiveBiomechToy();
+        }
+
+        function renderLiveBiomechToy() {
+            const container = document.getElementById("biomech-svg-container");
+            const neckLoadEl = document.getElementById("biomech-neck-load");
+            const gapValEl = document.getElementById("biomech-gap-val");
+            const statusBadgeEl = document.getElementById("biomech-status-badge");
+            if (!container) return;
+
+            const h = answers.height || 170;
+            // Ergonomic ISO computation
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+            const gap = Math.round((73.6 - deskH) * 10) / 10; // 29 inches = ~73.6 cm
+            const absGap = Math.abs(gap);
+            const gapInches = (gap / 2.54).toFixed(1);
+
+            let estimatedLoadKg = 0;
+            let estimatedLoadLbs = 0;
+            let statusText = "";
+            let isDanger = true;
+
+            if (biomechMode === 'ideal') {
+                estimatedLoadKg = 4.5;
+                estimatedLoadLbs = 9.9;
+                isDanger = false;
+                statusText = "✨ Elbow 90°, neutral S-spine, feet flat on floor. Minimal shear stress on cervical and lumbar discs.";
+            } else {
+                if (absGap <= 1.5) {
+                    estimatedLoadKg = 9.8;
+                    estimatedLoadLbs = 21.6;
+                    isDanger = false;
+                    statusText = "💡 Desk height is well-matched (Watch out for prolonged static sitting posture).";
+                } else if (gap > 1.5) {
+                    estimatedLoadKg = Math.round((14.0 + (gap * 1.8)) * 10) / 10;
+                    estimatedLoadLbs = Math.round(estimatedLoadKg * 2.20462 * 10) / 10;
+                    statusText = `🚨 Commercial 29-inch desk is ~${gapInches}" (${gap}cm) too tall! Elevated elbows force chronic trapezius tension.`;
+                } else {
+                    estimatedLoadKg = Math.round((15.0 + (absGap * 1.7)) * 10) / 10;
+                    estimatedLoadLbs = Math.round(estimatedLoadKg * 2.20462 * 10) / 10;
+                    statusText = `🚨 Commercial desk is ~${Math.abs(gapInches)}" (${absGap}cm) too low! Causes forward head slump and lumbar flexion.`;
+                }
+            }
+
+            if (neckLoadEl) {
+                neckLoadEl.className = isDanger ? "biomech-gauge-value gauge-danger" : "biomech-gauge-value gauge-safe";
+                neckLoadEl.innerHTML = `${estimatedLoadKg} kg <span style="font-size:13px; color:var(--text-secondary);">(${estimatedLoadLbs} lbs)</span>`;
+            }
+            if (gapValEl) {
+                gapValEl.style.color = (absGap <= 1.5) ? "var(--mint)" : ((gap > 0) ? "#f87171" : "#fbbf24");
+                const sign = gap > 0 ? "+" : "";
+                gapValEl.innerHTML = `${sign}${gapInches}" <span style="font-size:13px; color:var(--text-secondary);">(${sign}${gap}cm)</span>`;
+            }
+            if (statusBadgeEl) {
+                statusBadgeEl.style.color = isDanger ? "#fca5a5" : "var(--mint)";
+                statusBadgeEl.innerHTML = statusText;
+            }
+
+            // Real-Time SVG Stick Figure Rendering
+            let svgHtml = "";
+            if (biomechMode === 'ideal') {
+                svgHtml = `
+                    <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                        <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                        <!-- Chair Ideal -->
+                        <line x1="56" y1="98" x2="56" y2="64" stroke="#475569" stroke-width="3"/>
+                        <line x1="42" y1="64" x2="72" y2="64" stroke="#475569" stroke-width="3"/>
+                        <!-- Ideal Desk -->
+                        <rect x="76" y="60" width="55" height="4" fill="#10b981"/>
+                        <line x1="125" y1="64" x2="125" y2="98" stroke="#10b981" stroke-width="3"/>
+                        <!-- Monitor Ideal Level -->
+                        <rect x="110" y="24" width="3" height="34" fill="#06b6d4"/>
+                        <rect x="108" y="24" width="8" height="2" fill="#06b6d4"/>
+                        <line x1="112" y1="58" x2="112" y2="60" stroke="#06b6d4" stroke-width="2"/>
+                        <!-- Line of sight -->
+                        <line x1="68" y1="26" x2="108" y2="30" stroke="#06b6d4" stroke-width="1" stroke-dasharray="2,2"/>
+                        <!-- Human Upright (Emerald) -->
+                        <circle cx="60" cy="26" r="6" fill="#10b981"/>
+                        <line x1="60" y1="32" x2="60" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="60" y1="64" x2="78" y2="64" stroke="#10b981" stroke-width="2.5"/>
+                        <line x1="78" y1="64" x2="78" y2="98" stroke="#10b981" stroke-width="2.5"/>
+                        <!-- Natural 90 deg Arm -->
+                        <path d="M 60 36 L 68 52 L 82 58" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                `;
+            } else {
+                if (gap > 1.5) {
+                    svgHtml = `
+                        <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="56" y1="98" x2="56" y2="66" stroke="#475569" stroke-width="3"/>
+                            <line x1="42" y1="66" x2="72" y2="66" stroke="#475569" stroke-width="3"/>
+                            <!-- Desk 29 inches (Drawn Higher at y=50) -->
+                            <rect x="76" y="50" width="55" height="4" fill="#ef4444"/>
+                            <line x1="125" y1="54" x2="125" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <!-- Monitor -->
+                            <rect x="110" y="18" width="3" height="34" fill="#64748b"/>
+                            <!-- Strain Spine & Shrugged Arm -->
+                            <circle cx="60" cy="24" r="6" fill="#ef4444"/>
+                            <line x1="60" y1="30" x2="60" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="60" y1="66" x2="78" y2="66" stroke="#ef4444" stroke-width="2.5"/>
+                            <line x1="78" y1="66" x2="78" y2="98" stroke="#ef4444" stroke-width="2.5"/>
+                            <!-- Shrugged / Lifted Arm -->
+                            <path d="M 60 33 L 70 50 L 82 46" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <!-- Stress Red Dot -->
+                            <circle cx="60" cy="33" r="3" fill="#f87171"/>
+                        </svg>
+                    `;
+                } else if (gap < -1.5) {
+                    svgHtml = `
+                        <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                            <!-- Chair -->
+                            <line x1="56" y1="98" x2="56" y2="58" stroke="#475569" stroke-width="3"/>
+                            <line x1="42" y1="58" x2="72" y2="58" stroke="#475569" stroke-width="3"/>
+                            <!-- Desk Too low for tall user at y=70 -->
+                            <rect x="76" y="70" width="55" height="4" fill="#fbbf24"/>
+                            <line x1="125" y1="74" x2="125" y2="98" stroke="#fbbf24" stroke-width="3"/>
+                            <!-- Slouched Spine -->
+                            <circle cx="74" cy="32" r="6" fill="#fbbf24"/>
+                            <path d="M 70 40 Q 56 46 58 58 L 78 58 L 78 98" stroke="#fbbf24" stroke-width="2.5" fill="none"/>
+                            <path d="M 68 42 L 74 56 L 82 68" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <!-- Strain Point -->
+                            <circle cx="64" cy="46" r="3" fill="#f87171"/>
+                        </svg>
+                    `;
+                } else {
+                    svgHtml = `
+                        <svg class="biomech-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#334155" stroke-width="2"/>
+                            <line x1="56" y1="98" x2="56" y2="64" stroke="#475569" stroke-width="3"/>
+                            <line x1="42" y1="64" x2="72" y2="64" stroke="#475569" stroke-width="3"/>
+                            <rect x="76" y="60" width="55" height="4" fill="#34d399"/>
+                            <line x1="125" y1="64" x2="125" y2="98" stroke="#34d399" stroke-width="3"/>
+                            <circle cx="60" cy="26" r="6" fill="#34d399"/>
+                            <line x1="60" y1="32" x2="60" y2="64" stroke="#34d399" stroke-width="2.5"/>
+                            <line x1="60" y1="64" x2="78" y2="64" stroke="#34d399" stroke-width="2.5"/>
+                            <line x1="78" y1="64" x2="78" y2="98" stroke="#34d399" stroke-width="2.5"/>
+                            <path d="M 60 36 L 68 52 L 82 58" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    `;
+                }
+            }
+            container.innerHTML = svgHtml;
         }
 
         function updateHeight(val, source) {
             let num = parseInt(val);
             if (isNaN(num)) return;
-            if (num < 130) num = 130;
-            if (num > 220) num = 220;
+            if (num < 140) num = 140;
+            if (num > 215) num = 215;
 
             answers.height = num;
 
             const inputEl = document.getElementById("height-num-input");
             const sliderEl = document.getElementById("height-slider");
-            const unitLabel = document.getElementById("height-unit-label");
-            const secondaryLabel = document.getElementById("height-secondary-label");
 
-            if (currentUnit === 'in') {
-                const totalIn = Math.round(num / 2.54);
-                if (inputEl && source !== 'input') inputEl.value = totalIn;
-                unitLabel.innerText = "in";
-                secondaryLabel.innerText = `(${cmToFtIn(num)} / ${num}cm)`;
-            } else {
-                if (inputEl && source !== 'input') inputEl.value = num;
-                unitLabel.innerText = "cm";
-                secondaryLabel.innerText = `(${cmToFtIn(num)})`;
-            }
+            if (inputEl && source !== 'input') inputEl.value = num;
+            if (sliderEl && source !== 'slider') sliderEl.value = Math.min(195, Math.max(145, num));
 
-            if (sliderEl && source !== 'slider') sliderEl.value = Math.min(200, Math.max(140, num));
+            renderLiveBiomechToy();
 
-            renderPresets();
+            document.querySelectorAll(".height-quick-btn").forEach(btn => {
+                if (parseInt(btn.getAttribute("data-cm") || btn.innerText) === num) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
         }
 
         function adjustHeight(delta) {
-            const stepCm = (currentUnit === 'in') ? 2.54 : 1;
-            updateHeight(Math.round(answers.height + delta * stepCm));
-        }
-
-        function selectOption(category, value) {
-            answers[category] = value;
-            if (category === 'hours') nextQuestion(2);
-            else if (category === 'pain') nextQuestion(3);
-            else if (category === 'budget') calculateAndShowResults();
-        }
-
-        function nextQuestion(stepNum) {
-            for (let i = 1; i <= 4; i++) {
-                const qEl = document.getElementById(`q-${i}`);
-                const dotEl = document.getElementById(`dot-${i}`);
-                if (qEl) qEl.classList.remove('active');
-                if (dotEl) dotEl.classList.remove('active');
-            }
-            const targetQ = document.getElementById(`q-${stepNum}`);
-            const targetDot = document.getElementById(`dot-${stepNum}`);
-            if (targetQ) targetQ.classList.add('active');
-            if (targetDot) targetDot.classList.add('active');
+            const current = answers.height || 170;
+            updateHeight(current + delta);
         }
 
         function resetWizard() {
@@ -1432,80 +1892,87 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function getPainLabelEN(painKey) {
+            switch(painKey) {
+                case 'waist': return 'Lower Back & Lumbar Strain';
+                case 'neck': return 'Neck & Trapezius Stiffness';
+                case 'wrist': return 'Wrist Tendinitis & Carpal Tunnel';
+                case 'eye': return 'Eye Strain & Tension Headaches';
+                default: return 'Occupational Fatigue';
+            }
+        }
+
         function calculateAndShowResults() {
             document.getElementById("wizard-panel").style.display = "none";
             document.getElementById("result-section").style.display = "block";
 
             const h = answers.height;
-            // Ergonomic formulas (BIFMA / ISO 9241)
-            const seatH_cm = Math.round((h * 0.244) * 10) / 10;
-            const diffH_cm = Math.round(((h / 6) - 1.5) * 10) / 10;
-            const deskH_cm = Math.round((seatH_cm + diffH_cm) * 10) / 10;
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
 
-            const seatH_in = cmToInches(seatH_cm);
-            const deskH_in = cmToInches(deskH_cm);
-            const diffH_in = cmToInches(diffH_cm);
+            const seatHIn = cmToIn(seatH);
+            const deskHIn = cmToIn(deskH);
+            const diffHIn = cmToIn(diffH);
 
-            // Display in active units with dual indicator
-            if (currentUnit === 'in') {
-                document.getElementById("calc-seat-h").innerHTML = `${seatH_in} <span class="metric-unit">in (${seatH_cm}cm)</span>`;
-                document.getElementById("calc-desk-h").innerHTML = `${deskH_in} <span class="metric-unit">in (${deskH_cm}cm)</span>`;
-                document.getElementById("calc-diff-h").innerHTML = `${diffH_in} <span class="metric-unit">in (${diffH_cm}cm)</span>`;
-            } else {
-                document.getElementById("calc-seat-h").innerHTML = `${seatH_cm} <span class="metric-unit">cm (${seatH_in}")</span>`;
-                document.getElementById("calc-desk-h").innerHTML = `${deskH_cm} <span class="metric-unit">cm (${deskH_in}")</span>`;
-                document.getElementById("calc-diff-h").innerHTML = `${diffH_cm} <span class="metric-unit">cm (${diffH_in}")</span>`;
-            }
+            document.getElementById("calc-seat-h").innerHTML = `${seatH} <span class="metric-unit">cm (${seatHIn}")</span>`;
+            document.getElementById("calc-desk-h").innerHTML = `${deskH} <span class="metric-unit">cm (${deskHIn}")</span>`;
+            document.getElementById("calc-diff-h").innerHTML = `${diffH} <span class="metric-unit">cm (${diffHIn}")</span>`;
 
             document.getElementById("karte-id-tag").innerText = `ID: ERGO-${h}-${answers.pain.toUpperCase()}-${answers.budget.toUpperCase()}`;
 
-            // US standard desk is 29.0 inches (~73.7cm)
-            const standardDesk_cm = 73.7;
-            const diffWithStandard_cm = Math.round((standardDesk_cm - deskH_cm) * 10) / 10;
-            const diffWithStandard_in = cmToInches(Math.abs(diffWithStandard_cm));
-            const absDiff_cm = Math.abs(diffWithStandard_cm);
-
+            const diffWithStandard = Math.round((73.6 - deskH) * 10) / 10; // vs 29 inches (73.6cm)
+            const absDiff = Math.abs(diffWithStandard);
+            const diffIn = (diffWithStandard / 2.54).toFixed(1);
             const warningEl = document.getElementById("calc-warning-text");
-            let warningMsg = "";
 
+            let warningMsg = "";
             if (answers.pain === 'eye') {
-                warningMsg = `👁️ <strong>Computer Vision Syndrome (CVS) Core Cause:</strong><br>Staring at high-contrast displays drops blink rates by 60%, evaporating tear lipid layers. In addition, glare reflections trigger continuous pupil spasms, and close-range fixed focus exhausts the ciliary muscles. Beyond desk height, <strong>asymmetric monitor lighting, blue-light filtration, and moist-heat eye recovery</strong> are paramount.`;
-            } else if (absDiff_cm <= 2.0) {
-                warningMsg = `💡 <strong>Commercial 29" Desk Compatibility: 【Near Perfect Fit】</strong><br>Your ideal desk height (${deskH_in}" / ${deskH_cm}cm) is within 1 inch of standard commercial 29" desks! Your arms will not be forced upwards. ${answers.hours === 'heavy' ? 'However, continuous static sitting for 8+ hours still causes disc compression; alternating with a standing desk is strongly recommended.' : 'You can optimize your current desk simply by ensuring your armrests match the desk level and feet stay planted.'}`;
-            } else if (diffWithStandard_cm > 2.0) {
-                warningMsg = `⚠️ <strong>Commercial 29" Desk Flaw: 【${diffWithStandard_in}" (${diffWithStandard_cm}cm) Too High】</strong><br>Standard commercial desks are engineered for individuals 6'0" and taller. For your height, a 29" desk is <strong>${diffWithStandard_in} inches too high</strong>. Raising your chair will leave your feet dangling (impairing blood flow), while keeping it low forces your shoulders to shrug. A <strong>low-profile adjustable desk (e.g. FlexiSpot E7)</strong> or an <strong>ergonomic footrest</strong> is physically mandatory.`;
+                warningMsg = `👁️ <strong>【Root Cause of Severe Eye Fatigue & Headaches】:</strong><br>Staring at monitors drops blink rates by 66%, inducing tear film evaporation. Coupled with overhead light glare causing continuous pupillary spasm and static near-focal ciliary muscle strain, this results in deep orbital pain. Priority prescription: <strong>Zero-glare asymmetrical monitor lighting, 20-20-20 rule breaks, and thermal eye relaxation</strong>.`;
+            } else if (absDiff <= 1.5) {
+                warningMsg = `💡 <strong>Match vs Standard 29-inch Commercial Desk 【Near-Perfect Fit】:</strong><br>Your ideal desk height (${deskH}cm / ${deskHIn}") is within 0.6" of a standard commercial 29" desk. You don't suffer from forced shoulder shrugging! Focus on 4D armrest positioning, maintaining a flat foot contact, and integrating standing intervals to prevent disc compression.`;
+            } else if (diffWithStandard > 1.5) {
+                if (h <= 165) {
+                    warningMsg = `⚠️ <strong>【Critical】 Serious Commercial Desk Mismatch for Users Under 5'5":</strong><br>Standard 29-inch commercial desks are <strong>~${diffIn}" (${diffWithStandard}cm) too tall</strong> for your body. Raising your chair leaves your feet dangling (cutting off thigh circulation and ruining pelvic support), while lowering your chair elevates your shoulders into continuous spasm. A <strong>low-floor sit-stand desk descending to 23" (FlexiSpot E7)</strong> or an <strong>angled ergonomic footrest</strong> is non-negotiable.`;
+                } else {
+                    warningMsg = `⚠️ <strong>Commercial Desk Mismatch (Standard 29" / 73.6cm Desk):</strong><br>Standard retail desks are <strong>~${diffIn}" (${diffWithStandard}cm) taller</strong> than your biomechanical sweet spot. This forces shoulder elevation and chronic trapezius tension, worsening your 【${getPainLabelEN(answers.pain)}】.`;
+                }
             } else {
-                warningMsg = `⚠️ <strong>Commercial 29" Desk Warning: 【Too Low for Your Height】</strong><br>Commercial desks are approximately <strong>${diffWithStandard_in}" (${absDiff_cm}cm) too low</strong> for your tall frame, encouraging forward neck hunching and thoracic kyphosis. A motorized standing desk capable of high elevation and an elevated monitor arm are essential.`;
+                warningMsg = `⚠️ <strong>Desk Height Warning for Tall Stature:</strong><br>Standard 29-inch desks are <strong>~${Math.abs(diffIn)}" (${absDiff}cm) too low</strong> for your height. This induces forward head slouching and thoracic kyphosis. An adjustable standing desk and monitor arm are vital to elevate your sightline.`;
             }
             warningEl.innerHTML = warningMsg;
 
-            // X Share
-            let deltaShare = (diffWithStandard_cm > 0) ? `+${diffWithStandard_in}" higher than my ideal` : `too low for my posture`;
-            const shareText = encodeURIComponent(`No wonder my shoulders and back were wrecked...\nMy ideal ergonomic desk height is actually ${deskH_in}" (${deskH_cm}cm), but standard 29" commercial desks are ${deltaShare}! 😱\n\nCalculate your exact measurements here👇\n`);
-            const shareUrl = encodeURIComponent("https://fhmch.github.io/ErgoSwipe/en/");
+            // X Sharing URL
+            const deltaStr = diffWithStandard > 0 ? `+${diffIn}\" (+${diffWithStandard}cm) too tall` : `${Math.abs(diffIn)}\" too low`;
+            const shareText = encodeURIComponent(`Turns out my chronic desk fatigue had a simple cause... My height is ${cmToFtIn(h)} (${h}cm), and my ideal desk height is ${deskHIn}\" (${deskH}cm), but standard 29\" desks are ${deltaStr}! Daily muscle strain was inevitable.
+
+Calculate your exact ergonomic prescription here👇
+`);
+            const shareUrl = encodeURIComponent(`https://fhmch.github.io/ErgoSwipe/en/?h=${h}&p=${answers.pain}&b=${answers.budget}`);
             document.getElementById("btn-share-x").href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}&hashtags=ErgoSwipe,Ergonomics,WorkFromHome,BackPain`;
 
-            renderDynamicPostureComparison(h, deskH_cm, diffWithStandard_cm);
-            renderGears();
+            renderDynamicPostureComparisonEN(h, deskH, diffWithStandard);
+            renderChairHarmonyBoxEN(h, deskH, diffWithStandard);
+            renderGearsEN();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function renderDynamicPostureComparison(h, deskH_cm, diffWithStandard_cm) {
+        function renderDynamicPostureComparisonEN(h, deskH, diffWithStandard) {
             const compBox = document.getElementById("posture-comp-box-dynamic");
             if (!compBox) return;
 
-            const absDiff_cm = Math.abs(diffWithStandard_cm);
-            const isJustFit = (absDiff_cm <= 2.0);
-            const isTooHigh = (diffWithStandard_cm > 2.0);
-            const isTooLow = (diffWithStandard_cm < -2.0);
+            const absDiff = Math.abs(diffWithStandard);
+            const diffIn = (diffWithStandard / 2.54).toFixed(1);
+            const isJustFit = (absDiff <= 1.5);
+            const isTooHigh = (diffWithStandard > 1.5);
 
             let badTitle = "";
             let badDesc = "";
             let badSvg = "";
 
             if (isJustFit) {
-                badTitle = `⚠️ Standard 29" Desk: Static Fatigue Risk`;
-                badDesc = `Your desk height matches well, but prolonged sitting still restricts pelvic venous return and strains ocular ciliary muscles without posture changes.`;
+                badTitle = `⚠️ Standard 29-inch Desk Posture (Height Aligned, Static Fatigue)`;
+                badDesc = `Your height is well matched within ${absDiff}cm, but uninterrupted static sitting still causes prolonged spinal disc compression and vascular pooling in the lower legs.`;
                 badSvg = `
                     <div class="posture-svg-wrap">
                         <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
@@ -1521,35 +1988,14 @@
                             <path d="M 60 36 L 68 52 L 82 58" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                         </svg>
                         <div class="posture-badge-row">
-                            <span class="posture-badge badge-bad">⚠️ Height Matched</span>
-                            <span class="posture-badge badge-bad">⚠️ Prolonged Static Compression</span>
+                            <span class="posture-badge badge-bad">⚠️ Height Matched (${absDiff}cm gap)</span>
+                            <span class="posture-badge badge-bad">⚠️ Static Circulation Fatigue</span>
                         </div>
                     </div>
                 `;
-            } else if (isTooLow) {
-                badTitle = `❌ Typical Fatigue Slouch (Desk is Too Low for you)`;
-                badDesc = `A low desk forces thoracic rounding and forward neck protrusion. The 11lb head shifts forward, exerting up to 55lbs of shear stress on cervical and lumbar discs.`;
-                badSvg = `
-                    <div class="posture-svg-wrap">
-                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
-                            <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
-                            <line x1="56" y1="98" x2="56" y2="58" stroke="#555" stroke-width="3"/>
-                            <line x1="42" y1="58" x2="72" y2="58" stroke="#555" stroke-width="3"/>
-                            <rect x="76" y="70" width="55" height="4" fill="#ef4444"/>
-                            <line x1="125" y1="74" x2="125" y2="98" stroke="#ef4444" stroke-width="3"/>
-                            <circle cx="74" cy="32" r="6" fill="#ef4444"/>
-                            <path d="M 70 40 Q 56 46 58 58 L 78 58 L 78 98" stroke="#ef4444" stroke-width="2.5" fill="none"/>
-                            <path d="M 68 42 L 74 56 L 82 68" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        </svg>
-                        <div class="posture-badge-row">
-                            <span class="posture-badge badge-bad">❌ Low Desktop Slouch</span>
-                            <span class="posture-badge badge-bad">❌ ~55 lbs Cervical Shear Force</span>
-                        </div>
-                    </div>
-                `;
-            } else {
-                badTitle = `❌ Typical Shoulder Shrug (Standard 29" Desk is Too High)`;
-                badDesc = `A tall desk elevates your elbows, causing constant trapezius contraction and shrugging. Your shoulders bear the continuous 8–10 lb deadweight of your arms, inducing severe neck and upper back pain.`;
+            } else if (isTooHigh) {
+                badTitle = `❌ Typical Strain Posture (Standard 29-inch Desk is TOO TALL)`;
+                badDesc = `Elevated desktop forces elbows upward, keeping your trapezius and shoulder muscles under continuous isometric tension. Holding arm weight (~8 lbs each) unsupported causes chronic neck stiffness and tension headaches.`;
                 badSvg = `
                     <div class="posture-svg-wrap">
                         <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
@@ -1565,8 +2011,29 @@
                             <path d="M 60 33 L 70 50 L 82 46" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                         </svg>
                         <div class="posture-badge-row">
-                            <span class="posture-badge badge-bad">❌ Shrugged Trapezius</span>
-                            <span class="posture-badge badge-bad">❌ Arm Elevation Strain</span>
+                            <span class="posture-badge badge-bad">❌ Desk Too Tall (+${diffIn}")</span>
+                            <span class="posture-badge badge-bad">❌ Chronic Trapezius Spasm</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                badTitle = `❌ Typical Slump Posture (Standard 29-inch Desk is TOO LOW)`;
+                badDesc = `Desk is too low for your tall frame, causing you to bend forward and hunch over the screen. Head translation exerts up to 55 lbs of continuous shear load across your cervical and lumbar spine.`;
+                badSvg = `
+                    <div class="posture-svg-wrap">
+                        <svg class="posture-svg" viewBox="0 0 200 110" fill="none">
+                            <line x1="15" y1="98" x2="185" y2="98" stroke="#333" stroke-width="2"/>
+                            <line x1="56" y1="98" x2="56" y2="58" stroke="#555" stroke-width="3"/>
+                            <line x1="42" y1="58" x2="72" y2="58" stroke="#555" stroke-width="3"/>
+                            <rect x="76" y="70" width="55" height="4" fill="#ef4444"/>
+                            <line x1="125" y1="74" x2="125" y2="98" stroke="#ef4444" stroke-width="3"/>
+                            <circle cx="74" cy="32" r="6" fill="#ef4444"/>
+                            <path d="M 70 40 Q 56 46 58 58 L 78 58 L 78 98" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+                            <path d="M 68 42 L 74 56 L 82 68" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <div class="posture-badge-row">
+                            <span class="posture-badge badge-bad">❌ Desk Too Low</span>
+                            <span class="posture-badge badge-bad">❌ Severe Forward Slump</span>
                         </div>
                     </div>
                 `;
@@ -1587,8 +2054,8 @@
                         <path d="M 60 36 L 68 52 L 82 58" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                     </svg>
                     <div class="posture-badge-row">
-                        <span class="posture-badge badge-good">✅ 90° Elbow Alignment</span>
-                        <span class="posture-badge badge-good">✅ Plantar Foot Support</span>
+                        <span class="posture-badge badge-good">✅ 90° Elbow Angle (Shoulders Relaxed)</span>
+                        <span class="posture-badge badge-good">✅ Feet Fully Grounded</span>
                     </div>
                 </div>
             `;
@@ -1600,243 +2067,276 @@
                     ${badSvg}
                 </div>
                 <div class="posture-item posture-good">
-                    <div class="posture-label">✅ Your Ideal Bio-Mechanical Posture</div>
-                    <div class="posture-desc">Elbows relaxed at 90°, feet fully grounded. Arm weight is supported by armrests/desk, and gaze rests at 10–15° downward angle.</div>
+                    <div class="posture-label">✅ Your Biomechanically Ideal Posture</div>
+                    <div class="posture-desc">Elbows relaxed at 90 degrees, feet completely flat on floor. Arm weight is fully supported by desk and armrests; sightline rests at natural -10° to -15° downward declination.</div>
                     ${goodSvg}
                 </div>
             `;
-
-            renderChairHarmonyBoxEn(h, deskH_cm, diffWithStandard_cm);
         }
 
-        function renderChairHarmonyBoxEn(h, deskH_cm, diffWithStandard_cm) {
+        function renderChairHarmonyBoxEN(h, deskH, diffWithStandard) {
             const harmonyBox = document.getElementById("chair-desk-harmony-box");
             if (!harmonyBox) return;
 
-            const idealSeatH_cm = Math.round((h * 0.244) * 10) / 10;
-            const diff_in = cmToInches(Math.abs(diffWithStandard_cm));
-            
-            let harmonyContent = "";
-            if (diffWithStandard_cm > 2.0) {
-                const raisedSeatH_cm = Math.round((73.7 - (deskH_cm - idealSeatH_cm)) * 10) / 10;
-                const raisedSeatH_in = cmToInches(raisedSeatH_cm);
-                harmonyContent = `
+            const idealSeatH = Math.round((h * 0.244) * 10) / 10;
+            const idealSeatHIn = cmToIn(idealSeatH);
+            const diffIn = (diffWithStandard / 2.54).toFixed(1);
+
+            let content = "";
+            if (diffWithStandard > 1.5) {
+                content = `
                     <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
                         <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: #60a5fa; margin-bottom: 10px;">
-                            <span>🪑 Can you simply raise your office chair to match a 29" desk?</span>
+                            <span>🪑 Can you just raise your chair to match a 29-inch commercial desk?</span>
                         </div>
                         <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
                             <p style="margin-bottom: 8px;">
-                                <strong>Short Answer:</strong> Only if you pair it with a <strong>${diff_in}" thick ergonomic footrest</strong>.
+                                Short answer: <strong>Only if you pair it with an ergonomic footrest of ~${diffIn}" (${diffWithStandard}cm) thickness</strong>.
                             </p>
                             <p style="margin-bottom: 8px;">
-                                Raising your seat to <strong>${raisedSeatH_in}" (${raisedSeatH_cm}cm)</strong> fixes upper body elbow angles. However, because your ideal seat height is <strong>${cmToInches(idealSeatH_cm)}" (${idealSeatH_cm}cm)</strong>, <strong>your feet will dangle ${diff_in} inches off the floor</strong>.
+                                If you raise your chair seat to match a 29" desk, your elbows achieve a 90-degree angle. However, because your ideal seat height is <strong>${idealSeatHIn}" (${idealSeatH}cm)</strong>, <strong>your feet will dangle ~${diffIn}" off the floor</strong>.
                             </p>
                             <div style="background: rgba(239, 68, 68, 0.1); border-left: 3px solid #ef4444; padding: 10px 12px; border-radius: 4px; font-size: 12px; color: #fca5a5; margin: 10px 0;">
-                                <strong>⚠️ Consequences of Dangling Feet:</strong><br>
-                                1. Seat edges crush popliteal arteries & sciatic nerves, triggering poor circulation and leg swelling.<br>
-                                2. Lack of plantar foot support forces the pelvis into posterior tilt, concentrating 180% of body load onto lumbar discs.
+                                <strong>⚠️ Dangers of Floating Feet:</strong><br>
+                                1. Popliteal vein and sciatic nerve compression behind knees causes leg edema, numbness, and blood pooling.<br>
+                                2. Loss of grounded foot traction forces the pelvis into posterior tilt, spiking lumbar disc pressure by 180%.
                             </div>
                             <p style="font-size: 13px; color: #94a3b8; margin: 0;">
-                                👉 <strong>Only Two True Remedies:</strong><br>
-                                <strong>A (Best):</strong> Lower your desktop to ${cmToInches(deskH_cm)}" with a low-floor adjustable desk (e.g. FlexiSpot E7).<br>
-                                <strong>B (Cost-Effective):</strong> Raise the chair and place an <strong>Ergonomic Footrest</strong> to establish firm plantar footing.
+                                👉 Two medically proven solutions:<br>
+                                <strong>A (Root Solution):</strong> Motorized standing desk descending to 23"–24" (FlexiSpot E7 Pro).<br>
+                                <strong>B (Budget Tuning):</strong> Keep chair elevated but add an <strong>Ergonomic Footrest</strong> for full foot grounding.
                             </p>
                         </div>
                     </div>
                 `;
             } else {
-                harmonyContent = `
+                content = `
                     <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
                         <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: #34d399; margin-bottom: 10px;">
-                            <span>🪑 Optimal Chair & Desk Synchronization</span>
+                            <span>🪑 Optimal Chair & Desk Tuning Strategy</span>
                         </div>
                         <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
-                            Your ideal seat height is <strong>${cmToInches(idealSeatH_cm)}" (${idealSeatH_cm}cm)</strong>. Align armrests flush with your desktop while keeping feet firmly planted on the floor for maximum spinal relief.
+                            Your ideal seat height is <strong>${idealSeatHIn}" (${idealSeatH}cm)</strong> and ideal desk height is <strong>${cmToIn(deskH)}" (${deskH}cm)</strong>. Keep your feet firmly planted on the floor with your 4D chair armrests level with the desk surface to eliminate wrist extension.
                         </div>
                     </div>
                 `;
             }
-            harmonyBox.innerHTML = harmonyContent;
+            harmonyBox.innerHTML = content;
         }
 
-        function getAmazonGlobalLink(keyword) {
-            return `https://www.amazon.com/s?k=${encodeURIComponent(keyword)}`;
-        }
-
-        function getGoogleShoppingLink(keyword) {
-            return `https://www.google.com/search?tbm=shop&q=${encodeURIComponent(keyword)}`;
-        }
-
-        function renderGears() {
+        function renderGearsEN() {
             const list = document.getElementById("gear-list-container");
             list.innerHTML = "";
 
-            const selectedGears = [];
-            const isPremium = (answers.budget === 'premium');
-            const isSmallHeight = (answers.height <= 165);
-            const isHeavyHours = (answers.hours === 'heavy');
+            const h = answers.height || 170;
+            const pain = answers.pain || 'waist';
+            const budget = answers.budget || 'value';
+            const seatH = Math.round((h * 0.244) * 10) / 10;
+            const diffH = Math.round(((h / 6) - 1.5) * 10) / 10;
+            const deskH = Math.round((seatH + diffH) * 10) / 10;
+            const diffWithStandard = Math.round((73.6 - deskH) * 10) / 10;
+            const diffIn = (diffWithStandard / 2.54).toFixed(1);
 
-            // 1. CHAIR
-            if (answers.pain === 'neck') {
-                selectedGears.push(isPremium ? gearCatalogEn.chairs.neck_premium : gearCatalogEn.chairs.neck_value);
-            } else if (answers.pain === 'wrist') {
-                selectedGears.push(gearCatalogEn.chairs.wrist_general);
-            } else if (answers.pain === 'eye') {
-                selectedGears.push(isPremium ? gearCatalogEn.chairs.neck_premium : gearCatalogEn.chairs.neck_value);
+            let packageBadge = "";
+            let packageTitle = "";
+            let totalPriceEst = "";
+            let packageDesc = "";
+            let amazonBundleQuery = "";
+            const items = [];
+
+            if (budget === 'instant') {
+                packageBadge = "⚡ Quick Fix: Zero Furniture Replacement";
+                packageTitle = `Keep Existing Desk & Neutralize ${getPainLabelEN(pain)}`;
+                totalPriceEst = "Estimated Total: $59 ~ $89 USD";
+                packageDesc = `No need to invest hundreds in furniture. These 2 precision interventions directly eliminate the ${diffIn}" gap and target the root cause of your ${getPainLabelEN(pain)}.`;
+
+                if (diffWithStandard > 1.0) {
+                    items.push({
+                        role: "Essential #1: Eliminate Foot Floating & Pelvic Slump",
+                        name: "Ergonomic Adjustable Angle Footrest",
+                        price: "~ $34 USD",
+                        reason: "Ensures complete foot grounding when elevating your chair to a 29-inch desk, preventing sciatic nerve compression.",
+                        img: "../assets/gear_footrest.jpg",
+                        keyword: "Ergonomic Desk Footrest adjustable"
+                    });
+                } else {
+                    items.push({
+                        role: "Essential #1: Lower Typing Surface to Ideal Height",
+                        name: "Under-Desk Clamp-On Keyboard Tray",
+                        price: "~ $45 USD",
+                        reason: "Brings typing and mouse level down by 2–3 inches, releasing trapezius strain without replacing your desk.",
+                        img: "../assets/gear_split_kb.jpg",
+                        keyword: "Clamp-on Keyboard Tray under desk"
+                    });
+                }
+
+                if (pain === 'waist') {
+                    items.push({
+                        role: "Essential #2: Lumbar Support & Disc Pressure Relief",
+                        name: "Ergonomic Memory Foam Lumbar Support & Gel Cushion",
+                        price: "~ $39 USD",
+                        reason: "Restores natural spinal lordosis (S-curve) and distributes ischial tuberosity pressure evenly.",
+                        img: "../assets/upgrade_gear_creator.jpg",
+                        keyword: "Memory Foam Lumbar Support Cushion"
+                    });
+                    amazonBundleQuery = "ergonomic footrest lumbar support cushion";
+                } else if (pain === 'neck') {
+                    items.push({
+                        role: "Essential #2: Eliminate Forward Head Tilt",
+                        name: "Gas-Spring Single Monitor Arm",
+                        price: "~ $45 USD",
+                        reason: "Locks top of screen to exact eye level, eliminating up to 45 lbs of cervical strain.",
+                        img: "../assets/gear_ergotron_official.jpg",
+                        keyword: "Gas Spring Monitor Arm Single"
+                    });
+                    amazonBundleQuery = "ergonomic footrest gas spring monitor arm";
+                } else if (pain === 'wrist') {
+                    items.push({
+                        role: "Essential #2: Release Forearm Pronation & Tendinitis",
+                        name: "Logitech Lift Ergonomic Vertical Mouse (57° Angle)",
+                        price: "~ $69 USD",
+                        reason: "Natural handshake posture releases median nerve pressure and carpal tunnel friction.",
+                        img: "../assets/gear_logi_lift_official.png",
+                        keyword: "Logitech Lift Vertical Mouse"
+                    });
+                    amazonBundleQuery = "ergonomic footrest vertical mouse";
+                } else {
+                    items.push({
+                        role: "Essential #2: Zero-Glare Asymmetrical Eye Care",
+                        name: "Asymmetrical Optical Monitor Light Bar",
+                        price: "~ $49 USD",
+                        reason: "Eliminates screen surface reflection while providing 500lux uniform workspace illumination.",
+                        img: "../assets/gear_screenbar_official.png",
+                        keyword: "Monitor Light Bar eye care"
+                    });
+                    amazonBundleQuery = "ergonomic footrest monitor light bar";
+                }
+
+            } else if (budget === 'value') {
+                packageBadge = "🎯 Best ROI: Comprehensive Biomechanical Overhaul";
+                packageTitle = `Low-Floor Motorized Standing Desk & Ergonomic Mesh Setup`;
+                totalPriceEst = "Estimated Total: $349 ~ $499 USD";
+                packageDesc = `Upgrade the foundational physics of your workspace. True low-floor standing desk descending to your exact seated height.`;
+
+                items.push({
+                    role: "Core #1: Low-Floor Motorized Sit-Stand Desk (Descends to 23-inch)",
+                    name: "FlexiSpot E7 / E8 Low-Floor Dual-Motor Standing Desk",
+                    price: "~ $349 ~ $399 USD",
+                    reason: "Descends down to 23 inches (58cm), achieving true 90-degree elbow angle and grounded feet for any stature.",
+                    img: "../assets/gear_flexispot_official.jpg",
+                    keyword: "FlexiSpot E7 Standing Desk"
+                });
+
+                if (pain === 'waist') {
+                    items.push({
+                        role: "Core #2: Self-Adaptive Dynamic Lumbar Mesh Chair",
+                        name: "Sihoo Doro C300 / Ergonomic Office Chair",
+                        price: "~ $269 USD",
+                        reason: "Lumbar support dynamically tracks your spine posture during both upright focus and reclined breaks.",
+                        img: "../assets/upgrade_gear_chair.jpg",
+                        keyword: "Sihoo Doro C300 ergonomic chair"
+                    });
+                    amazonBundleQuery = "FlexiSpot standing desk ergonomic chair";
+                } else {
+                    items.push({
+                        role: "Core #2: Smooth Gas-Spring Heavy-Duty Monitor Arm",
+                        name: "Ergotron LX / Gas Spring Precision Monitor Arm",
+                        price: "~ $89 ~ $189 USD",
+                        reason: "Instantly re-positions screen to eye level with a fingertip when transitioning between sitting and standing.",
+                        img: "../assets/gear_ergotron_official.jpg",
+                        keyword: "Ergotron LX Monitor Arm"
+                    });
+                    amazonBundleQuery = "FlexiSpot standing desk monitor arm";
+                }
+
             } else {
-                selectedGears.push(isPremium ? gearCatalogEn.chairs.waist_premium : gearCatalogEn.chairs.waist_value);
+                packageBadge = "👑 Flagship Tier: 10-Year Lifetime Architecture";
+                packageTitle = `Gold-Standard Ergonomic Suite (Doctor & Specialist Choice)`;
+                totalPriceEst = "Estimated Total: $999 ~ $1,499 USD";
+                packageDesc = `Zero-compromise engineering built for 10+ years of daily professional endurance.`;
+
+                items.push({
+                    role: "Flagship #1: Heavy-Duty 10-Year Warranty Sit-Stand Desk",
+                    name: "FlexiSpot E7 Pro (C-Frame 355-lb Capacity)",
+                    price: "~ $499 USD",
+                    reason: "Unobstructed legroom with 3-stage dual motors, Whisper-quiet operation, and low-floor 23-inch descent.",
+                    img: "../assets/gear_flexispot_official.jpg",
+                    keyword: "FlexiSpot E7 Pro Standing Desk"
+                });
+
+                items.push({
+                    role: "Flagship #2: World-Class Forward-Tilt Ergonomic Chair",
+                    name: "Herman Miller Aeron / Ergohuman PRO2",
+                    price: "~ $899 ~ $1,299 USD",
+                    reason: "PostureFit SL sacral support and harmonic forward tilt lock your spine in zero-fatigue equilibrium.",
+                    img: "../assets/gear_herman_official.jpg",
+                    keyword: "Herman Miller Aeron Chair"
+                });
+                amazonBundleQuery = "FlexiSpot Herman Miller Aeron";
             }
 
-            // 2. DESK
-            if (isSmallHeight) {
-                selectedGears.push(gearCatalogEn.desks.low_floor);
-            } else {
-                selectedGears.push(isPremium ? gearCatalogEn.desks.low_floor : gearCatalogEn.desks.standard_standing);
-            }
+            const amazonBundleUrl = `https://www.amazon.com/s?k=${encodeURIComponent(amazonBundleQuery)}`;
+            const deskSwipeUrl = `https://fhmch.github.io/DeskSwipe/en/?h=${h}&deskH=${deskH}&seatH=${seatH}&preset=wood_wqhd`;
 
-            // 3. ARM
-            if (answers.pain === 'eye') {
-                selectedGears.push(gearCatalogEn.arms.single_heavy);
-            } else if (answers.pain === 'neck' || isHeavyHours) {
-                selectedGears.push(gearCatalogEn.arms.dual_tall);
-            } else {
-                selectedGears.push(gearCatalogEn.arms.single_heavy);
-            }
-
-            // 4. ACCESSORIES
-            if (answers.pain === 'eye') {
-                selectedGears.push(gearCatalogEn.accessories.eye_light);
-                selectedGears.push(gearCatalogEn.accessories.eye_glasses);
-                selectedGears.push(gearCatalogEn.accessories.eye_warm);
-            } else if (answers.pain === 'wrist') {
-                selectedGears.push(gearCatalogEn.accessories.wrist_mouse);
-                selectedGears.push(gearCatalogEn.accessories.wrist_keyboard);
-            } else if (answers.pain === 'neck') {
-                selectedGears.push(gearCatalogEn.accessories.wrist_keyboard);
-                if (isSmallHeight) selectedGears.push(gearCatalogEn.accessories.footrest_essential);
-            } else if (answers.pain === 'waist') {
-                selectedGears.push(gearCatalogEn.accessories.cushion_lumbar);
-                if (isSmallHeight) selectedGears.push(gearCatalogEn.accessories.footrest_essential);
-            } else {
-                if (isSmallHeight) selectedGears.push(gearCatalogEn.accessories.footrest_essential);
-            }
-
-            selectedGears.forEach(gear => {
-                const card = document.createElement("div");
-                card.className = "gear-card";
-                card.innerHTML = `
-                    <div class="gear-img-box">
-                        <img src="${gear.img}" alt="${gear.name}" loading="lazy">
+            let html = `
+                <div class="pkg-prescript-box">
+                    <div style="font-size:12px; font-weight:800; color:var(--mint); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:4px;">${packageBadge}</div>
+                    <div class="pkg-prescript-title">📦 ${packageTitle}</div>
+                    <div class="pkg-price-badge">${totalPriceEst}</div>
+                    
+                    <!-- Behavioral Economics Reframe: Medical / Physical Therapy Comparison -->
+                    <div style="font-size:12px; color:#fde68a; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.28); border-radius:10px; padding:9px 13px; margin-bottom:12px; line-height:1.55;">
+                        💡 <strong>Compared to Ongoing Physical Therapy / Chiropractic Costs:</strong> Regular chiropractic or massage therapy ($100+/session, $1,200+/year) only treats temporary symptoms. Investing in correct desk geometry eliminates the root cause and pays for itself within 3 months.
                     </div>
-                    <div>
-                        <div class="gear-role">${gear.role}</div>
-                        <div class="gear-name">${gear.name}</div>
-                        <div class="gear-reason">${gear.reason}</div>
+                    <p style="font-size:13px; color:var(--text-secondary); line-height:1.65; margin-bottom:14px;">${packageDesc}</p>
+                    
+                    <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                        <a href="${amazonBundleUrl}" target="_blank" rel="noopener" class="pkg-btn-bundle">
+                            🛒 View Complete Bundle on Amazon US ↗
+                        </a>
+                        <a href="${deskSwipeUrl}" target="_blank" rel="noopener" class="pkg-btn-3d">
+                            🖥️ Simulate in 3D Battlestation Studio on DeskSwipe ↗
+                        </a>
                     </div>
-                    <div class="gear-links">
-                        <a href="${getAmazonGlobalLink(gear.keyword)}" target="_blank" rel="noopener nofollow" class="mall-btn btn-amazon">Search Amazon ↗</a>
-                        <a href="${getGoogleShoppingLink(gear.keyword)}" target="_blank" rel="noopener nofollow" class="mall-btn btn-official">Find Retailers ↗</a>
+                </div>
+            `;
+
+            html += `<div style="display:flex; flex-direction:column; gap:20px;">`;
+            items.forEach((item) => {
+                const amazonUrl = `https://www.amazon.com/s?k=${encodeURIComponent(item.keyword)}`;
+                html += `
+                    <div class="gear-card">
+                        <div class="gear-img-box">
+                            <img src="${item.img}" alt="${item.name}" loading="lazy">
+                        </div>
+                        <div class="gear-content">
+                            <div class="gear-role">${item.role}</div>
+                            <div class="gear-name">${item.name}</div>
+                            <div style="font-family:'JetBrains Mono'; font-size:13.5px; font-weight:800; color:var(--mint); margin-bottom:6px;">Reference Price: ${item.price}</div>
+                            <p class="gear-reason">${item.reason}</p>
+                            <div class="gear-links" style="margin-top:12px;">
+                                <a href="${amazonUrl}" class="mall-btn btn-amazon" target="_blank" rel="noopener">Find on Amazon US ↗</a>
+                            </div>
+                        </div>
                     </div>
                 `;
-                list.appendChild(card);
             });
+            html += `</div>`;
+            list.innerHTML = html;
         }
 
-        // Initialize presets
-        renderPresets();
-        updateHeight(170, 'init');
-
-        function copyErgoShareUrlEn() {
-            const url = `${window.location.origin}${window.location.pathname}?h=${answers.height}&p=${answers.pain || 'waist'}&b=${answers.budget || 'value'}&hr=${answers.hours || 'mid'}`;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(() => {
-                    const btn = document.getElementById("btn-copy-ergo-url");
-                    if (btn) {
-                        const orig = btn.innerText;
-                        btn.innerText = "✅ Copied Result URL!";
-                        setTimeout(() => { btn.innerText = orig; }, 2200);
-                    }
-                });
-            } else {
-                prompt("Copy your result URL:", url);
-            }
-        }
-
-        function downloadErgoCardImageEn() {
-            const h = answers.height || 170;
-            const seatH = Math.round((h * 0.244) * 10) / 10;
-            const diffH = Math.round((h / 6 - 1.5) * 10) / 10;
-            const deskH = Math.round((seatH + diffH) * 10) / 10;
-            const canvas = document.createElement("canvas");
-            canvas.width = 1200;
-            canvas.height = 630;
-            const ctx = canvas.getContext("2d");
-
-            const grad = ctx.createLinearGradient(0, 0, 1200, 630);
-            grad.addColorStop(0, "#05110e");
-            grad.addColorStop(1, "#0b1924");
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, 1200, 630);
-
-            ctx.strokeStyle = "#10b981";
-            ctx.lineWidth = 4;
-            ctx.strokeRect(30, 30, 1140, 570);
-
-            ctx.fillStyle = "#10b981";
-            ctx.font = "bold 24px monospace";
-            ctx.fillText("ERGOSWIPE // BIO-MECHANICAL ERGONOMIC PRESCRIPTION", 70, 90);
-
-            ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 42px sans-serif";
-            ctx.fillText(`Height: ${h} cm (${cmToFeetInches(h)}) — Ideal Setup`, 70, 155);
-
-            const boxes = [
-                { label: "Recommended Seat", val: `${cmToInches(seatH)}" (${seatH}cm)`, x: 70 },
-                { label: "Recommended Desk", val: `${cmToInches(deskH)}" (${deskH}cm)`, x: 450 },
-                { label: "Clearance (Delta)", val: `${cmToInches(diffH)}" (${diffH}cm)`, x: 830 }
-            ];
-            boxes.forEach(b => {
-                ctx.fillStyle = "rgba(16, 185, 129, 0.12)";
-                ctx.fillRect(b.x, 200, 320, 180);
-                ctx.strokeStyle = "rgba(16, 185, 129, 0.45)";
-                ctx.lineWidth = 2;
-                ctx.strokeRect(b.x, 200, 320, 180);
-                ctx.fillStyle = "#94a3b8";
-                ctx.font = "bold 20px sans-serif";
-                ctx.fillText(b.label, b.x + 24, 255);
-                ctx.fillStyle = "#00f0ff";
-                ctx.font = "bold 34px monospace";
-                ctx.fillText(b.val, b.x + 24, 335);
-            });
-
-            ctx.fillStyle = "#e2e8f0";
-            ctx.font = "bold 24px sans-serif";
-            ctx.fillText(`Vs Standard 29" (73.7cm) Desk: ${(73.7 - deskH) > 0 ? '+' : ''}${(73.7 - deskH).toFixed(1)} cm discrepancy`, 70, 455);
-
-            ctx.fillStyle = "#94a3b8";
-            ctx.font = "bold 18px monospace";
-            ctx.fillText("https://fhmch.github.io/ErgoSwipe/en/  |  ISO 9241-5 & BIFMA G1-2017", 70, 550);
-
-            const link = document.createElement("a");
-            link.download = `ErgoSwipe_Prescription_${h}cm.png`;
-            link.href = canvas.toDataURL("image/png");
-            link.click();
-        }
-
-        (function initFromQueryEn() {
+        // Initialize Biomechanics Toy on DOM ready
+        window.addEventListener("DOMContentLoaded", () => {
+            renderLiveBiomechToy();
+            // Parse URL parameters if present
             const params = new URLSearchParams(window.location.search);
-            const h = parseInt(params.get("h") || "", 10);
-            if (h && h >= 135 && h <= 210) {
-                answers.height = h;
-                answers.pain = params.get("p") || "waist";
-                answers.budget = params.get("b") || "value";
-                answers.hours = params.get("hr") || "mid";
-                updateHeight(h, "init");
-                calculateAndShowResults();
+            if (params.has('h')) {
+                const hVal = parseInt(params.get('h'));
+                if (!isNaN(hVal)) updateHeight(hVal);
             }
-        })();
-
+            if (params.has('p')) answers.pain = params.get('p');
+            if (params.has('b')) answers.budget = params.get('b');
+        });
     </script>
 </body>
 </html>
