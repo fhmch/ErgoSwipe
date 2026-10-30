@@ -23,8 +23,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ErgoSwipe｜在宅・デスクワーク疲労ゼロ空間診断カルテ【人間工学ミリ単位算出】</title>
-    <meta name="description" content="人間工学（エルゴノミクス）に基づき、あなたの身長・主訴（腰痛・首肩こり・腱鞘炎）から理想のデスク高・座面高をミリ単位で自動算出。疲労ゼロを叶える最適なチェア・昇降デスク・アームを診断カルテとして発行します。">
+    <title>ErgoSwipe｜【無料・30秒】デスクワーク疲労ゼロ診断カルテ【理想の机・椅子の高さ計算】</title>
+    <meta name="description" content="市販の70cm机で肩こり・腰痛になっていませんか？【30秒・完全無料】身長を入れるだけでJIS規格・生体力学に基づく「ミリ単位の理想デスク高・座面高」を即時算出！最適な疲労ゼロ処方箋を発行します。">
     <meta name="keywords" content="エルゴノミクス, デスクワーク 疲労, 腰痛 椅子, 昇降デスク 高さ 計算, COFO Chair, エルゴヒューマン, FlexiSpot, モニターアーム, 在宅勤務 環境改善, 肩こり デスク">
     <link rel="canonical" href="https://fhmch.github.io/ErgoSwipe/">
     <link rel="alternate" hreflang="ja" href="https://fhmch.github.io/ErgoSwipe/">
@@ -36,7 +36,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ErgoSwipe">
     <meta property="og:title" content="ErgoSwipe｜在宅・デスクワーク疲労ゼロ空間診断カルテ">
-    <meta property="og:description" content="身長から理想のデスク高・座面高をミリ単位で算出。一般的な70cmデスクの危険度と最適エルゴ装備を診断。">
+    <meta property="og:description" content="市販の70cm机で肩こり・腰痛になっていませんか？【30秒・無料診断】身長を入れるだけで理想の机・椅子の高さをミリ単位算出！">
     <meta property="og:url" content="https://fhmch.github.io/ErgoSwipe/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=1200&auto=format&fit=crop&q=80">
     
@@ -1174,6 +1174,65 @@
             100% { transform: rotate(0deg); }
         }
 
+    
+        /* Quick 3-Step Bar */
+        .hero-tagline-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .hero-badge-pill {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .quick-3step-bar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: rgba(6, 8, 14, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 8px 18px;
+            margin-top: 16px;
+        }
+        .qstep-item {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .qstep-num {
+            background: #10b981;
+            color: #041016;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 900;
+        }
+        .qstep-arrow {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+        }
+
     </style>
 </head>
 <body>
@@ -1196,12 +1255,23 @@
     <main>
         <!-- HERO -->
         <div class="hero-banner">
-            <div class="hero-tagline"><span class="live-dot"></span> 🔬 Ergonomics Bio-Mechanics Lab</div>
+            <div class="hero-tagline-row">
+                <span class="hero-badge-pill">⏱ 所要時間 30秒</span>
+                <span class="hero-badge-pill">✨ 完全無料・登録不要</span>
+                <span class="hero-badge-pill">🔬 JIS規格・生体力学準拠</span>
+            </div>
             <h1 class="hero-title">在宅・デスクワーク<br>疲労ゼロ空間診断カルテ</h1>
             <p class="hero-desc">
-                人間工学（JIS規格）に基づき、あなたの身長から「ミリ単位の理想デスク高・座面高」を算出。
-                既製品デスクとのズレを暴き、腰痛・首肩こり・眼精疲労を根本から解消する最適装備を診断します。
+                市販の机（70〜72cm）が身長に合わず、肩こり・腰痛になっていませんか？<br>
+                あなたの身長から「ミリ単位の理想デスク高・座面高」を即時算出し、身体への負担を科学的に解消する装備を診断します。
             </p>
+            <div class="quick-3step-bar">
+                <div class="qstep-item"><span class="qstep-num">1</span> 身長を入力</div>
+                <div class="qstep-arrow">➔</div>
+                <div class="qstep-item"><span class="qstep-num">2</span> 首の負荷を可視化</div>
+                <div class="qstep-arrow">➔</div>
+                <div class="qstep-item"><span class="qstep-num">3</span> 疲労ゼロ処方箋を発行</div>
+            </div>
         </div>
 
         <!-- WIZARD -->
