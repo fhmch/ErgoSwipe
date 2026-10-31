@@ -1255,6 +1255,8 @@
     <main>
         <!-- HERO -->
         <div class="hero-banner">
+            <!-- 知識注記: エルゴとは人間工学(Ergonomics)のこと -->
+            <div style="font-size: 0.72rem; color: #94a3b8; margin-bottom: 8px; font-weight: 600;">※ エルゴ（Ergo）＝ 人間工学（身体への負担や疲労を最小にする設計）のことです</div>
             <div class="hero-tagline-row">
                 <span class="hero-badge-pill">⏱ 所要時間 30秒</span>
                 <span class="hero-badge-pill">✨ 完全無料・登録不要</span>
@@ -1296,7 +1298,7 @@
                         </div>
                         <div class="biomech-mode-switch">
                             <button type="button" class="biomech-mode-btn active warn-mode" id="btn-mode-standard" onclick="setBiomechPreviewMode('standard')">⚠️ 市販70cm机</button>
-                            <button type="button" class="biomech-mode-btn ideal-mode" id="btn-mode-ideal" onclick="setBiomechPreviewMode('ideal')">✨ 理想エルゴ</button>
+                            <button type="button" class="biomech-mode-btn ideal-mode" id="btn-mode-ideal" onclick="setBiomechPreviewMode('ideal')">✨ 理想の姿勢（人間工学）</button>
                         </div>
                     </div>
 
@@ -1404,7 +1406,7 @@
                     <button class="opt-btn" onclick="selectOption('budget', 'value')">
                         <div class="opt-icon-circle">🎯</div>
                         <div>
-                            <div class="opt-text-title">コスパ本格一新（予算 3万〜6万円 ｜ 昇降デスク or エルゴチェア）</div>
+                            <div class="opt-text-title">コスパ本格一新（予算 3万〜6万円 ｜ 電動昇降デスク or 疲労軽減オフィスチェア）</div>
                             <div class="opt-text-sub">費用対効果が最も高い低床昇降デスクや高機能チェアで環境を根本から一新</div>
                         </div>
                     </button>
@@ -1446,7 +1448,7 @@
                 <div class="karte-header">
                     <div class="karte-title-group">
                         <span style="font-size: 20px;">📋</span>
-                        <div class="karte-title">エルゴノミクス処方カルテ</div>
+                        <div class="karte-title">疲労ゼロ処方カルテ（人間工学診断）</div>
                         <span class="karte-badge-verified"><span class="live-dot" style="width:5px; height:5px;"></span> JIS S 1021 解析済</span>
                     </div>
                     <div class="karte-tag" id="karte-id-tag">ID: ERGO-170-W</div>
@@ -1592,7 +1594,7 @@
 
                 <!-- 第4章 -->
                 <article style="background: rgba(18, 26, 43, 0.6); border: 1px solid var(--border-glass); border-radius: 16px; padding: 24px;">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">第4章：エルゴチェアの構造比較</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--mint); margin-bottom: 6px;">第4章：疲労軽減チェア（人間工学椅子）の構造比較</div>
                     <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.4;">
                         オフィスチェア徹底比較：前傾チルト vs 腰椎自動追従ランバーサポートの正しい選び方
                     </h3>
@@ -1903,7 +1905,7 @@
             setTimeout(() => {
                 if (badgeEl) badgeEl.innerText = "GENERATING PRESCRIPTION // FINAL";
                 if (titleEl) titleEl.innerText = "あなた専用の疲労ゼロ処方箋カルテを発行中...";
-                if (subEl) subEl.innerText = "痛みの根本原因を解消する最適エルゴ装備パッケージを特定しました";
+                if (subEl) subEl.innerText = "痛みの根本原因を解消する「疲労ゼロ推奨装備セット」を特定しました";
             }, 1200);
 
             setTimeout(() => {
@@ -2521,7 +2523,7 @@
 
                 if (pain === 'waist') {
                     items.push({
-                        role: `【主役②】腰椎サポート自動追従エルゴチェア`,
+                        role: `【主役②】腰椎サポート自動追従・高機能オフィスチェア`,
                         name: "GrowSpica Pro / Sihoo 人間工学オフィスチェア",
                         price: "約 39,000 円",
                         reason: "姿勢の前傾・後傾に合わせて腰椎クッションが自動追従。骨盤の後傾を物理的に阻止。",
@@ -2543,7 +2545,7 @@
 
             } else {
                 packageBadge = "👑 妥協なき一生モノ フラッグシップ";
-                packageTitle = `10年毎日使っても壊れない、世界最高峰エルゴ空間`;
+                packageTitle = `10年毎日使っても疲れない、身体への負担ゼロを極めた最高峰ワークスペース`;
                 totalPriceEst = "総額 約 120,000 円 〜 160,000 円";
                 packageDesc = `医師・プロクリエイターが選ぶ絶対の黄金構成。解剖学的な正しさ、最高峰の耐久性と静音性を両立。`;
 
