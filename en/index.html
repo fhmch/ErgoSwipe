@@ -1255,6 +1255,12 @@
         </div>
     </header>
 
+    <!-- Auto-Rescue Banner for Japanese Locale Visitors Landing on /en/ -->
+    <div id="ja-locale-rescue-banner" style="display:none; background:linear-gradient(90deg, rgba(16,185,129,0.22), rgba(0,240,255,0.18)); border-bottom:1.5px solid #10b981; padding:10px 18px; text-align:center; font-size:13px; color:#fff; z-index:99;">
+        <span>🇯🇵 <strong>日本語環境からのアクセスを検出しました：</strong>国内ショップ（楽天市場・Yahoo!ショッピング）対応の日本語版カルテをご利用いただけます。</span>
+        <a id="ja-locale-rescue-link" href="https://fhmch.github.io/ErgoSwipe/" style="display:inline-block; margin-left:10px; background:#10b981; color:#04130e; font-weight:900; padding:4px 12px; border-radius:6px; text-decoration:none;">日本語版へ切り替える ➔</a>
+    </div>
+
     <main>
         <!-- HERO -->
         <div class="hero-banner">
@@ -1519,7 +1525,7 @@
             <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
                 Explore our stature-specific ergonomic prescription sheets detailing exact seated desk elevation, chair seat pan height, standing desk elevation, and required footrest thickness:
             </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); gap: 10px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); gap: 10px; margin-bottom: 20px;">
                 <a href="https://fhmch.github.io/ErgoSwipe/height/150cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:10px 12px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:800;">📏 150cm (4'11") <span style="color:#fca5a5; font-size:11px; display:block;">Desk: 59.1cm</span></a>
                 <a href="https://fhmch.github.io/ErgoSwipe/height/155cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:10px 12px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:800;">📏 155cm (5'1") <span style="color:#fca5a5; font-size:11px; display:block;">Desk: 61.1cm</span></a>
                 <a href="https://fhmch.github.io/ErgoSwipe/height/158cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:10px 12px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:800;">📏 158cm (5'2") <span style="color:#fca5a5; font-size:11px; display:block;">Desk: 62.3cm</span></a>
@@ -1531,8 +1537,48 @@
                 <a href="https://fhmch.github.io/ErgoSwipe/height/180cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:10px 12px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:800;">📏 180cm (5'11") <span style="color:#67e8f9; font-size:11px; display:block;">Desk: 71.4cm</span></a>
                 <a href="https://fhmch.github.io/ErgoSwipe/height/185cm.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:10px 12px; text-decoration:none; color:#fff; font-size:12.5px; font-weight:800;">📏 185cm (6'1") <span style="color:#67e8f9; font-size:11px; display:block;">Desk: 73.4cm</span></a>
             </div>
-        </section>
 
+
+        <!-- Original 3D Printable Desk Mods & Independent Creator Support (Zero-Review Direct Monetization) -->
+        <section id="stl-mods-support-box" style="margin: 28px 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(12, 28, 24, 0.92)); border: 1.5px solid rgba(251, 191, 36, 0.45); border-radius: 18px; padding: 22px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+                <span style="background: rgba(251, 191, 36, 0.18); color: #fde68a; border: 1px solid rgba(251, 191, 36, 0.45); font-size: 11px; font-weight: 900; padding: 3px 10px; border-radius: 20px;">🛠️ FREE 3D PRINTABLE DESK MODS (STL & OpenSCAD) + CREATOR SUPPORT</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #94a3b8;">Parametric Code-CAD v1.0</span>
+            </div>
+            <h3 style="font-size: 17px; font-weight: 900; color: #fff; margin-bottom: 6px;">🖨️ Download Our Custom 3D-Printable Cable & Ergonomic Desk Jigs</h3>
+            <p style="font-size: 12.5px; color: #cbd5e1; margin-bottom: 14px; line-height: 1.6;">
+                Engineered in-house using parametric Code-CAD. Download ready-to-print watertight <code>.STL</code> files (no supports required) or customize the exact tabletop thickness in OpenSCAD (<code>.scad</code>). Don't own a 3D printer? Browse ready-made clamp trays and reinforcement plates on eBay & Official Stores below.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 14px;">
+                <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px;">
+                    <div style="font-size: 11px; color: #34d399; font-weight: 800;">MOD 01 // CABLE MANAGEMENT</div>
+                    <div style="font-size: 13.5px; font-weight: 800; color: #fff; margin: 3px 0 6px;">Under-Desk 3-Slot Cable Clip (25mm Desk)</div>
+                    <a href="../assets/stl/under_desk_cable_clip_25mm.stl" download style="display: inline-block; font-size: 11.5px; font-weight: 800; color: #04130e; background: #34d399; padding: 6px 12px; border-radius: 6px; text-decoration: none;">⬇ Download .STL (Free)</a>
+                </div>
+                <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px;">
+                    <div style="font-size: 11px; color: #67e8f9; font-weight: 800;">MOD 02 // ZERO-SCREW STORAGE</div>
+                    <div style="font-size: 13.5px; font-weight: 800; color: #fff; margin: 3px 0 6px;">Slip-On Headset & VR Hanger (28mm Desk)</div>
+                    <a href="../assets/stl/desk_edge_headphone_hook_28mm.stl" download style="display: inline-block; font-size: 11.5px; font-weight: 800; color: #041016; background: #00f0ff; padding: 6px 12px; border-radius: 6px; text-decoration: none;">⬇ Download .STL (Free)</a>
+                </div>
+                <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px;">
+                    <div style="font-size: 11px; color: #fde68a; font-weight: 800;">MOD 03 // CLAMP REINFORCEMENT</div>
+                    <div style="font-size: 13.5px; font-weight: 800; color: #fff; margin: 3px 0 6px;">Monitor Arm Stress Plate + OpenSCAD</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <a href="../assets/stl/monitor_arm_reinforce_plate.stl" download style="font-size: 11.5px; font-weight: 800; color: #041016; background: #fbbf24; padding: 6px 10px; border-radius: 6px; text-decoration: none;">⬇ Plate .STL</a>
+                        <a href="../assets/stl/parametric_desk_mods.scad" download style="font-size: 11.5px; font-weight: 800; color: #fde68a; border: 1px solid rgba(251,191,36,0.5); padding: 5px 10px; border-radius: 6px; text-decoration: none;">⬇ Parametric .SCAD</a>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px;">
+                <span style="color: #94a3b8;">☕ Enjoying this ad-free engineering tool? Browse ready-made mounts or request custom CAD designs:</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="https://www.ebay.com/sch/i.html?_nkw=Under+Desk+Cable+Management+Tray+Monitor+Arm+Reinforcement+Plate" target="_blank" rel="noopener nofollow" style="background: rgba(59,130,246,0.2); border: 1px solid #3b82f6; color: #bfdbfe; padding: 6px 12px; border-radius: 8px; text-decoration: none; font-weight: 800;">🛒 Browse Ready-Made Mounts on eBay ↗</a>
+                    <a href="https://www.flexispot.com" target="_blank" rel="noopener nofollow" style="background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #a7f3d0; padding: 6px 12px; border-radius: 8px; text-decoration: none; font-weight: 800;">🌿 FlexiSpot Official Store ↗</a>
+                    <a href="https://github.com/fhmch/DeskSwipe/issues" target="_blank" rel="noopener noreferrer" style="background: rgba(251,191,36,0.18); border: 1px solid #fbbf24; color: #fde68a; padding: 6px 12px; border-radius: 8px; text-decoration: none; font-weight: 800;">☕ Request Custom CAD / Support Project ↗</a>
+                </div>
+            </div>
+        </section>
+        </section>
         <details open style="margin-top: 32px; border: 1px solid var(--border-glass); border-radius: 18px; background: rgba(12, 18, 23, 0.6); padding: 16px 20px;">
             <summary style="cursor: pointer; font-size: 14px; font-weight: 800; color: var(--mint); outline: none; display: flex; align-items: center; justify-content: space-between;">
                 <span>📚 [Comprehensive Guide] ISO 9241-5 Ergonomics & Postural Fatigue Handbook (Chapters 1–5)</span>
@@ -1660,7 +1706,7 @@
             <a href="https://github.com/fhmch/ErgoSwipe/issues" target="_blank" style="color:var(--text-secondary); text-decoration:none;">Contact & Issues ↗</a>
         </div>
         <p>© 2026 ErgoSwipe. Bio-Mechanical Ergonomic Posture Studio.</p>
-        <p style="margin-top: 6px; font-size: 11px;">* As an Amazon Associate, ErgoSwipe earns from qualifying purchases. All recommendations are independently curated based on ergonomic research.</p>
+        <p style="margin-top: 6px; font-size: 11px;">* ErgoSwipe participates in global partner programs (including eBay, official manufacturer stores, and domestic retail partners). All ergonomic prescriptions are calculated independently from ISO 9241-5 standards.</p>
     </footer>
 
     <script>
@@ -2372,8 +2418,11 @@ Calculate your exact ergonomic prescription here👇
                     <p style="font-size:13px; color:var(--text-secondary); line-height:1.65; margin-bottom:14px;">${packageDesc}</p>
                     
                     <div style="display:flex; flex-wrap:wrap; gap:12px;">
-                        <a href="${amazonBundleUrl}" target="_blank" rel="noopener" class="pkg-btn-bundle">
-                            🛒 View Complete Bundle on Amazon US ↗
+                        <a href="https://www.flexispot.com" target="_blank" rel="noopener" class="pkg-btn-bundle">
+                            🌿 Check Official FlexiSpot Sit-Stand Desks ↗
+                        </a>
+                        <a href="https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(amazonBundleQuery)}" target="_blank" rel="noopener" class="pkg-btn-bundle" style="background:rgba(59,130,246,0.2); border:1.5px solid #3b82f6; color:#bfdbfe;">
+                            🛒 Compare Bundle Deals on eBay ↗
                         </a>
                         <a href="${deskSwipeUrl}" target="_blank" rel="noopener" class="pkg-btn-3d">
                             🖥️ Simulate in 3D Battlestation Studio on DeskSwipe ↗
@@ -2383,8 +2432,17 @@ Calculate your exact ergonomic prescription here👇
             `;
 
             html += `<div style="display:flex; flex-direction:column; gap:20px;">`;
+            const isJa = (navigator.language || "").toLowerCase().startsWith("ja");
             items.forEach((item) => {
-                const amazonUrl = `https://www.amazon.com/s?k=${encodeURIComponent(item.keyword)}`;
+                const q = encodeURIComponent(item.keyword);
+                const ebayUrl = `https://www.ebay.com/sch/i.html?_nkw=${q}`;
+                const amazonUrl = `https://www.amazon.com/s?k=${q}`;
+                const officialUrl = item.keyword.toLowerCase().includes("flexispot") ? "https://www.flexispot.com" : (item.keyword.toLowerCase().includes("ergotron") ? "https://www.ergotron.com" : `https://www.newegg.com/p/pl?d=${q}`);
+                const officialLabel = item.keyword.toLowerCase().includes("flexispot") ? "FlexiSpot Official ↗" : (item.keyword.toLowerCase().includes("ergotron") ? "Ergotron Official ↗" : "Newegg ↗");
+                const jaBtns = isJa ? `
+                    <a href="https://af.moshimo.com/af/c/click?a_id=5840290&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent('https://search.rakuten.co.jp/search/mall/' + q + '/')}" class="mall-btn btn-rakuten" target="_blank" rel="noopener">🇯🇵 楽天市場で探す ↗</a>
+                    <a href="https://af.moshimo.com/af/c/click?a_id=5840291&p_id=1225&pc_id=1925&pl_id=18502&url=${encodeURIComponent('https://shopping.yahoo.co.jp/search?p=' + q)}" class="mall-btn btn-yahoo" target="_blank" rel="noopener">🇯🇵 Yahoo!で探す ↗</a>
+                ` : "";
                 html += `
                     <div class="gear-card">
                         <div class="gear-img-box">
@@ -2396,7 +2454,10 @@ Calculate your exact ergonomic prescription here👇
                             <div style="font-family:'JetBrains Mono'; font-size:13.5px; font-weight:800; color:var(--mint); margin-bottom:6px;">Reference Price: ${item.price}</div>
                             <p class="gear-reason">${item.reason}</p>
                             <div class="gear-links" style="margin-top:12px;">
-                                <a href="${amazonUrl}" class="mall-btn btn-amazon" target="_blank" rel="noopener">Find on Amazon US ↗</a>
+                                ${jaBtns}
+                                <a href="${ebayUrl}" class="mall-btn btn-yahoo" target="_blank" rel="noopener">eBay Deals ↗</a>
+                                <a href="${officialUrl}" class="mall-btn btn-rakuten" target="_blank" rel="noopener">${officialLabel}</a>
+                                <a href="${amazonUrl}" class="mall-btn btn-amazon" target="_blank" rel="noopener">Amazon US ↗</a>
                             </div>
                         </div>
                     </div>
@@ -2408,6 +2469,12 @@ Calculate your exact ergonomic prescription here👇
 
         // Initialize Biomechanics Toy on DOM ready
         window.addEventListener("DOMContentLoaded", () => {
+            if ((navigator.language || "").toLowerCase().startsWith("ja")) {
+                const jb = document.getElementById("ja-locale-rescue-banner");
+                const jl = document.getElementById("ja-locale-rescue-link");
+                if (jb) jb.style.display = "block";
+                if (jl && window.location.search) jl.href = "https://fhmch.github.io/ErgoSwipe/" + window.location.search;
+            }
             renderLiveBiomechToy();
             // Parse URL parameters if present
             const params = new URLSearchParams(window.location.search);
